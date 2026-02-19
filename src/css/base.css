@@ -1,32 +1,119 @@
+/* 
+  BASE CSS – GLOBAL DOSYA
+
+  Bu dosya sadece:
+  - Font ve renk değişkenleri
+  - Sayfa iskeleti (body, main)
+  - Tema altyapısı (light / dark)
+  - Genel yardımcı class’lar
+
+  içerir.
+
+  Component class’ları (search, hero, header, modal vs.)
+  BU DOSYAYA YAZILMAZ.
+*/
+
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
-  /* font-family: Inter, Avenir, Helvetica, Arial, sans-serif; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* Font */
+  --font-family: 'Inter', sans-serif;
+
+  /* Renkler */
+  --dark: #161616;
+  --jet: #1e1e1e;
+  --onyx: #050505;
+  --charcoal: #383838;
+
+  --white: #ffffff;
+  --white-smoke: #f8f8f8;
+  --silver: #cecdcd;
+
+  --pistachio: #9bb537;
+
+  /* Opacity */
+  --white-50: rgba(255, 255, 255, 0.5);
+  --white-30: rgba(255, 255, 255, 0.3);
+  --white-20: rgba(255, 255, 255, 0.2);
+
+  --onyx-80: rgba(5, 5, 5, 0.8);
+  --onyx-50: rgba(5, 5, 5, 0.5);
+  --onyx-30: rgba(5, 5, 5, 0.3);
+  --onyx-20: rgba(5, 5, 5, 0.2);
+
+  /* Tema (Light varsayılan) */
+  --page-bg: var(--white);
+  --text-color: var(--onyx);
+  --border-color: var(--onyx-20);
+}
+
+/* Dark tema sadece değişken değiştirir */
+body[data-theme="dark"] {
+  --page-bg: var(--dark);
+  --text-color: var(--white-smoke);
+  --border-color: var(--white-20);
+}
+
+/* Sayfa iskeleti */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
   font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
 
 body {
+  margin: 0;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-width: 100vw;
-  min-height: 100vh;
-  margin: 0;
+
+  font-family: var(--font-family);
+  line-height: 1.5;
+
+  background-color: var(--page-bg);
+  color: var(--text-color);
 }
 
 main {
-  flex-grow: 1;
+  flex: 1;
 }
-main:has(.back-link) {
-  text-align: center;
+
+/* Genel element varsayılanları */
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* Yardımcı class'lar */
+
+.is-hidden {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
 }
