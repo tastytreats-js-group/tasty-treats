@@ -4,20 +4,47 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>TastyTreats</title>
+
+    <!-- Global styles -->
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
+
   <body>
+    <!--HEADER  -->
     <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
 
+    <!--  HERO-->
+    <load src="./partials/home-hero.html" />
+
+    <!-- MAIN CONTENT -->
     <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
+      <div class="container recipes-big-container">
+
+        <!-- LEFT COLUMN -->
+        <div class="recipes-big-container-left">
+          <load src="./partials/recipes-categories.html" />
+          <load src="./partials/recipes-popular.html" />
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="recipes-big-container-right">
+          <load src="./partials/recipes-filter.html" />
+          <load src="./partials/recipes.html" />
+        </div>
+
+      </div>
     </main>
 
+    <!--  FOOTER  -->
     <load src="./partials/footer.html" />
 
+    <!-- GLOBAL MODAL ROOT -->
+    <!-- Tüm modal pencereler buraya render edilecektir -->
+
+    <div id="modal-root"></div>
+
+    <!-- ENTRY SCRIPT  -->
     <script type="module" src="./main.js"></script>
   </body>
 </html>
