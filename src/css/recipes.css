@@ -1,0 +1,64 @@
+.recipeList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  list-style-type: none;
+}
+
+.recipeCard {
+  width: 335px;
+  height: 335px;
+  padding: 16px;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.likeButton {
+  width: 22px;
+  height: 22px;
+}
+
+.recipeTitle {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.28571;
+  text-transform: uppercase;
+}
+
+.recipeDescription {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+}
+
+.ratingandbutton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.recipeRating {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.rating {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+}
+
+.seeRecipe {
+  border-radius: 8px;
+  padding: 8px 14px;
+  width: 89px;
+  height: 31px;
+  background: #9bb537;
+  font-weight: 500;
+  font-size: 12px;
+  color: #f8f8f8;
+  border: none;
+}
