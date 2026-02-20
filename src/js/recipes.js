@@ -1,6 +1,6 @@
 console.log('FILE IS RUNNING'); //filecheck
 import { fetchFilteredRecipes } from '../api/tastyTreats-api.js';
-
+import { openRecipeModal } from './recipeModal.js';
 let params = {
     page: 1,
     perPage: 6
@@ -44,3 +44,20 @@ async function renderRecipes(results) {
         card.style.backgroundImage = `linear-gradient(0.936deg, rgba(5, 5, 5, 60%) 0%, rgba(5, 5, 5, 0%) 100%),url(${recipe.preview})`;
     });
 };
+const recipeList = document.querySelector(".recipeList");
+
+if (recipeList) {
+    recipeList.addEventListener("click", async (event) => {
+        const seeRecipeBtn = event.target.closest(".seeRecipe");
+        if (seeRecipeBtn) {
+            const recipeId = seeRecipeBtn.closest(".recipeCard").dataset.id;
+            try {
+                const { fetchRecipeDetails } = await import('../api/tastyTreats-api.js');
+                const recipeData = await fetchRecipeDetails(recipeId);
+                openRecipeModal(recipeData);
+            } catch (error) {
+                console.error("Tasty Error:", error);
+            }
+        }
+    });
+}
