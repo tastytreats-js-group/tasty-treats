@@ -22,14 +22,16 @@ async function renderRecipes(results) {
         .map(result => `
             <li class="recipeCard" data-id="${result._id}">
                 <div class="likeButton"></div>
-                <p class="recipeTitle">${result.title}</p>
-                <p class="recipeDescription">${result.description}</p>
-                <div class="ratingandbutton">
-                    <div class="recipeRating">
-                        <p class="rating">${result.rating}</p>
-                        <div class="stars"></div>
+                <div class="rest">
+                    <p class="recipeTitle">${result.title}</p>
+                    <p class="recipeDescription">${result.description}</p>
+                    <div class="ratingandbutton">
+                        <div class="recipeRating">
+                            <p class="rating">${result.rating}</p>
+                            <div class="stars"></div>
+                        </div>
+                        <button class="seeRecipe">See recipe</button>
                     </div>
-                <button class="seeRecipe">See recipe</button>
                 </div>
             </li>
             `
