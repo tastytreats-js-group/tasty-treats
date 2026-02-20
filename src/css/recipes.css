@@ -13,11 +13,17 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .likeButton {
   width: 22px;
   height: 22px;
+  margin-left: 281px;
+  background-color: red;
 }
 
 .recipeTitle {
@@ -25,30 +31,36 @@
   font-size: 14px;
   line-height: 1.28571;
   text-transform: uppercase;
+  color: #f8f8f8;
 }
 
 .recipeDescription {
   font-weight: 400;
   font-size: 12px;
   line-height: 1.33333;
+  color: #f8f8f8;
 }
 
 .ratingandbutton {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .recipeRating {
   display: flex;
   flex-direction: row;
   gap: 4px;
+  align-items: center;
 }
 
 .rating {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.28571;
+  color: #f8f8f8;
+  margin: 0;
 }
 
 .seeRecipe {
