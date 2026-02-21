@@ -21,14 +21,34 @@ async function renderRecipes(results) {
     recipeList.innerHTML = results
         .map(result => `
             <li class="recipeCard" data-id="${result._id}">
-                <div class="likeButton"></div>
+                <div class="likeButton">
+                    <svg class="like-icon">
+                        <use href="../img/sprite.svg#icon-heart-outline"></use>
+                    </svg>
+                </div>
                 <div class="rest">
                     <p class="recipeTitle">${result.title}</p>
                     <p class="recipeDescription">${result.description}</p>
                     <div class="ratingandbutton">
                         <div class="recipeRating">
                             <p class="rating">${result.rating}</p>
-                            <div class="stars"></div>
+                            <div class="stars">
+                                <svg class="star-icon">
+                                    <use href="../img/sprite.svg#icon-star-filled"></use>
+                                </svg>
+                                <svg class="star-icon">
+                                    <use href="../img/sprite.svg#icon-star-filled"></use>
+                                </svg>
+                                <svg class="star-icon">
+                                    <use href="../img/sprite.svg#icon-star-filled"></use>
+                                </svg>
+                                <svg class="star-icon">
+                                    <use href="../img/sprite.svg#icon-star-filled"></use>
+                                </svg>
+                                <svg class="star-icon">
+                                    <use href="../img/sprite.svg#icon-star-faded"></use>
+                                </svg>                                                                                            
+                            </div>
                         </div>
                         <button class="seeRecipe">See recipe</button>
                     </div>
