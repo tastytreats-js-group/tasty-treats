@@ -1,0 +1,48 @@
+:root {
+/* HEADER BÖLÜMÜ */
+    /* mobil */
+    --bg-color :
+  --logo-text-color: #050505;
+  --menu-svg-color: #050505;
+  --menu-svg-bg-color: #f8f8f8;
+  --mobil-menu-bgcolor: #9bb537;
+  --mobil-menu-svg-color: #f8f8f8;
+  --mobil-menu-text-color: #f8f8f8;
+  --mobil-menu-active-text-color: #fff;
+  --toggle-bg: #cecdcd;
+  --toggle-thumb-color :#f8f8f8;
+  --toggle-box-shadow-color: rgba(160, 158, 160, 0.15);
+
+  /* tablet */
+
+  --menu-text-color : #050505;
+  --menu-activ-text-color : #9bb537;
+   --toggle-desktop-box-shadow-color : rgba(160, 158, 160, 0.4);
+/* HEADER BÖLÜMÜ SONU */
+}
+
+:root[data-theme='dark'] {
+    /* HEADER BÖLÜMÜ */
+    /* mobil */
+  --logo-text-color: #fff;
+  --menu-svg-color: #fff;
+  --menu-svg-bg-color: #161616;
+  --mobil-menu-bgcolor: #050505;
+  --mobil-menu-svg-color: #f8f8f8;
+  --mobil-menu-text-color: #f8f8f8;
+  --mobil-menu-active-text-color: #9bb537;
+  --toggle-bg: linear-gradient(
+    91deg,
+    #9bb537 0%,
+    rgba(155, 181, 55, 0.69) 100%
+  );
+  --toggle-thumb-color :#f3f3f3;
+  --toggle-box-shadow-color: rgba(22, 22, 22, 0.6);
+
+    /* tablet */
+
+  --menu-text-color : #fff;
+  --menu-activ-text-color : #9bb537;
+  --toggle-desktop-box-shadow-color : rgba(22, 22, 22, 0.6);
+  /* HEADER BÖLÜMÜ SONU */
+}
