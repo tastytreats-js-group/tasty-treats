@@ -23,7 +23,9 @@ async function loadRecipes() {
         const data = await fetchFilteredRecipes(params);
         console.log(data);
         renderRecipes(data.results)
-    } catch (error) {}
+    } catch (error) {
+        console.error('Recipes could not load', error)
+    }
 };
 
 loadRecipes();
@@ -39,8 +41,9 @@ function renderStars(rating) {
 }
 
 // Render recipes on page
+const recipeList = document.querySelector(".recipeList")
+
 async function renderRecipes(results) {
-    const recipeList = document.querySelector(".recipeList")
     recipeList.innerHTML = results
         .map(result => `
             <li class="recipeCard" data-id="${result._id}">
@@ -72,8 +75,8 @@ async function renderRecipes(results) {
         card.style.backgroundImage = `linear-gradient(0.936deg, rgba(5, 5, 5, 60%) 0%, rgba(5, 5, 5, 0%) 100%),url(${recipe.preview})`;
     });
 };
-const recipeList = document.querySelector(".recipeList");
 
+// Open pop-up for recipe details when clicked on 
 if (recipeList) {
     recipeList.addEventListener("click", async (event) => {
         const seeRecipeBtn = event.target.closest(".seeRecipe");
@@ -89,3 +92,4 @@ if (recipeList) {
         }
     });
 }
+

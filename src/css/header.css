@@ -1,44 +1,172 @@
-.header {
-  padding: 20px 0;
-}
-.nav {
+.header-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
-.nav-logo {
-  display: inline-flex;
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.shopping-cart-icon,
+.menu-icon {
+  vertical-align: middle;
+}
+.shopping-cart-icon {
+  fill: var(--menu-svg-bg-color); /* içi */
+  stroke: var(--menu-svg-color); /* sınır */
+  stroke-width: 1.8px;
+}
+.menu-icon {
+  stroke: var(--menu-svg-color);
+  stroke-width: 2px;
+}
+.shopping-cart-icon:hover,
+.menu-icon:hover {
+  stroke: #9bb537;
+}
+.logo {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 113%;
+  letter-spacing: -0.04em;
+  text-align: center;
+  color: var(--logo-text-color);
+}
+.colored-logo {
+  color: #9bb537;
+}
+.mobil-menu,
+.mobil-nav,
+.nav,
+.desktop-toggle-switch {
+  display: none;
+}
+.menu-active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: left 0.3s ease;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--mobil-menu-bgcolor);
+}
+.exit-icon {
+  stroke: var(--mobil-menu-svg-color);
+}
+.exit-icon-wrapper {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.nav-list {
+  text-align: center;
+}
+.mobil-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   align-items: center;
   justify-content: center;
 }
-.nav-list {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 40px;
+.mobil-nav .nav-list .nav-item {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--mobil-menu-text-color);
 }
-.nav-link {
-  position: relative;
-  display: block;
+.mobil-nav .nav-list .nav-item:active,
+.mobil-nav .nav-list .nav-item:hover {
   font-weight: 500;
-  letter-spacing: 0.02em;
-  transition: 200ms ease-in;
+  color: var(--mobil-menu-active-text-color);
 }
-.nav-link:hover,
-.nav-link:focus {
-  color: #747bff;
-}
-.nav-link::after {
-  content: '';
+
+.mobile-toggle-switch {
+  border-radius: 60px;
+  width: 46px;
+  height: 20px;
+  box-shadow: 7px 5px 15px 0 var(--toggle-box-shadow-color);
+  background: var(--toggle-bg);
+  cursor: pointer;
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%) translateY(100%);
-  width: 110%;
-  height: 4px;
-  border-radius: 4px;
-  transform-origin: center;
-  animation: stretch 400ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 200ms both;
+  left: 20px;
+  bottom: 20px;
 }
-.nav-link.active::after {
-  background: #747bff;
+.mobile-toggle-switch .toggle-thumb {
+  width: 18.8px;
+  height: 18.8px;
+  background-color: var(--toggle-thumb-color);
+  box-shadow: 4px 4px 15px 0 rgba(243, 243, 243, 0.25);;
+  border-radius: 50%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transition: transform 0.3s ease;
+}
+
+body[data-theme='dark'] .toggle-thumb {
+  transform: translateX(26px);
+}
+
+@media (min-width: 768px) {
+  .menu-active,
+  .menu-icon-wrapper {
+    display: none;
+  }
+  .nav {
+    display: flex;
+  }
+  .nav .nav-list {
+    display: flex;
+    gap: 16px;
+  }
+  .nav .nav-item {
+    font-size: 12px;
+    color: var(--menu-text-color);
+  }
+  .nav .nav-item:hover,
+  .nav .nav-item:active {
+    font-weight: 500;
+    color: var(--menu-activ-text-color);
+  }
+  .logo {
+    font-size: 18px;
+    line-height: 111%;
+  }
+  .icons {
+    gap: 18px;
+  }
+  .desktop-toggle-switch {
+    display: block;
+    border-radius: 60px;
+    width: 46px;
+    height: 20px;
+    box-shadow: 7px 5px 15px 0 var(--toggle-desktop-box-shadow-color);
+    background: var(--toggle-bg);
+    cursor: pointer;
+    position: relative;
+  }
+  .desktop-toggle-switch .toggle-thumb {
+    width: 18.8px;
+    height: 18.8px;
+    background-color: var(--toggle-thumb-color);
+    box-shadow: 4px 4px 15px 0 rgba(243, 243, 243, 0.25);
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transition: transform 0.3s ease;
+  }
+}
+
+@media (min-width: 1280px) {
+  .icons {
+    gap: 24px;
+  }
 }
