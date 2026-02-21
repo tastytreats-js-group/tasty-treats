@@ -29,7 +29,6 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-}
 
   /* Renkler */
   --dark: #161616;
@@ -60,7 +59,7 @@
 }
 
 /* Dark tema sadece değişken değiştirir */
-body[data-theme="dark"] {
+body[data-theme='dark'] {
   --page-bg: var(--dark);
   --text-color: var(--white-smoke);
   --border-color: var(--white-20);
