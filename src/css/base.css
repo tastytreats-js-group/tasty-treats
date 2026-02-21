@@ -18,8 +18,19 @@
 
 :root {
   /* Font */
-  --font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
 
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+
+ :root {
   /* Renkler */
   --dark: #161616;
   --jet: #1e1e1e;
@@ -49,7 +60,7 @@
 }
 
 /* Dark tema sadece değişken değiştirir */
-body[data-theme="dark"] {
+body[data-theme='dark'] {
   --page-bg: var(--dark);
   --text-color: var(--white-smoke);
   --border-color: var(--white-20);

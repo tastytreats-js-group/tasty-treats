@@ -1,0 +1,151 @@
+.recipeList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.recipeCard {
+  width: 335px;
+  height: 335px;
+  padding: 16px;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.likeButton {
+  width: 22px;
+  height: 22px;
+  margin-left: 281px;
+}
+
+.like-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.recipeTitle {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.28571;
+  text-transform: uppercase;
+  color: #f8f8f8;
+  display: -webkit-box;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.recipeDescription {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: #f8f8f8;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ratingandbutton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipeRating {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+}
+
+.rating {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  color: #f8f8f8;
+  margin: 0;
+}
+
+.stars {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.star-filled {
+  width: 14px;
+  height: 14px;
+  fill: #eea10c;
+}
+
+.star-empty {
+  width: 14px;
+  height: 14px;
+  fill: rgba(248, 248, 248, 0.1);
+}
+
+.seeRecipe {
+  border-radius: 8px;
+  width: 89px;
+  height: 31px;
+  background: #9bb537;
+  font-weight: 500;
+  font-size: 12px;
+  color: #f8f8f8;
+  border: none;
+}
+
+/* #region media queries for tablets */
+@media (min-width: 768px) {
+  .recipeList {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .recipeCard {
+    width: 240px;
+    height: 264px;
+  }
+
+  .likeButton {
+    margin-left: 186px;
+  }
+
+  .star-filled,
+  .star-empty {
+    width: 12px;
+    height: 12px;
+  }
+}
+/* #endregion */
+
+/* #region media queries for desktop */
+@media (min-width: 1158px) {
+  .recipeCard {
+    width: 250px;
+    height: 287px;
+  }
+
+  .likeButton {
+    margin-left: 196px;
+  }
+
+  .star-filled,
+  .star-empty {
+    width: 14px;
+    height: 14px;
+  }
+}
+/* #endregion */

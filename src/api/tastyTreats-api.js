@@ -122,7 +122,7 @@ export async function fetchAreas() {
 // ratingData örneği: { rate: 4, email: 'example@mail.com', comment: '...' }
 export async function rateRecipe(recipeId, ratingData) {
   try {
-    const { data } = await api.post(`/recipes/${recipeId}/rating`, ratingData);
+    const { data } = await api.patch(`/recipes/${recipeId}/rating`, ratingData);
     return data;
   } catch (error) {
     return handleError(error);
