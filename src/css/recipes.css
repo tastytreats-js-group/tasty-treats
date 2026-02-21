@@ -81,9 +81,16 @@
   align-items: center;
 }
 
-.star-icon {
+.star-filled {
   width: 14px;
   height: 14px;
+  fill: #eea10c;
+}
+
+.star-empty {
+  width: 14px;
+  height: 14px;
+  fill: rgba(248, 248, 248, 0.1);
 }
 
 .seeRecipe {
@@ -113,7 +120,8 @@
     margin-left: 186px;
   }
 
-  .star-icon {
+  .star-filled,
+  .star-empty {
     width: 12px;
     height: 12px;
   }
@@ -131,7 +139,8 @@
     margin-left: 196px;
   }
 
-  .star-icon {
+  .star-filled,
+  .star-empty {
     width: 14px;
     height: 14px;
   }

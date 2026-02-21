@@ -1,11 +1,22 @@
 console.log('FILE IS RUNNING'); //filecheck
 import { fetchFilteredRecipes } from '../api/tastyTreats-api.js';
 
+// API search parameters
 let params = {
     page: 1,
-    perPage: 6
+    limit: getlimit()
 };
 
+
+// Number of cards that will show up regarding the page width
+function getlimit() {
+    const width = window.innerWidth;
+    if (width >= 1280) return 9;
+    if (width >= 768) return 8;
+    else return 6;
+};
+
+// Get recipes from API
 async function loadRecipes() {
     try {
         const data = await fetchFilteredRecipes(params);
@@ -16,6 +27,17 @@ async function loadRecipes() {
 
 loadRecipes();
 
+// Number of stars that will show up regarding the rating
+function renderStars(rating) {
+    const fullStars = Math.round(rating);
+    return Array.from({ length: 5 }, (_, i) => `
+        <svg class="star ${i < fullStars ? 'star-filled' : 'star-empty'}">
+            <use href="../img/sprite.svg#icon-star"></use>
+        </svg>
+    `).join('');
+}
+
+// Render recipes on page
 async function renderRecipes(results) {
     const recipeList = document.querySelector(".recipeList")
     recipeList.innerHTML = results
@@ -32,23 +54,7 @@ async function renderRecipes(results) {
                     <div class="ratingandbutton">
                         <div class="recipeRating">
                             <p class="rating">${result.rating}</p>
-                            <div class="stars">
-                                <svg class="star-icon">
-                                    <use href="../img/sprite.svg#icon-star-filled"></use>
-                                </svg>
-                                <svg class="star-icon">
-                                    <use href="../img/sprite.svg#icon-star-filled"></use>
-                                </svg>
-                                <svg class="star-icon">
-                                    <use href="../img/sprite.svg#icon-star-filled"></use>
-                                </svg>
-                                <svg class="star-icon">
-                                    <use href="../img/sprite.svg#icon-star-filled"></use>
-                                </svg>
-                                <svg class="star-icon">
-                                    <use href="../img/sprite.svg#icon-star-faded"></use>
-                                </svg>                                                                                            
-                            </div>
+                            <div class="stars">${renderStars(result.rating)}</div>
                         </div>
                         <button class="seeRecipe">See recipe</button>
                     </div>
@@ -58,6 +64,7 @@ async function renderRecipes(results) {
     )
         .join('');
     
+    // The gradient overlay in front of the background image
     document.querySelectorAll(".recipeCard").forEach(card => {
         const id = card.dataset.id;
         const recipe = results.find(r => r._id === id);
