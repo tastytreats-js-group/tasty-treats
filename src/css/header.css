@@ -75,14 +75,14 @@
   align-items: center;
   justify-content: center;
 }
-.mobil-list .nav-item {
+.mobil-nav .nav-list .nav-item {
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 12px;
   color: var(--mobil-menu-text-color);
 }
-.mobil-list .nav-item:active,
-.mobil-list .nav-item:hover {
+.mobil-nav .nav-list .nav-item:active,
+.mobil-nav .nav-list .nav-item:hover {
   font-weight: 500;
   color: var(--mobil-menu-active-text-color);
 }
@@ -110,7 +110,7 @@
   transition: transform 0.3s ease;
 }
 
-:root[data-theme='dark'] .toggle-thumb {
+body[data-theme='dark'] .toggle-thumb {
   transform: translateX(26px);
 }
 

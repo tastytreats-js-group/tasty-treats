@@ -1,7 +1,6 @@
 :root {
 /* HEADER BÖLÜMÜ */
     /* mobil */
-    --bg-color :
   --logo-text-color: #050505;
   --menu-svg-color: #050505;
   --menu-svg-bg-color: #f8f8f8;
@@ -21,7 +20,7 @@
 /* HEADER BÖLÜMÜ SONU */
 }
 
-:root[data-theme='dark'] {
+body[data-theme='dark'] {
     /* HEADER BÖLÜMÜ */
     /* mobil */
   --logo-text-color: #fff;
