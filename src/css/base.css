@@ -1,28 +1,13 @@
-/* 
-  BASE CSS – GLOBAL DOSYA
-
-  Bu dosya sadece:
-  - Font ve renk değişkenleri
-  - Sayfa iskeleti (body, main)
-  - Tema altyapısı (light / dark)
-  - Genel yardımcı class’lar
-
-  içerir.
-
-  Component class’ları (search, hero, header, modal vs.)
-  BU DOSYAYA YAZILMAZ.
-*/
-
-/* Font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
-  /* Font */
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Typography */
+  --font-family: 'Inter', sans-serif;
+  --font-size: 16px;
+  --line-height: 1.5;
+  --font-weight: 400;
 
+  /* Rendering */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -30,44 +15,35 @@
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 
- :root {
-  /* Renkler */
+  /* --- Katı Renkler --- */
   --dark: #161616;
-  --jet: #1e1e1e;
-  --onyx: #050505;
-  --charcoal: #383838;
-
-  --white: #ffffff;
   --white-smoke: #f8f8f8;
   --silver: #cecdcd;
-
   --pistachio: #9bb537;
+  --charcoal: #383838;
+  --onyx: #050505;
+  --jet: #1e1e1e;
 
-  /* Opacity */
-  --white-50: rgba(255, 255, 255, 0.5);
-  --white-30: rgba(255, 255, 255, 0.3);
-  --white-20: rgba(255, 255, 255, 0.2);
+  /* --- Şeffaf Renkler --- */
+  --white-50-opacity: rgba(255, 255, 255, 0.5);
+  --white-20-opacity: rgba(255, 255, 255, 0.2);
+  --white-30-opacity: rgba(255, 255, 255, 0.3);
 
-  --onyx-80: rgba(5, 5, 5, 0.8);
-  --onyx-50: rgba(5, 5, 5, 0.5);
-  --onyx-30: rgba(5, 5, 5, 0.3);
-  --onyx-20: rgba(5, 5, 5, 0.2);
+  --onyx-80-opacity: rgba(5, 5, 5, 0.8);
+  --onyx-50-opacity: rgba(5, 5, 5, 0.5);
+  --onyx-30-opacity: rgba(5, 5, 5, 0.3);
+  --onyx-20-opacity: rgba(5, 5, 5, 0.2);
+  --onyx-10-opacity: rgba(5, 5, 5, 0.1);
 
-  /* Tema (Light varsayılan) */
-  --page-bg: var(--white);
-  --text-color: var(--onyx);
-  --border-color: var(--onyx-20);
+  /* --- Gradient --- */
+  --pistachio-gradient: linear-gradient(
+    91deg,
+    #9bb537 0%,
+    rgba(155, 181, 55, 0.69) 100%
+  );
 }
 
-/* Dark tema sadece değişken değiştirir */
-body[data-theme='dark'] {
-  --page-bg: var(--dark);
-  --text-color: var(--white-smoke);
-  --border-color: var(--white-20);
-}
-
-/* Sayfa iskeleti */
-
+/* Reset + page skeleton */
 *,
 *::before,
 *::after {
@@ -75,7 +51,7 @@ body[data-theme='dark'] {
 }
 
 html {
-  font-size: 16px;
+  font-size: var(--font-size);
 }
 
 body {
@@ -85,17 +61,13 @@ body {
   flex-direction: column;
 
   font-family: var(--font-family);
-  line-height: 1.5;
-
-  background-color: var(--page-bg);
-  color: var(--text-color);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
 }
 
 main {
-  flex: 1;
+  flex-grow: 1;
 }
-
-/* Genel element varsayılanları */
 
 img {
   display: block;
@@ -104,8 +76,8 @@ img {
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
 button,
@@ -115,16 +87,20 @@ textarea {
   font: inherit;
 }
 
-/* Yardımcı class'lar */
-
 .is-hidden {
   display: none !important;
 }
 
 .visually-hidden {
-  position: absolute;
+  position: absolute !important;
   width: 1px;
   height: 1px;
+  padding: 0;
+  margin: -1px;
   overflow: hidden;
   white-space: nowrap;
+  border: 0;
+
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
 }
