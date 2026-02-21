@@ -31,6 +31,7 @@
   text-size-adjust: 100%;
 }
 
+ :root {
   /* Renkler */
   --dark: #161616;
   --jet: #1e1e1e;
