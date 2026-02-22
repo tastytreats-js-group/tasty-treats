@@ -36,6 +36,7 @@
   cursor: pointer;
   font-weight: 500;
   transition: 0.3s;
+  color: var(--logo-text-color);
 }
 
 .home-hero-btn:hover {
