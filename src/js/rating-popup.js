@@ -55,7 +55,6 @@ export function openRatingModal(recipeId) {
     ratingLayer.onclick = (e) => { if (e.target === ratingLayer) closeRatingOnly(); };
 
     function showNotification(message, type = 'success') {
-    // Önce bir container var mı bak, yoksa oluştur
     let container = document.querySelector('.toast-container');
     if (!container) {
         container = document.createElement('div');
@@ -69,7 +68,6 @@ export function openRatingModal(recipeId) {
 
     container.appendChild(toast);
 
-    // 3 saniye sonra DOM'dan kaldır
     setTimeout(() => {
         toast.remove();
         if (container.childNodes.length === 0) container.remove();
@@ -94,7 +92,6 @@ export function openRatingModal(recipeId) {
         
         showNotification("Rating sent successfully!");
         
-        // Modalın kapanmasını biraz geciktir ki kullanıcı bildirimi görsün
         setTimeout(() => {
             closeRatingOnly();
         }, 500);
@@ -105,7 +102,6 @@ export function openRatingModal(recipeId) {
         submitBtn.style.opacity = "1";
     }
 });
-    // Yıldızlar üzerinde gezinme ve renk değişimi
     let selectedRating = "0.0"; 
 
     stars.forEach(star => {
