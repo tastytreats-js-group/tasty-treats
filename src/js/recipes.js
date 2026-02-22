@@ -103,11 +103,11 @@ if (recipeList) {
 
             if (likedRecipes[recipeId]) {
                 delete likedRecipes[recipeId];
-                likeButton.querySelector("use").setAttribute("href", "../img/sprite.svg#icon-heart-outline");
+                likeButton.querySelector("use").setAttribute("href", "./img/sprite.svg#icon-heart-outline");
             } else {
                 const recipe = currentRecipes.find(r => r._id === recipeId);
                 likedRecipes[recipeId] = recipe;
-                likeButton.querySelector("use").setAttribute("href", "../img/sprite.svg#icon-heart-filled");
+                likeButton.querySelector("use").setAttribute("href", "./img/sprite.svg#icon-heart-filled");
             }
 
             localStorage.setItem("likedRecipes", JSON.stringify(likedRecipes));

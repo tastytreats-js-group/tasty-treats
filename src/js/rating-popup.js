@@ -10,7 +10,6 @@ export function openRatingModal(recipeId) {
                 <button type="button" class="close-btn" id="closeRating">&times;</button>
                 
                 <h2 class="form-title">Rating</h2>
-                <p class="rating-subtitle">How do you rate the recipe?</p>
 
                 <form id="ratingForm" class="modal-form">
                     <div class="star-rating-container">
@@ -55,22 +54,72 @@ export function openRatingModal(recipeId) {
     closeBtn.onclick = closeRatingOnly;
     ratingLayer.onclick = (e) => { if (e.target === ratingLayer) closeRatingOnly(); };
 
+    function showNotification(message, type = 'success') {
+    let container = document.querySelector('.toast-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.className = 'toast-container';
+        document.body.appendChild(container);
+    }
+
+    const toast = document.createElement('div');
+    toast.className = `toast ${type === 'error' ? 'error' : ''}`;
+    toast.textContent = message;
+
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+        if (container.childNodes.length === 0) container.remove();
+    }, 3000);
+    }
     form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const rating = form.rate.value;
-        const email = form.email.value;
+    e.preventDefault();
+    const rating = form.rate.value;
+    const email = form.email.value;
+    const submitBtn = form.querySelector('.btn-submit');
 
-        if (!rating) {
-            alert("Please select a star rating!");
-            return;
-        }
+    if (!rating) {
+        showNotification("Please select a star rating!", "error");
+        return;
+    }
 
-        try {
-            await rateRecipe(recipeId, { rate: Number(rating), email: email });
-            alert("Rating sent successfully!");
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = "0.7";
+
+    try {
+        await rateRecipe(recipeId, { rate: Number(rating), email: email });
+        
+        showNotification("Rating sent successfully!");
+        
+        setTimeout(() => {
             closeRatingOnly();
-        } catch (error) {
-            alert("Error: " + error.message);
-        }
+        }, 500);
+
+    } catch (error) {
+        showNotification("Error: " + (error.response?.data?.message || error.message), "error");
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = "1";
+    }
+});
+    let selectedRating = "0.0"; 
+
+    stars.forEach(star => {
+        const label = form.querySelector(`label[for="${star.id}"]`);
+
+        star.addEventListener('change', (e) => {
+            selectedRating = parseFloat(e.target.value).toFixed(1);
+            ratingValueText.textContent = selectedRating;
+        });
+
+        label.addEventListener('mouseenter', () => {
+            label.classList.add('is-hovering');
+            ratingValueText.textContent = parseFloat(star.value).toFixed(1);
+        });
+
+        label.addEventListener('mouseleave', () => {
+            label.classList.remove('is-hovering');
+            ratingValueText.textContent = selectedRating;
+        });
     });
 }
