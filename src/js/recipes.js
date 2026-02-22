@@ -1,8 +1,8 @@
 console.log('FILE IS RUNNING'); //filecheck
 import { fetchFilteredRecipes } from '../api/tastyTreats-api.js';
+import { openRecipeModal } from './recipeModal.js';
 
 // API search parameters
-import { openRecipeModal } from './recipeModal.js';
 let params = {
     page: 1,
     limit: getlimit()
@@ -41,9 +41,11 @@ function renderStars(rating) {
 }
 
 // Render recipes on page
-const recipeList = document.querySelector(".recipeList")
+const recipeList = document.querySelector(".recipeList");
+let currentRecipes = [];
 
 async function renderRecipes(results) {
+    currentRecipes = results;
     recipeList.innerHTML = results
         .map(result => `
             <li class="recipeCard" data-id="${result._id}">
@@ -76,10 +78,12 @@ async function renderRecipes(results) {
     });
 };
 
-// Open pop-up for recipe details when clicked on 
+// Recipecard event listeners
 if (recipeList) {
     recipeList.addEventListener("click", async (event) => {
         const seeRecipeBtn = event.target.closest(".seeRecipe");
+
+        // Open pop-up for recipe details when clicked on 
         if (seeRecipeBtn) {
             const recipeId = seeRecipeBtn.closest(".recipeCard").dataset.id;
             try {
@@ -89,6 +93,25 @@ if (recipeList) {
             } catch (error) {
                 console.error("Tasty Error:", error);
             }
+        }
+
+        // add liked elements to localstorage
+        const likeButton = event.target.closest(".likeButton");
+        if (likeButton) {
+            const recipeId = likeButton.closest(".recipeCard").dataset.id;
+            const likedRecipes = JSON.parse(localStorage.getItem("likedRecipes")) || {};
+
+            if (likedRecipes[recipeId]) {
+                delete likedRecipes[recipeId];
+                likeButton.querySelector("use").setAttribute("href", "../img/sprite.svg#icon-heart-outline");
+            } else {
+                const recipe = currentRecipes.find(r => r._id === recipeId);
+                likedRecipes[recipeId] = recipe;
+                likeButton.querySelector("use").setAttribute("href", "../img/sprite.svg#icon-heart-filled");
+            }
+
+            localStorage.setItem("likedRecipes", JSON.stringify(likedRecipes));
+            console.log(likedRecipes);
         }
     });
 }
