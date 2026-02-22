@@ -31,7 +31,11 @@
 .category-btn {
   padding: 8px 18px;
   border-radius: 20px;
+<<<<<<< HEAD
   border: 1px solid var(--silver);
+=======
+  border: 1px solid(--silver);
+>>>>>>> main
   background: transparent;
   font-size: 14px;
   cursor: pointer;
@@ -39,11 +43,19 @@
 }
 
 .category-btn:hover {
+<<<<<<< HEAD
   border-color: var(--pistachio);
 }
 
 .category-btn.active {
   background: var(--pistachio);
+=======
+  border-color:(--pistachio);
+}
+
+.category-btn.active {
+  background:(--pistachio);
+>>>>>>> main
   color: #fff;
   border: none;
 }
@@ -56,7 +68,11 @@
   max-width: 480px;
   margin-left: auto;
   margin-right: auto;
+<<<<<<< HEAD
   color: var(--charcoal);
+=======
+  color:(--charcoal);
+>>>>>>> main
 }
 
 .favorites-empty p {
@@ -76,6 +92,10 @@
 ========================= */
 
 @media (min-width: 768px) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
   .favorites {
     padding: 60px 32px;
   }
@@ -94,11 +114,19 @@
 ========================= */
 
 @media (min-width: 1280px) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
   .favorites-hero-img {
     height: 400px;
   }
 
   .favorites-grid {
     grid-template-columns: repeat(3, 1fr);
+<<<<<<< HEAD
   }
 }
+=======
+  }
+>>>>>>> main

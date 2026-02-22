@@ -6,8 +6,13 @@
   position: relative;
   border-radius: 16px;
   overflow: hidden;
+<<<<<<< HEAD
   background: var(--white-smoke);
   box-shadow: 0 4px 12px var(--onyx-10-opacity);
+=======
+  background: (--white-smoke);
+  box-shadow: 0 4px 12px (--onyx-10-opacity);
+>>>>>>> main
   transition: transform 0.3s ease;
 }
 
@@ -27,7 +32,11 @@
 /* GRADIENT OVERLAY */
 
 .recipe-card::after {
+<<<<<<< HEAD
   content: "";
+=======
+  content: '';
+>>>>>>> main
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -117,14 +126,22 @@
 /* Hover */
 
 .recipe-card-favorite:hover {
+<<<<<<< HEAD
   background: var(--pistachio);
+=======
+  background: (--pistachio);
+>>>>>>> main
   transform: scale(1.1);
 }
 
 /* ACTIVE (FAVORITED) */
 
 .recipe-card-favorite.is-active {
+<<<<<<< HEAD
   background: var(--pistachio);
+=======
+  background: (--pistachio);
+>>>>>>> main
   color: #fff;
 }
 
@@ -142,6 +159,15 @@
 @media (min-width: 768px) {
   .recipe-card-img {
     height: 240px;
+<<<<<<< HEAD
+=======
+  }
+}
+
+@media (min-width: 1280px) {
+  .recipe-card-img {
+    height: 260px;
+>>>>>>> main
   }
 }
 

@@ -1,0 +1,361 @@
+/* --- ANA MODAL YAPISI --- */
+#modal-root {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+}
+
+.modal-overlay {
+    background-color: var(--onyx-50-opacity);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--page-bg);
+    color: var(--text-color);
+    width: 90%;
+    max-width: 531px;
+    max-height: 80vh;
+    padding: 40px 24px;
+    border-radius: 15px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Scrollbar Tasarımı */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background-color: var(--onyx-20-opacity);
+    border-radius: 10px;
+    border: 2px solid var(--page-bg);
+}
+
+/* Kapatma Butonu */
+.close-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: var(--menu-svg-bg-color);
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-color);
+    z-index: 10;
+}
+
+/* Medya ve İçerik */
+.media-container {
+    width: 100%;
+    height: 295px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background-color: var(--jet);
+}
+
+.modal-video,
+.modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.modal-title {
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    color: var(--text-color);
+}
+
+.modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.tag {
+    border: 1px solid var(--onyx-20-opacity);
+    border-radius: 35px;
+    padding: 8px 14px;
+    font-size: 12px;
+}
+
+.modal-ingredients li {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--onyx-10-opacity);
+}
+
+.measure {
+    color: var(--text-color);
+    opacity: 0.6;
+}
+
+/* Ana Modal Aksiyon Butonları */
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.btn-submit{
+    flex: 1;
+    background: var(--pistachio-gradient);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.btn-favorite {
+    flex: 1;
+    min-width: 141px;
+    max-width: 153px;
+    background: var(--pistachio-gradient);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-rating-open {
+    flex: 1;
+    min-width: 131px;
+    max-width: 141px;
+    background-color: transparent;
+    border: 1px solid var(--pistachio);
+    color: var(--text-color);
+    padding: 12px;
+    border-radius: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* --- RATING POPUP (MODAL ÜSTÜNE TAM OTURAN KATMAN) --- */
+.rating-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    z-index: 200;
+    background-color: var(--onyx-80-opacity);
+    backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.rating-modal {
+    background-color: var(--page-bg);
+    padding: 30px 20px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 430px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.rating-modal .form-title {
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+/* Yıldız Kontrastı ve Gizli Radio Buttonlar */
+.star-rating-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+
+}
+.rating-value{
+    color: var(--text-color);
+    line-height: 1;
+}
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 4px;
+    margin-bottom: 0px;
+}
+
+.star-rating input[type="radio"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.star-rating label {
+    font-size: 28px;
+    color: var(--silver);
+    /* Yüksek kontrastlı boş yıldız */
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+/* Koyu temada yıldız görünürlüğünü garantiye alalım */
+body[data-theme='dark'] .star-rating label {
+    color: var(--charcoal);
+}
+
+.star-rating input:checked~label,
+.star-rating label:hover,
+.star-rating label:hover~label {
+    color: #f8a33f;
+}
+.star-rating label.is-hovering {
+    color: #f8a33f !important;
+}
+
+/* Rating Form Elemanları (E-mail alanı dahil) */
+.rating-modal .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+/* --- INPUT FIELD GÜNCELLEMESİ --- */
+
+.rating-modal .input-field {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: var(--menu-svg-bg-color);
+    /* Varsayılan (Açık Mod) Kenarlık */
+    border: 1px solid var(--onyx-10-opacity);
+    border-radius: 15px;
+    font-size: 14px;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* --- KOYU MOD ÖZEL AYARI --- */
+/* Yıldızların boş haliyle (charcoal) aynı border rengini atıyoruz */
+body[data-theme='dark'] .rating-modal .input-field {
+    border-color: var(--charcoal);
+}
+body[data-theme='dark'] .rating-modal .input-field:focus {
+    border-color: var(--pistachio);
+        box-shadow: 0 0 0 3px var(--white-20-opacity);
+}
+
+.rating-modal .input-field::placeholder {
+    color: var(--text-color);
+    opacity: 0.5;
+}
+
+.rating-modal .input-field:focus {
+    border-color: var(--pistachio);
+    box-shadow: 0 0 0 3px var(--white-20-opacity);
+}
+
+.rating-modal .btn-submit {
+    margin-top: 10px;
+    width: 100%;
+    padding: 14px;
+    background: var(--pistachio-gradient);
+    color: #ffffff;
+    border: none;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.rating-modal .btn-submit:hover {
+    opacity: 0.95;
+    transform: translateY(-1px);
+}
+/* --- TOAST NOTIFICATIONS --- */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 11000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background-color: var(--page-bg);
+    color: var(--text-color);
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-left: 5px solid var(--pistachio);
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 250px;
+    animation: slideIn 0.3s ease forwards, fadeOut 0.3s ease forwards 2.7s;
+}
+
+.toast.error {
+    border-left-color: #ef4444;
+    /* Hata durumu için kırmızı */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
