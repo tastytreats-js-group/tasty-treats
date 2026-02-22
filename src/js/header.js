@@ -48,7 +48,7 @@ function toggleTheme() {
     localStorage.setItem('theme', 'dark');
   }
 }
-
+//
 mobileToggle?.addEventListener('click', toggleTheme);
 desktopToggle?.addEventListener('click', toggleTheme);
 
