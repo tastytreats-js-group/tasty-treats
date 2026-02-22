@@ -3,7 +3,6 @@
 @import url('./container.css');
 @import url('./themes.css');
 
-@import url("./themes.css");
 .header-container {
   display: flex;
   justify-content: space-between;
