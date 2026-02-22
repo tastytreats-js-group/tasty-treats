@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 60px;
 }
 .icons {
   display: flex;
@@ -116,9 +117,6 @@
   transition: transform 0.3s ease;
 }
 
-body[data-theme='dark'] .toggle-thumb {
-  transform: translateX(26px);
-}
 
 @media (min-width: 768px) {
   .menu-active,
@@ -175,4 +173,8 @@ body[data-theme='dark'] .toggle-thumb {
   .icons {
     gap: 24px;
   }
+}
+
+body[data-theme='dark'] .toggle-thumb {
+  transform: translateX(26px);
 }
