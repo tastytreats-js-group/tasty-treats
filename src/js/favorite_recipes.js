@@ -1,76 +1,101 @@
-import { getFavorites, toggleFavorite } from './local_favorites.js';
+import { getFavorites } from './local_favorites.js';
 
-const grid = document.querySelector('.favorites-grid');
-const empty = document.querySelector('.favorites-empty');
-const categoriesContainer = document.querySelector('.favorites-categories');
+const listEl = document.querySelector('.js-favorites-list');
+const categoriesEl = document.querySelector('.js-favorites-categories');
+const emptyEl = document.querySelector('.js-favorites-empty');
 
-function renderCategories(favorites) {
-  const uniqueCategories = [...new Set(favorites.map(item => item.category))];
+let favorites = [];
+let currentCategory = 'All';
 
-  categoriesContainer.innerHTML = uniqueCategories
-    .map(
-      cat => `
-    <button class="category-btn" data-category="${cat}">
-      ${cat}
-    </button>
-  `
-    )
-    .join('');
-}
+document.addEventListener('DOMContentLoaded', init);
 
-function renderCards(recipes) {
-  grid.innerHTML = recipes
-    .map(
-      recipe => `
-    <div class="recipe-card" data-id="${recipe._id}">
-      <img src="${recipe.thumb}" alt="${recipe.title}" />
-      <h3>${recipe.title}</h3>
-      <p>${recipe.description || ''}</p>
-      <p>⭐ ${recipe.rating}</p>
-      <p>⏱ ${recipe.time || ''}</p>
-      <button class="favorite-btn">❤</button>
-    </div>
-  `
-    )
-    .join('');
-}
-
-function renderFavorites() {
-  const favorites = getFavorites();
+function init() {
+  favorites = getFavorites();
 
   if (!favorites.length) {
-    empty.style.display = 'block';
-    grid.style.display = 'none';
-    categoriesContainer.style.display = 'none';
+    showEmpty();
     return;
   }
 
-  empty.style.display = 'none';
-  grid.style.display = 'grid';
-  categoriesContainer.style.display = 'flex';
-
-  renderCategories(favorites);
-  renderCards(favorites);
+  renderCategories();
+  renderRecipes(favorites);
 }
 
-document.addEventListener('click', e => {
-  if (e.target.classList.contains('favorite-btn')) {
-    const card = e.target.closest('.recipe-card');
-    const id = card.dataset.id;
+// ---------------- EMPTY ----------------
 
-    const favorites = getFavorites();
-    const recipe = favorites.find(item => item._id === id);
+function showEmpty() {
+  emptyEl.classList.remove('is-hidden');
+  listEl.classList.add('is-hidden');
+  categoriesEl.classList.add('is-hidden');
+}
 
-    toggleFavorite(recipe);
-    renderFavorites();
-  }
+// ---------------- RENDER RECIPES ----------------
 
-  if (e.target.classList.contains('category-btn')) {
-    const category = e.target.dataset.category;
-    const favorites = getFavorites();
-    const filtered = favorites.filter(item => item.category === category);
-    renderCards(filtered);
-  }
-});
+function renderRecipes(data) {
+  listEl.innerHTML = data.map(createCard).join('');
+}
 
-renderFavorites();
+// ---------------- CARD TEMPLATE ----------------
+
+function createCard(recipe) {
+  return `
+    <li class="recipe-card">
+      <img 
+        src="${recipe.thumb}" 
+        alt="${recipe.title}" 
+        class="recipe-card-img"
+      />
+
+      <div class="recipe-card-content">
+        <h3 class="recipe-card-title">${recipe.title}</h3>
+
+        <div class="recipe-card-meta">
+          <span>⭐ ${recipe.rating ?? 0}</span>
+          <span>${recipe.time ?? 0} min</span>
+        </div>
+      </div>
+    </li>
+  `;
+}
+
+// ---------------- CATEGORIES ----------------
+
+function renderCategories() {
+  const uniqueCategories = [
+    'All',
+    ...new Set(favorites.map(item => item.category)),
+  ];
+
+  categoriesEl.innerHTML = uniqueCategories
+    .map(
+      category => `
+      <button 
+        class="category-btn ${category === currentCategory ? 'active' : ''}"
+        data-category="${category}"
+      >
+        ${category}
+      </button>
+    `
+    )
+    .join('');
+
+  addCategoryListeners();
+}
+
+function addCategoryListeners() {
+  const buttons = categoriesEl.querySelectorAll('.category-btn');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      currentCategory = button.dataset.category;
+
+      const filtered =
+        currentCategory === 'All'
+          ? favorites
+          : favorites.filter(item => item.category === currentCategory);
+
+      renderCategories();
+      renderRecipes(filtered);
+    });
+  });
+}

@@ -1,17 +1,26 @@
 <section class="favorites">
   <!-- HERO -->
-  <section class="favorites-hero">
-    <h1>Favorites</h1>
-  </section>
+  <div class="favorites-hero">
+    <img
+      src="/images/hero-favorites.jpg"
+      alt="Favorite recipes hero image"
+      class="favorites-hero-img"
+    />
+  </div>
 
   <!-- CATEGORIES -->
-  <div class="favorites-categories"></div>
+  <div class="favorites-categories js-favorites-categories"></div>
 
   <!-- EMPTY STATE -->
-  <div class="favorites-empty">
-    <p>It appears that you haven't added any recipes to your favorites yet.</p>
+  <div class="favorites-empty js-favorites-empty is-hidden">
+    <div class="empty-icon"></div>
+    <p>
+      It appears that you haven't added any recipes to your favorites yet. To
+      get started, you can add recipes that you like to your favorites for
+      easier access in the future.
+    </p>
   </div>
 
   <!-- GRID -->
-  <div class="favorites-grid"></div>
+  <ul class="favorites-grid js-favorites-list"></ul>
 </section>

@@ -1,34 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Favorites | TastyTreats</title>
+<section class="favorites section">
+  <div class="container">
+    <!-- Title -->
+    <h1 class="favorites-title">Favorites</h1>
 
-    <!-- Global styles
-     -->
-    <link rel="stylesheet" href="./css/styles.css" />
+    <!-- Hero -->
+    <div class="favorites-hero">
+      <img
+        src="./images/favorites/hero.jpg"
+        alt="Featured recipe"
+        class="favorites-hero-img"
+      />
+    </div>
 
-    <!-- Favorites page specific styles -->
-    <link rel="stylesheet" href="./css/favorites.css" />
-  </head>
+    <!-- Categories -->
+    <div class="favorites-categories">
+      <!-- JS ile doldurulacak -->
+      <!-- Örnek kategori butonu -->
+      <!--
+      <button class="category-btn active">All categories</button>
+      -->
+    </div>
 
-  <body>
-    <!-- HEADER 
-     Bu kısma sprite ile eklenen svg logo gelecek -->
+    <!-- Recipes List -->
+    <div class="favorites-list">
+      <!-- JS ile kartlar buraya render edilecek -->
+    </div>
 
-    <load src="./partials/header.html" />
-
-    <main>
-      <div class="container">
-        <load src="./partials/favorite-recipes.html" />
+    <!-- Empty State -->
+    <div class="favorites-empty is-hidden">
+      <div class="favorites-empty-icon">
+        <svg width="68" height="58">
+          <use href="./images/icons.svg#icon-heart"></use>
+        </svg>
       </div>
-    </main>
-
-    <!-- FOOTER -->
-    <load src="./partials/footer.html" />
-
-    <!-- Favorites page script -->
-    <script type="module" src="./js/favorite-recipes.js"></script>
-  </body>
-</html>
+      <p class="favorites-empty-text">
+        It appears that you haven't added any recipes to your favorites yet. To
+        get started, you can add recipes that you like to your favorites for
+        easier access in the future.
+      </p>
+    </div>
+  </div>
+</section>

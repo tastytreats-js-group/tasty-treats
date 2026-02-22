@@ -1,27 +1,41 @@
-const KEY = 'favorites';
+const STORAGE_KEY = 'favorite-recipes';
 
+// Tüm favorileri getir
 export function getFavorites() {
-  return JSON.parse(localStorage.getItem(KEY)) || [];
-}
-
-export function saveFavorites(data) {
-  localStorage.setItem(KEY, JSON.stringify(data));
-}
-
-export function toggleFavorite(recipe) {
-  const favorites = getFavorites();
-
-  const exists = favorites.find(item => item._id === recipe._id);
-
-  if (exists) {
-    const updated = favorites.filter(item => item._id !== recipe._id);
-    saveFavorites(updated);
-  } else {
-    favorites.push(recipe);
-    saveFavorites(favorites);
+  try {
+    const data = localStorage.getItem(STORAGE_KEY);
+    return data ? JSON.parse(data) : [];
+  } catch (error) {
+    console.error('Storage parse error:', error);
+    return [];
   }
 }
 
-export function isFavorite(id) {
-  return getFavorites().some(item => item._id === id);
+// Favorileri kaydet
+function saveFavorites(favorites) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
+}
+
+// Favori ekle
+export function addFavorite(recipe) {
+  const favorites = getFavorites();
+
+  const exists = favorites.some(item => item.id === recipe.id);
+  if (exists) return;
+
+  favorites.push(recipe);
+  saveFavorites(favorites);
+}
+
+// Favori sil
+export function removeFavorite(recipeId) {
+  const favorites = getFavorites();
+  const updated = favorites.filter(item => item.id !== recipeId);
+  saveFavorites(updated);
+}
+
+// Favori kontrol
+export function isFavorite(recipeId) {
+  const favorites = getFavorites();
+  return favorites.some(item => item.id === recipeId);
 }
