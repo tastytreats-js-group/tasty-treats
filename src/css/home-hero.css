@@ -95,4 +95,105 @@
     line-height: 1.5;
     white-space: normal;
   }
+//feature/favorites
+
+/* Popup */
+.home-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
+
+.home-popup-content {
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.home-popup-close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.home-popup h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.home-popup-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--onyx-50-opacity);
+}
+
+.home-popup-form input,
+.home-popup-form textarea {
+  width: 100%;
+  height: 48px;
+  padding: 8px 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+.home-popup-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.home-popup-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #a8c43b; /* görseldeki yeşil ton */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.home-popup-form button:hover {
+  background-color: #95b12f;
+}
+/*Popup Finish*/
+
+/* Dots */
+.home-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.home-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.home-dot.active {
+  background-color: #8dc63f;
+}
+/* Dots Finish */
+
