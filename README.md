@@ -2,7 +2,7 @@
 
 TastyTreats - Customize Your Meal with Ingredient Options and Step-by-Step Video Guides.
 
-🔗 **Canlı Site:** [https://tastytreats-js-group.github.io/tasty-treats/](https://tastytreats-js-group.github.io/tasty-treats/)
+🔗 **Live Site:** [https://tastytreats-js-group.github.io/tasty-treats/](https://tastytreats-js-group.github.io/tasty-treats/)
 
 ---
 
