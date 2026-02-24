@@ -76,6 +76,14 @@ async function renderRecipes(results) {
         const recipe = results.find(r => r._id === id);
         card.style.backgroundImage = `linear-gradient(0.936deg, rgba(5, 5, 5, 60%) 0%, rgba(5, 5, 5, 0%) 100%),url(${recipe.preview})`;
     });
+
+    // Check for already liked recipes
+    const likedRecipes = JSON.parse(localStorage.getItem("likedRecipes")) || {};
+    document.querySelectorAll(".recipeCard").forEach(card => {
+        if (likedRecipes[card.dataset.id]) {
+            card.querySelector("use").setAttribute("href", "../img/sprite.svg#icon-heart-filled");
+        }
+    });
 };
 
 // Recipecard event listeners
