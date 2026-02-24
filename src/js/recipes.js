@@ -103,4 +103,17 @@ if (recipeList) {
             }
         }
     });
+    
 }
+window.addEventListener('favoritesUpdated', (event) => {
+    const { recipeId, status } = event.detail;
+    
+    const card = document.querySelector(`.recipeCard[data-id="${recipeId}"]`);
+    if (card) {
+        const useEl = card.querySelector(".likeButton use");
+        if (useEl) {
+            const iconPath = status ? 'heart-filled' : 'heart-outline';
+            useEl.setAttribute("href", `../img/sprite.svg#icon-${iconPath}`);
+        }
+    }
+});
