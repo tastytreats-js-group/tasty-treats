@@ -1,16 +1,11 @@
 import { openRatingModal } from './rating-popup.js';
-
-// --- YARDIMCI ARAÇLAR ---
-// LocalStorage'da veriyi hangi isimle saklayacağımızı şimdilik ben belirlemiş oldum 
-const STORAGE_KEY = 'favoriteRecipes';
-
-const getFavorites = () => JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+import { isFavorite, addFavorite, removeFavorite } from './local_favorites.js';
 
 export function openRecipeModal(recipe) {
     const modalRoot = document.getElementById("modal-root");
     if (!modalRoot) return;
-    const favorites = getFavorites();
-    const isFav = favorites.some(item => item._id === recipe._id);
+
+    const isFav = isFavorite(recipe._id);
     const buttonText = isFav ? "Remove favorite" : "Add to favorite";
 
     modalRoot.innerHTML = `
@@ -62,18 +57,13 @@ function bindModalEvents(modalRoot, recipe) {
     const favBtn = modalRoot.querySelector("#favBtn");
 
     favBtn.onclick = () => {
-        let favorites = getFavorites();
-        const index = favorites.findIndex(item => item._id === recipe._id);
-
-        if (index === -1) {
-            favorites.push(recipe);
-            favBtn.textContent = "Remove favorite";
-        } else {
-            favorites.splice(index, 1);
+        if (isFavorite(recipe._id)) {
+            removeFavorite(recipe._id);
             favBtn.textContent = "Add to favorite";
+        } else {
+            addFavorite(recipe);
+            favBtn.textContent = "Remove favorite";
         }
-
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
     };
 
     if (ratingBtn) {
