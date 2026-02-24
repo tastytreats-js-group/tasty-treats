@@ -1,54 +1,128 @@
-<script type="module" crossorigin src="/tasty-treats/favorites.js"></script>
-<link rel="modulepreload" crossorigin href="/tasty-treats/assets/header-Ddvfl8jP.js">
-<link rel="stylesheet" crossorigin href="/tasty-treats/assets/header-DjQ1EOl5.css">
-<section class="favorites section">
-  <div class="container">
-    <!-- Title -->
-    <h1 class="favorites-title">Favorites</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TastyTreats</title>
 
+    <!-- Global styles -->
 
-    <!-- Hero -->
-    <div class="favorites-hero">
-      <img
-        src="./images/favorites/hero.jpg"
-        alt="Featured recipe"
-        class="favorites-hero-img"
-      />
+    <!-- Section styles -->
+    <link rel="stylesheet" href="./css/popular-recipes.css" />
+    <script type="module" crossorigin src="/tasty-treats/favorites.js"></script>
+    <link rel="modulepreload" crossorigin href="/tasty-treats/assets/header-CnC7bpm-.js">
+    <link rel="stylesheet" crossorigin href="/tasty-treats/assets/header-DOSZFgN9.css">
+    <link rel="stylesheet" crossorigin href="/tasty-treats/assets/favorites-75eRpoPV.css">
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+  <div class="container header-container">
+    <div class="mobil-menu">
+      <!-- Exit ikonu mobil -->
+      <a class="exit-icon-wrapper">
+        <svg class="exit-icon" width="32" height="32">
+          <use href="/tasty-treats/assets/header-symbol-defs-CxPjoSFF.svg#icon-exit"></use>
+        </svg>
+      </a>
+      <!-- liste mobil -->
+      <nav class="mobil-nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="./index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="./favorites.html" class="nav-link">Favorites</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- Tema değiştirme mobil -->
+      <div class="mobile-toggle-switch" id="mobile-toggle">
+        <div class="toggle-thumb"></div>
+      </div>
     </div>
-   <!-- Global styles
-     -->
 
-    <!-- Categories -->
-    <div class="favorites-categories">
-      <!-- JS ile doldurulacak -->
-      <!-- Örnek kategori butonu -->
-      <!--
-      <button class="category-btn active">All categories</button>
-      -->
-    </div>
+    <!-- liste -->
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="./index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="./favorites.html" class="nav-link">Favorites</a>
+        </li>
+      </ul>
+    </nav>
 
-    <!-- Recipes List -->
-    <div class="favorites-list">
-      <!-- JS ile kartlar buraya render edilecek -->
-    </div>
+    <!-- Logo-->
+    <a href="./index.html" class="logo"
+      ><span class="colored-logo">tasty</span>treats.</a
+    >
 
-    <!-- Empty State -->
-    <div class="favorites-empty is-hidden">
-      <div class="favorites-empty-icon">
-        <svg width="68" height="58">
-          <use href="./images/icons.svg#icon-heart"></use>
+    <!-- İkonlar-->
+    <div class="icons">
+      <div class="shopping-cart-icon-wrapper">
+        <svg class="shopping-cart-icon" width="24" height="24">
+          <use href="/tasty-treats/assets/header-symbol-defs-CxPjoSFF.svg#icon-shopping-cart"></use>
         </svg>
       </div>
-//feature/favorites
-      <p class="favorites-empty-text">
-        It appears that you haven't added any recipes to your favorites yet. To
-        get started, you can add recipes that you like to your favorites for
-        easier access in the future.
-      </p>
+
+      <div class="menu-icon-wrapper">
+        <svg class="menu-icon" width="32" height="32">
+          <use href="/tasty-treats/assets/header-symbol-defs-CxPjoSFF.svg#icon-menu"></use>
+        </svg>
+      </div>
+      <!-- Tema değiştirme -->
+      <div class="desktop-toggle-switch" id="desktop-toggle">
+        <div class="toggle-thumb"></div>
+      </div>
     </div>
   </div>
-</section>
+</header>
 
+
+    <main>
+      <section class="favorites section">
+        <div class="container">
+          <!-- Title -->
+          <h1 class="favorites-title">Favorites</h1>
+
+          <!-- Hero -->
+          <div class="favorites-hero">
+            <img
+              src="./images/favorites/hero.jpg"
+              alt="Featured recipe"
+              class="favorites-hero-img"
+            />
+          </div>
+
+          <!-- Categories -->
+          <div class="favorites-categories">
+            <!-- JS ile doldurulacak -->
+          </div>
+
+          <!-- Recipes List -->
+          <div class="favorites-list">
+            <!-- JS ile kartlar buraya render edilecek -->
+          </div>
+
+          <!-- Empty State -->
+          <div class="favorites-empty is-hidden">
+            <div class="favorites-empty-icon">
+              <svg width="68" height="58">
+                <use href="./images/icons.svg#icon-heart"></use>
+              </svg>
+            </div>
+
+            <p class="favorites-empty-text">
+              It appears that you haven't added any recipes to your favorites
+              yet. To get started, you can add recipes that you like to your
+              favorites for easier access in the future.
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- FOOTER -->
@@ -57,4 +131,3 @@
     <!-- Favorites page script -->
   </body>
 </html>
-
