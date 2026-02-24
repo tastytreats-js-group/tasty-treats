@@ -92,7 +92,6 @@ if (recipeList) {
   recipeList.addEventListener('click', async event => {
     const seeRecipeBtn = event.target.closest('.seeRecipe');
 
-    // Open pop-up for recipe details when clicked on
     if (seeRecipeBtn) {
       const recipeId = seeRecipeBtn.closest('.recipeCard').dataset.id;
       try {
@@ -105,13 +104,9 @@ if (recipeList) {
       }
     }
 
-    // add liked elements to localstorage
     const likeButton = event.target.closest('.likeButton');
     if (likeButton) {
-      const recipeId = likeButton.closest('.recipeCard').dataset.id;
-      const likedRecipes =
-        JSON.parse(localStorage.getItem('likedRecipes')) || {};
-
+        const recipeId = likeButton.closest('.recipeCard').dataset.id;
             if (isFavorite(recipeId)) {
                 removeFavorite(recipeId);
                 useEl.setAttribute("href", "../img/sprite.svg#icon-heart-outline");
