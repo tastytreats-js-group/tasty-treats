@@ -1,52 +1,67 @@
-<section class="favorites section">
-  <div class="container">
-    <!-- Title -->
-    <h1 class="favorites-title">Favorites</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TastyTreats</title>
 
-
-    <!-- Hero -->
-    <div class="favorites-hero">
-      <img
-        src="./images/favorites/hero.jpg"
-        alt="Featured recipe"
-        class="favorites-hero-img"
-      />
-    </div>
-   <!-- Global styles
-     -->
+    <!-- Global styles -->
     <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/themes.css" />
 
-    <!-- Categories -->
-    <div class="favorites-categories">
-      <!-- JS ile doldurulacak -->
-      <!-- Örnek kategori butonu -->
-      <!--
-      <button class="category-btn active">All categories</button>
-      -->
-    </div>
+    <!-- Section styles -->
+    <link rel="stylesheet" href="./css/modals-popups.css" />
+    <link rel="stylesheet" href="./css/recipes.css" />
+    <link rel="stylesheet" href="./css/popular-recipes.css" />
+    <link rel="stylesheet" href="./css/favorite-recipes.css" />
+  </head>
 
-    <!-- Recipes List -->
-    <div class="favorites-list">
-      <!-- JS ile kartlar buraya render edilecek -->
-    </div>
+  <body>
+    <!-- HEADER -->
+    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
 
-    <!-- Empty State -->
-    <div class="favorites-empty is-hidden">
-      <div class="favorites-empty-icon">
-        <svg width="68" height="58">
-          <use href="./images/icons.svg#icon-heart"></use>
-        </svg>
-      </div>
-//feature/favorites
-      <p class="favorites-empty-text">
-        It appears that you haven't added any recipes to your favorites yet. To
-        get started, you can add recipes that you like to your favorites for
-        easier access in the future.
-      </p>
-    </div>
-  </div>
-</section>
+    <main>
+      <section class="favorites section">
+        <div class="container">
+          <!-- Title -->
+          <h1 class="favorites-title">Favorites</h1>
 
+          <!-- Hero -->
+          <div class="favorites-hero">
+            <img
+              src="./images/favorites/hero.jpg"
+              alt="Featured recipe"
+              class="favorites-hero-img"
+            />
+          </div>
+
+          <!-- Categories -->
+          <div class="favorites-categories">
+            <!-- JS ile doldurulacak -->
+          </div>
+
+          <!-- Recipes List -->
+          <div class="favorites-list">
+            <!-- JS ile kartlar buraya render edilecek -->
+          </div>
+
+          <!-- Empty State -->
+          <div class="favorites-empty is-hidden">
+            <div class="favorites-empty-icon">
+              <svg width="68" height="58">
+                <use href="./images/icons.svg#icon-heart"></use>
+              </svg>
+            </div>
+
+            <p class="favorites-empty-text">
+              It appears that you haven't added any recipes to your favorites
+              yet. To get started, you can add recipes that you like to your
+              favorites for easier access in the future.
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- FOOTER -->
@@ -56,4 +71,3 @@
     <script type="module" src="./js/favorite-recipes.js"></script>
   </body>
 </html>
-
