@@ -9,11 +9,11 @@ export let params = {
 };
 
 function getlimit() {
-    const width = window.innerWidth;
-    if (width >= 1280) return 9;
-    if (width >= 768) return 8;
-    else return 6;
-};
+  const width = window.innerWidth;
+  if (width >= 1280) return 9;
+  if (width >= 768) return 8;
+  else return 6;
+}
 
 export async function loadRecipes() {
     try {
@@ -27,21 +27,25 @@ export async function loadRecipes() {
 loadRecipes();
 
 function renderStars(rating) {
-    const fullStars = Math.round(rating);
-    return Array.from({ length: 5 }, (_, i) => `
+  const fullStars = Math.round(rating);
+  return Array.from(
+    { length: 5 },
+    (_, i) => `
         <svg class="star ${i < fullStars ? 'star-filled' : 'star-empty'}">
             <use href="../img/sprite.svg#icon-star"></use>
         </svg>
-    `).join('');
+    `
+  ).join('');
 }
 
 const recipeList = document.querySelector(".recipeList");
 let currentRecipes = [];
 
 async function renderRecipes(results) {
-    currentRecipes = results;
-    recipeList.innerHTML = results
-        .map(result => `
+  currentRecipes = results;
+  recipeList.innerHTML = results
+    .map(
+      result => `
             <li class="recipeCard" data-id="${result._id}">
                 <div class="likeButton">
                     <svg class="like-icon">
@@ -60,47 +64,57 @@ async function renderRecipes(results) {
                     </div>
                 </div>
             </li>
-        `)
-        .join('');
-    
-    document.querySelectorAll(".recipeCard").forEach(card => {
-        const id = card.dataset.id;
-        const recipe = results.find(r => r._id === id);
-        card.style.backgroundImage = `linear-gradient(0.936deg, rgba(5, 5, 5, 60%) 0%, rgba(5, 5, 5, 0%) 100%),url(${recipe.preview})`;
-    });
-};
+            `
+    )
+    .join('');
+
+  // The gradient overlay in front of the background image
+  document.querySelectorAll('.recipeCard').forEach(card => {
+    const id = card.dataset.id;
+    const recipe = results.find(r => r._id === id);
+    card.style.backgroundImage = `linear-gradient(0.936deg, rgba(5, 5, 5, 60%) 0%, rgba(5, 5, 5, 0%) 100%),url(${recipe.preview})`;
+  });
+}
 
 if (recipeList) {
-    recipeList.addEventListener("click", async (event) => {
+  recipeList.addEventListener('click', async event => {
+    const seeRecipeBtn = event.target.closest('.seeRecipe');
 
-        // Tarif detay popup
-        const seeRecipeBtn = event.target.closest(".seeRecipe");
-        if (seeRecipeBtn) {
-            const recipeId = seeRecipeBtn.closest(".recipeCard").dataset.id;
-            try {
-                const { fetchRecipeDetails } = await import('../api/tastyTreats-api.js');
-                const recipeData = await fetchRecipeDetails(recipeId);
-                openRecipeModal(recipeData);
-            } catch (error) {
-                console.error("Tasty Error:", error);
-            }
-        }
+    // Open pop-up for recipe details when clicked on
+    if (seeRecipeBtn) {
+      const recipeId = seeRecipeBtn.closest('.recipeCard').dataset.id;
+      try {
+        const { fetchRecipeDetails } =
+          await import('../api/tastyTreats-api.js');
+        const recipeData = await fetchRecipeDetails(recipeId);
+        openRecipeModal(recipeData);
+      } catch (error) {
+        console.error('Tasty Error:', error);
+      }
+    }
 
-        // Kalp butonu
-        const likeButton = event.target.closest(".likeButton");
-        if (likeButton) {
-            const card = likeButton.closest(".recipeCard");
-            const recipeId = card.dataset.id;
-            const useEl = likeButton.querySelector("use");
+    // add liked elements to localstorage
+    const likeButton = event.target.closest('.likeButton');
+    if (likeButton) {
+      const recipeId = likeButton.closest('.recipeCard').dataset.id;
+      const likedRecipes =
+        JSON.parse(localStorage.getItem('likedRecipes')) || {};
 
-            if (isFavorite(recipeId)) {
-                removeFavorite(recipeId);
-                useEl.setAttribute("href", "../img/sprite.svg#icon-heart-outline");
-            } else {
-                const recipe = currentRecipes.find(r => r._id === recipeId);
-                addFavorite(recipe);
-                useEl.setAttribute("href", "../img/sprite.svg#icon-heart-filled");
-            }
-        }
-    });
+      if (likedRecipes[recipeId]) {
+        delete likedRecipes[recipeId];
+        likeButton
+          .querySelector('use')
+          .setAttribute('href', './img/sprite.svg#icon-heart-outline');
+      } else {
+        const recipe = currentRecipes.find(r => r._id === recipeId);
+        likedRecipes[recipeId] = recipe;
+        likeButton
+          .querySelector('use')
+          .setAttribute('href', './img/sprite.svg#icon-heart-filled');
+      }
+
+      localStorage.setItem('likedRecipes', JSON.stringify(likedRecipes));
+      console.log(likedRecipes);
+    }
+  });
 }
