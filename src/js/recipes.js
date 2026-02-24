@@ -1,15 +1,13 @@
-console.log('FILE IS RUNNING'); //filecheck
+console.log('FILE IS RUNNING');
 import { fetchFilteredRecipes } from '../api/tastyTreats-api.js';
 import { openRecipeModal } from './recipeModal.js';
+import { addFavorite, removeFavorite, isFavorite } from './local_favorites.js';
 
-// API search parameters
 let params = {
     page: 1,
     limit: getlimit()
 };
 
-
-// Number of cards that will show up regarding the page width
 function getlimit() {
     const width = window.innerWidth;
     if (width >= 1280) return 9;
@@ -17,20 +15,17 @@ function getlimit() {
     else return 6;
 };
 
-// Get recipes from API
 async function loadRecipes() {
     try {
         const data = await fetchFilteredRecipes(params);
-        console.log(data);
-        renderRecipes(data.results)
+        renderRecipes(data.results);
     } catch (error) {
-        console.error('Recipes could not load', error)
+        console.error('Recipes could not load', error);
     }
 };
 
 loadRecipes();
 
-// Number of stars that will show up regarding the rating
 function renderStars(rating) {
     const fullStars = Math.round(rating);
     return Array.from({ length: 5 }, (_, i) => `
@@ -40,7 +35,6 @@ function renderStars(rating) {
     `).join('');
 }
 
-// Render recipes on page
 const recipeList = document.querySelector(".recipeList");
 let currentRecipes = [];
 
@@ -51,7 +45,7 @@ async function renderRecipes(results) {
             <li class="recipeCard" data-id="${result._id}">
                 <div class="likeButton">
                     <svg class="like-icon">
-                        <use href="../img/sprite.svg#icon-heart-outline"></use>
+                        <use href="../img/sprite.svg#icon-${isFavorite(result._id) ? 'heart-filled' : 'heart-outline'}"></use>
                     </svg>
                 </div>
                 <div class="rest">
@@ -66,32 +60,21 @@ async function renderRecipes(results) {
                     </div>
                 </div>
             </li>
-            `
-    )
+        `)
         .join('');
     
-    // The gradient overlay in front of the background image
     document.querySelectorAll(".recipeCard").forEach(card => {
         const id = card.dataset.id;
         const recipe = results.find(r => r._id === id);
         card.style.backgroundImage = `linear-gradient(0.936deg, rgba(5, 5, 5, 60%) 0%, rgba(5, 5, 5, 0%) 100%),url(${recipe.preview})`;
     });
-
-    // Check for already liked recipes
-    const likedRecipes = JSON.parse(localStorage.getItem("likedRecipes")) || {};
-    document.querySelectorAll(".recipeCard").forEach(card => {
-        if (likedRecipes[card.dataset.id]) {
-            card.querySelector("use").setAttribute("href", "../img/sprite.svg#icon-heart-filled");
-        }
-    });
 };
 
-// Recipecard event listeners
 if (recipeList) {
     recipeList.addEventListener("click", async (event) => {
-        const seeRecipeBtn = event.target.closest(".seeRecipe");
 
-        // Open pop-up for recipe details when clicked on 
+        // Tarif detay popup
+        const seeRecipeBtn = event.target.closest(".seeRecipe");
         if (seeRecipeBtn) {
             const recipeId = seeRecipeBtn.closest(".recipeCard").dataset.id;
             try {
@@ -103,24 +86,21 @@ if (recipeList) {
             }
         }
 
-        // add liked elements to localstorage
+        // Kalp butonu
         const likeButton = event.target.closest(".likeButton");
         if (likeButton) {
-            const recipeId = likeButton.closest(".recipeCard").dataset.id;
-            const likedRecipes = JSON.parse(localStorage.getItem("likedRecipes")) || {};
+            const card = likeButton.closest(".recipeCard");
+            const recipeId = card.dataset.id;
+            const useEl = likeButton.querySelector("use");
 
-            if (likedRecipes[recipeId]) {
-                delete likedRecipes[recipeId];
-                likeButton.querySelector("use").setAttribute("href", "./img/sprite.svg#icon-heart-outline");
+            if (isFavorite(recipeId)) {
+                removeFavorite(recipeId);
+                useEl.setAttribute("href", "../img/sprite.svg#icon-heart-outline");
             } else {
                 const recipe = currentRecipes.find(r => r._id === recipeId);
-                likedRecipes[recipeId] = recipe;
-                likeButton.querySelector("use").setAttribute("href", "./img/sprite.svg#icon-heart-filled");
+                addFavorite(recipe);
+                useEl.setAttribute("href", "../img/sprite.svg#icon-heart-filled");
             }
-
-            localStorage.setItem("likedRecipes", JSON.stringify(likedRecipes));
-            console.log(likedRecipes);
         }
     });
 }
-
