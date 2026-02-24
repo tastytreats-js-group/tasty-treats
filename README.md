@@ -9,7 +9,7 @@ TastyTreats - Customize Your Meal with Ingredient Options and Step-by-Step Video
 ## 👥 Contributors
 
 1. **Elif Nur Köseoğlu** - Team Leader
-   - Project setup, API layer, Favorites page
+   - Project setup, API layer 
 
 2. **Hilal Verel** - Scrum Master
    - Recipes main list
