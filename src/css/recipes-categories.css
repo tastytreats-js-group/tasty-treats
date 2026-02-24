@@ -50,9 +50,9 @@
   font-size: 14px;
   line-height: 18px;
 }
-.category-item:hover,
-.category-item:active,
-.category-item:focus {
+.category-item-btn:hover,
+.category-item-btn:active,
+.category-item-btn:focus {
   color: rgba(155, 181, 55, 1);
 }
 .categories-list::-webkit-scrollbar-button {
