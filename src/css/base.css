@@ -55,28 +55,22 @@ html {
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-
   font-family: var(--font-family);
   font-weight: var(--font-weight);
   line-height: var(--line-height);
- 
   margin: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   font-family: var(--font-family);
   line-height: 1.5;
-  background-color: var(--page-bg);  /* ← bu satır var mı kontrol et */
+  background-color: var(--page-bg); /* ← bu satır var mı kontrol et */
   color: var(--text-color);
-
 }
 
 main {
   flex-grow: 1;
+  padding: 20px;
 }
 
 img {

@@ -1,0 +1,396 @@
+/* Recipes Filter Styles */
+
+.filter-header {
+  margin: 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--charcoal);
+  display: none;
+}
+
+.filter-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white-smoke);
+  text-transform: uppercase;
+}
+
+.filter-form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  letter-spacing: 0.025em;
+}
+
+.filter-input,
+.filter-select {
+  padding: 8px 10px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  border-radius: 15px;
+  background-color: #f9fafb;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(5, 5, 5, 0.5);
+  transition: all 0.3s ease;
+  height: 48px;
+}
+
+.filter-input:focus,
+.filter-select:focus {
+  border-color: var(--pistachio);
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.filter-select {
+  cursor: pointer;
+  appearance: none;
+  padding-right: 40px;
+  border-radius: 14px;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px;
+}
+
+.filter-select option {
+  color: #050505;
+  padding: 10px;
+}
+
+.filter-select option:disabled {
+  display: none;
+}
+
+.filter-select option:hover,
+.filter-select option:focus {
+  background-color: #d1d5db;
+}
+
+.filter-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Search input with value */
+.filter-input.has-value {
+  color: #050505;
+  font-weight: 600;
+}
+
+/* Search input wrapper */
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  flex-shrink: 0;
+  pointer-events: none;
+  fill: rgba(5, 5, 5, 0.5);
+  transition: fill 0.3s ease;
+}
+
+.search-input-wrapper:hover .search-icon {
+  fill: #9bb537;
+}
+
+.search-input:focus + .search-icon {
+  fill: #9bb537;
+}
+
+.search-input {
+  padding-left: 40px !important;
+  width: 100%;
+}
+
+/* Custom Select Dropdown Styles */
+.custom-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.custom-select-button {
+  width: 100%;
+  padding: 0px 18px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  border-radius: 14px;
+  background-color: #f9fafb;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(5, 5, 5, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  appearance: none;
+  padding-right: 40px;
+  height: 48px;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px;
+}
+
+.custom-select-button:hover,
+.custom-select-button:focus {
+  border-color: var(--pistachio);
+  background-color: white;
+  color: #050505;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.custom-select-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 4px;
+  background-color: #f9fafb;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  border-radius: 14px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000;
+  display: none;
+  padding-right: 4px;
+}
+
+.custom-select-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-select-menu::-webkit-scrollbar-track {
+  background: #f9fafb;
+  border-radius: 14px;
+  margin: 8px 0;
+}
+
+.custom-select-menu::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 14px;
+}
+
+.custom-select-menu::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.custom-select-menu.active {
+  display: block;
+}
+
+.custom-select-item {
+  padding: 10px 18px;
+  color: #050505;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.custom-select-item:hover {
+  background-color: #d1d5db;
+}
+
+/* Reset Button */
+.filter-reset-btn {
+  border: none;
+  background: transparent;
+  color: rgba(5, 5, 5, 0.5);
+  line-height: 133%;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 48px;
+  grid-column: 3 / 5;
+  justify-self: flex-end;
+}
+
+.filter-reset-btn svg {
+  flex-shrink: 0;
+  stroke-width: 1.5px;
+}
+
+.filter-reset-btn:hover {
+  color: #9bb537;
+}
+
+.filter-reset-btn:active {
+  transform: scale(0.91);
+}
+
+/* Responsive Design */
+@media (max-width: 1280px) {
+  .filter-form {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .filter-reset-btn {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 8px;
+    justify-self: stretch;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1280px) {
+  .filter-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filter-reset-btn {
+    grid-column: 2;
+    justify-self: flex-end;
+    width: auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  .recipes-filter-container {
+    padding: 14px 0px;
+  }
+
+  .filter-input,
+  .filter-select {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+}
+
+/* Empty state for filters */
+.filter-error {
+  padding: 12px 14px;
+  border-radius: 6px;
+  background-color: rgba(238, 161, 12, 0.1);
+  color: var(--white-smoke);
+  font-size: 12px;
+  text-align: center;
+  display: none;
+}
+
+.filter-error.active {
+  display: block;
+}
+
+/* Loading state */
+.filter-loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Dark Theme */
+body[data-theme='dark'] .filter-label {
+  color: #f8f8f8;
+}
+
+body[data-theme='dark'] .filter-input,
+body[data-theme='dark'] .filter-select {
+  background-color: #1a1a1a;
+  color: #f8f8f8;
+  border-color: rgba(248, 248, 248, 0.2);
+}
+
+body[data-theme='dark'] .filter-input:focus,
+body[data-theme='dark'] .filter-select:focus {
+  background-color: #2a2a2a;
+  color: #f8f8f8;
+  border-color: var(--pistachio);
+}
+
+body[data-theme='dark'] .filter-select option {
+  background-color: #1a1a1a;
+  color: #f8f8f8;
+}
+
+body[data-theme='dark'] .filter-select option:hover,
+body[data-theme='dark'] .filter-select option:focus {
+  background-color: #333333;
+}
+
+body[data-theme='dark'] .custom-select-button {
+  background-color: #1a1a1a;
+  color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(248, 248, 248, 0.2);
+}
+
+body[data-theme='dark'] .custom-select-button:hover,
+body[data-theme='dark'] .custom-select-button:focus {
+  background-color: #2a2a2a;
+  color: #f8f8f8;
+  border-color: var(--pistachio);
+}
+
+body[data-theme='dark'] .custom-select-menu {
+  background-color: #1a1a1a;
+  border-color: rgba(248, 248, 248, 0.2);
+}
+
+body[data-theme='dark'] .custom-select-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+body[data-theme='dark'] .custom-select-menu::-webkit-scrollbar-track {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  margin: 8px 0;
+}
+
+body[data-theme='dark'] .custom-select-menu::-webkit-scrollbar-thumb {
+  background: #444444;
+  border-radius: 10px;
+}
+
+body[data-theme='dark'] .custom-select-menu::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+body[data-theme='dark'] .custom-select-item {
+  color: #f8f8f8;
+}
+
+body[data-theme='dark'] .custom-select-item:hover {
+  background-color: #333333;
+}
+
+body[data-theme='dark'] .filter-reset-btn {
+  color: #f8f8f8;
+}
+
+body[data-theme='dark'] .filter-reset-btn:hover {
+  color: #9bb537;
+}
+
+/* Dark theme for search icon */
+body[data-theme='dark'] .search-icon {
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+body[data-theme='dark'] .search-input-wrapper:hover .search-icon {
+  fill: #9bb537;
+}
+
+body[data-theme='dark'] .search-input:focus + .search-icon {
+  fill: #9bb537;
+}
