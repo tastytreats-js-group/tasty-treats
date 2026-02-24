@@ -1,6 +1,6 @@
 :root {
-/* HEADER BÖLÜMÜ */
-    /* mobil */
+  /* HEADER BÖLÜMÜ */
+  /* mobil */
   --logo-text-color: #050505;
   --menu-svg-color: #050505;
   --menu-svg-bg-color: #f8f8f8;
@@ -16,17 +16,17 @@
   --menu-text-color: #050505;
   --menu-activ-text-color: #9bb537;
   --toggle-desktop-box-shadow-color: rgba(160, 158, 160, 0.4);
-/* HEADER BÖLÜMÜ SONU */
+  /* HEADER BÖLÜMÜ SONU */
 
-/* GLOBAL */
+  /* GLOBAL */
   --page-bg: #ffffff;
   --text-color: #050505;
-/* GLOBAL SONU */
+  /* GLOBAL SONU */
 }
 
 body[data-theme='dark'] {
-    /* HEADER BÖLÜMÜ */
-    /* mobil */
+  /* HEADER BÖLÜMÜ */
+  /* mobil */
   --logo-text-color: #fff;
   --menu-svg-color: #fff;
   --menu-svg-bg-color: #161616;
@@ -42,14 +42,32 @@ body[data-theme='dark'] {
   --toggle-thumb-color: #f3f3f3;
   --toggle-box-shadow-color: rgba(22, 22, 22, 0.6);
 
-    /* tablet */
+  /* tablet */
   --menu-text-color: #fff;
   --menu-activ-text-color: #9bb537;
   --toggle-desktop-box-shadow-color: rgba(22, 22, 22, 0.6);
   /* HEADER BÖLÜMÜ SONU */
 
-/* GLOBAL */
+  /* GLOBAL */
   --page-bg: #161616;
   --text-color: #f8f8f8;
-/* GLOBAL SONU */
+  /* GLOBAL SONU */
+
+  /* #region PAGINATION */
+  .pagination button {
+    background-color: #050505;
+    color: #fff;
+    border: 1px rgba(255, 255, 255, 0.3);
+  }
+
+  .pagination button:disabled {
+    color: rgba(248, 248, 248, 0.5);
+  }
+
+  .nextpage:not(:disabled),
+  .lastpage:not(:disabled) {
+    background-color: #9bb537;
+    color: #050505;
+  }
+  /* #endregion */
 }

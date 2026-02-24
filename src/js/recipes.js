@@ -34,13 +34,14 @@ function renderPagination(totalPages, page) {
   if (!pagination) return;
 
   function getPageNumbers() {
+    const isMobile = window.innerWidth <= 375;
     const pages = [];
     if (totalPages <= 3) {
       for (let i = 1; i <= totalPages; i++) pages.push(i)
     } else {
       pages.push(1);
       if (page > 3) pages.push('...');
-      for (let i = Math.max(2, page - 1); i <= Math.min(totalPages - 1, page + 2); i++) {
+      for (let i = Math.max(2, page - 1); i <= Math.min(totalPages - 1, page + (isMobile ? 1 : 2)); i++) {
         pages.push(i);
       }
       if (page < totalPages - 2) pages.push('...');
