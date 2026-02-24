@@ -59,12 +59,16 @@ function bindModalEvents(modalRoot, recipe) {
     favBtn.onclick = () => {
         if (isFavorite(recipe._id)) {
             removeFavorite(recipe._id);
-            favBtn.textContent = "Add to favorite";
         } else {
             addFavorite(recipe);
-            favBtn.textContent = "Remove favorite";
         }
     };
+    const syncModalBtn = (event) => {
+        if (event.detail.recipeId === recipe._id) {
+            favBtn.textContent = event.detail.status ? "Remove favorite" : "Add to favorite";
+        }
+    };
+    window.addEventListener('favoritesUpdated', syncModalBtn);
 
     if (ratingBtn) {
         ratingBtn.onclick = () => {
@@ -76,6 +80,7 @@ function bindModalEvents(modalRoot, recipe) {
         modalRoot.style.display = "none";
         modalRoot.innerHTML = "";
         document.body.style.overflow = "auto";
+        window.removeEventListener('favoritesUpdated', syncModalBtn);
     };
 
     closeBtn.onclick = closeModal;

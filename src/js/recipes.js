@@ -92,7 +92,6 @@ if (recipeList) {
   recipeList.addEventListener('click', async event => {
     const seeRecipeBtn = event.target.closest('.seeRecipe');
 
-    // Open pop-up for recipe details when clicked on
     if (seeRecipeBtn) {
       const recipeId = seeRecipeBtn.closest('.recipeCard').dataset.id;
       try {
@@ -105,28 +104,30 @@ if (recipeList) {
       }
     }
 
-    // add liked elements to localstorage
     const likeButton = event.target.closest('.likeButton');
     if (likeButton) {
-      const recipeId = likeButton.closest('.recipeCard').dataset.id;
-      const likedRecipes =
-        JSON.parse(localStorage.getItem('likedRecipes')) || {};
-
-      if (likedRecipes[recipeId]) {
-        delete likedRecipes[recipeId];
-        likeButton
-          .querySelector('use')
-          .setAttribute('href', './img/sprite.svg#icon-heart-outline');
-      } else {
-        const recipe = currentRecipes.find(r => r._id === recipeId);
-        likedRecipes[recipeId] = recipe;
-        likeButton
-          .querySelector('use')
-          .setAttribute('href', './img/sprite.svg#icon-heart-filled');
-      }
-
-      localStorage.setItem('likedRecipes', JSON.stringify(likedRecipes));
-      console.log(likedRecipes);
-    }
-  });
+        const recipeId = likeButton.closest('.recipeCard').dataset.id;
+            if (isFavorite(recipeId)) {
+                removeFavorite(recipeId);
+                useEl.setAttribute("href", "../img/sprite.svg#icon-heart-outline");
+            } else {
+                const recipe = currentRecipes.find(r => r._id === recipeId);
+                addFavorite(recipe);
+                useEl.setAttribute("href", "../img/sprite.svg#icon-heart-filled");
+            }
+        }
+    });
+    
 }
+window.addEventListener('favoritesUpdated', (event) => {
+    const { recipeId, status } = event.detail;
+    
+    const card = document.querySelector(`.recipeCard[data-id="${recipeId}"]`);
+    if (card) {
+        const useEl = card.querySelector(".likeButton use");
+        if (useEl) {
+            const iconPath = status ? 'heart-filled' : 'heart-outline';
+            useEl.setAttribute("href", `../img/sprite.svg#icon-${iconPath}`);
+        }
+    }
+});
