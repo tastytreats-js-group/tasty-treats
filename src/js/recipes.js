@@ -3,7 +3,7 @@ import { fetchFilteredRecipes } from '../api/tastyTreats-api.js';
 import { openRecipeModal } from './recipeModal.js';
 import { addFavorite, removeFavorite, isFavorite } from './local_favorites.js';
 
-let params = {
+export let params = {
     page: 1,
     limit: getlimit()
 };
@@ -15,7 +15,7 @@ function getlimit() {
     else return 6;
 };
 
-async function loadRecipes() {
+export async function loadRecipes() {
     try {
         const data = await fetchFilteredRecipes(params);
         renderRecipes(data.results);
