@@ -1,4 +1,4 @@
-import{g as d}from"./assets/local_favorites-BgcPOv3F.js";const a=document.querySelector(".js-favorites-list"),i=document.querySelector(".js-favorites-categories"),u=document.querySelector(".js-favorites-empty");let n=[],s="All";document.addEventListener("DOMContentLoaded",m);function m(){if(n=d(),!n.length){g();return}c(),r(n)}function g(){u.classList.remove("is-hidden"),a.classList.add("is-hidden"),i.classList.add("is-hidden")}function r(t){a.innerHTML=t.map(f).join("")}function f(t){return`
+import{g as d}from"./assets/local_favorites-D4wuWqlQ.js";const a=document.querySelector(".js-favorites-list"),i=document.querySelector(".js-favorites-categories"),u=document.querySelector(".js-favorites-empty");let n=[],s="All";document.addEventListener("DOMContentLoaded",m);function m(){if(n=d(),!n.length){g();return}c(),r(n)}function g(){u.classList.remove("is-hidden"),a.classList.add("is-hidden"),i.classList.add("is-hidden")}function r(t){a.innerHTML=t.map(f).join("")}function f(t){return`
     <li class="recipe-card">
       <img 
         src="${t.thumb}" 
