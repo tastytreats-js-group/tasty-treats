@@ -19,10 +19,8 @@ function saveFavorites(favorites) {
 // Favori ekle
 export function addFavorite(recipe) {
   const favorites = getFavorites();
-
-  const exists = favorites.some(item => item.id === recipe.id);
+  const exists = favorites.some(item => item._id === recipe._id);
   if (exists) return;
-
   favorites.push(recipe);
   saveFavorites(favorites);
 }
@@ -30,12 +28,12 @@ export function addFavorite(recipe) {
 // Favori sil
 export function removeFavorite(recipeId) {
   const favorites = getFavorites();
-  const updated = favorites.filter(item => item.id !== recipeId);
+  const updated = favorites.filter(item => item._id !== recipeId);
   saveFavorites(updated);
 }
 
 // Favori kontrol
 export function isFavorite(recipeId) {
   const favorites = getFavorites();
-  return favorites.some(item => item.id === recipeId);
+  return favorites.some(item => item._id === recipeId);
 }

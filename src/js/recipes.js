@@ -1,6 +1,7 @@
-console.log('FILE IS RUNNING'); //filecheck
+console.log('FILE IS RUNNING');
 import { fetchFilteredRecipes } from '../api/tastyTreats-api.js';
 import { openRecipeModal } from './recipeModal.js';
+import { addFavorite, removeFavorite, isFavorite } from './local_favorites.js';
 
 // API search parameters
 export let params = {
@@ -16,20 +17,17 @@ function getlimit() {
   else return 6;
 }
 
-// Get recipes from API
 export async function loadRecipes() {
-  try {
-    const data = await fetchFilteredRecipes(params);
-    console.log(data);
-    renderRecipes(data.results);
-  } catch (error) {
-    console.error('Recipes could not load', error);
-  }
-}
+    try {
+        const data = await fetchFilteredRecipes(params);
+        renderRecipes(data.results);
+    } catch (error) {
+        console.error('Recipes could not load', error);
+    }
+};
 
 loadRecipes();
 
-// Number of stars that will show up regarding the rating
 function renderStars(rating) {
   const fullStars = Math.round(rating);
   return Array.from(
@@ -42,8 +40,7 @@ function renderStars(rating) {
   ).join('');
 }
 
-// Render recipes on page
-const recipeList = document.querySelector('.recipeList');
+const recipeList = document.querySelector(".recipeList");
 let currentRecipes = [];
 
 async function renderRecipes(results) {
@@ -54,7 +51,7 @@ async function renderRecipes(results) {
             <li class="recipeCard" data-id="${result._id}">
                 <div class="likeButton">
                     <svg class="like-icon">
-                        <use href="../img/sprite.svg#icon-heart-outline"></use>
+                        <use href="../img/sprite.svg#icon-${isFavorite(result._id) ? 'heart-filled' : 'heart-outline'}"></use>
                     </svg>
                 </div>
                 <div class="rest">
@@ -91,7 +88,6 @@ async function renderRecipes(results) {
   });
 }
 
-// Recipecard event listeners
 if (recipeList) {
   recipeList.addEventListener('click', async event => {
     const seeRecipeBtn = event.target.closest('.seeRecipe');

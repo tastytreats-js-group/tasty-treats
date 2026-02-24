@@ -5,4 +5,5 @@ window.addEventListener('load', () => {
 });
 
 import './js/recipes.js';
+import './js/recipes-filter.js';
 import './js/recipes-categories.js';
