@@ -11,9 +11,9 @@ export let params = {
 
 function getlimit() {
   const width = window.innerWidth;
-  if (width >= 1280) return 9;
-  if (width >= 768) return 8;
-  else return 6;
+  if (width >= 1280) return 16;
+  if (width >= 768) return 12;
+  else return 8;
 }
 
 // Get recipes from API
