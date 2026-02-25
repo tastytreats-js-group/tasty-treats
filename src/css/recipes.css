@@ -119,6 +119,7 @@
   display: flex;
   align-items: center;
   gap: 14px;
+  padding: 20px;
 }
 
 .firstandprev,
@@ -132,7 +133,7 @@
 .pagination button {
   width: 40px;
   height: 40px;
-  border-radius: 100%;
+  border-radius: 50%;
   border: 1px rgba(5, 5, 5, 0.3); /* NİYE ÇALIŞMIYOR???*/
   cursor: pointer;
   font-weight: 600;
