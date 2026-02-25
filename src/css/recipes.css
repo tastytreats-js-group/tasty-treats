@@ -1,9 +1,33 @@
+.recipes-big-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.recipes-big-container-left,
+.recipes-big-container-right {
+  width: 100%;
+}
+
+.recipes-big-container-left {
+  display: grid;
+  gap: 32px;
+}
+
+.recipes-big-container-right {
+  display: grid;
+  gap: 20px;
+}
+
 .recipeList {
   display: flex;
   flex-direction: column;
   gap: 24px;
   list-style-type: none;
   padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  justify-content: center;
 }
 
 .recipeCard {
@@ -116,9 +140,27 @@
 
 /* #region media queries for tablets */
 @media (min-width: 768px) {
+  .recipes-big-container {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
+
+  .recipes-big-container-left {
+    position: sticky;
+    top: 16px;
+  }
+
+  .recipes-big-container-right {
+    gap: 24px;
+  }
+
   .recipeList {
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 16px;
   }
 
   .recipeCard {
@@ -140,6 +182,23 @@
 
 /* #region media queries for desktop */
 @media (min-width: 1158px) {
+  .recipes-big-container {
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .recipes-big-container-left {
+    gap: 40px;
+  }
+
+  .recipes-big-container-right {
+    gap: 28px;
+  }
+
+  .recipeList {
+    gap: 18px;
+  }
+
   .recipeCard {
     width: 250px;
     height: 287px;
@@ -156,3 +215,45 @@
   }
 }
 /* #endregion */
+
+@media (max-width: 1279px) {
+  .recipes-big-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .recipes-big-container-left,
+  .recipes-big-container-right {
+    max-width: 704px;
+  }
+
+  .recipes-big-container-left {
+    position: static;
+    justify-items: center;
+  }
+
+  .recipes-big-container-right {
+    justify-items: center;
+  }
+
+  .recipeList {
+    justify-content: center;
+  }
+
+  .recipeCard {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .rest {
+    align-items: center;
+    text-align: center;
+  }
+
+  .ratingandbutton {
+    justify-content: center;
+    gap: 14px;
+  }
+}

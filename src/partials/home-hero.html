@@ -33,12 +33,34 @@
           </div>
           <div class="home-slide-main">
             <div class="home-slide-bg">
-              <img src="./img/HeroMobile1.2.png" alt="main meal" />
+              <img
+                src="./img/HeroMobile1.2.png"
+                srcset="
+                  ./img/HeroMobile1.2.png   480w,
+                  ./img/HeroDesktop1.2.png  768w,
+                  ./img/HeroDesktop1.2.png 1280w
+                "
+                sizes="(max-width: 480px) 200px,
+                     (max-width: 1279px) 351px,
+                                       351px"
+                alt="main meal"
+              />
               <div class="home-slide-text"></div>
             </div>
           </div>
           <div class="home-slide-partial">
-            <img src="./img/HeroMobile1.3.png" alt="zoomed meal" />
+            <img
+              src="./img/HeroMobile1.3.png"
+              srcset="
+                ./img/HeroMobile1.3.png   480w,
+                ./img/HeroDesktop1.3.png  768w,
+                ./img/HeroDesktop1.3.png 1280w
+              "
+              sizes="(max-width: 480px) 59px,
+                   (max-width: 1279px) 182px,
+                                     182px"
+              alt="zoomed meal"
+            />
           </div>
         </div>
 
@@ -59,12 +81,34 @@
           </div>
           <div class="home-slide-main">
             <div class="home-slide-bg">
-              <img src="./img/HeroMobile2.2.png" alt="main meal" />
+              <img
+                src="./img/HeroMobile2.2.png"
+                srcset="
+                  ./img/HeroMobile2.2.png   480w,
+                  ./img/HeroDesktop2.2.png  768w,
+                  ./img/HeroDesktop2.2.png 1280w
+                "
+                sizes="(max-width: 480px) 200px,
+                     (max-width: 1279px) 351px,
+                                       351px"
+                alt="main meal"
+              />
               <div class="home-slide-text"></div>
             </div>
           </div>
           <div class="home-slide-partial">
-            <img src="./img/HeroMobile2.3.png" alt="zoomed meal" />
+            <img
+              src="./img/HeroMobile2.3.png"
+              srcset="
+                ./img/HeroMobile2.3.png   480w,
+                ./img/HeroDesktop2.3.png  768w,
+                ./img/HeroDesktop2.3.png 1280w
+              "
+              sizes="(max-width: 480px) 185px,
+                   (max-width: 1279px) 351px,
+                                     351px"
+              alt="zoomed meal"
+            />
           </div>
         </div>
 
@@ -85,20 +129,42 @@
           </div>
           <div class="home-slide-main">
             <div class="home-slide-bg">
-              <img src="./img/HeroMobile3.2.png" alt="main meal" />
+              <img
+                src="./img/HeroMobile3.2.png"
+                srcset="
+                  ./img/HeroMobile3.2.png   480w,
+                  ./img/HeroDesktop3.2.png  768w,
+                  ./img/HeroDesktop3.2.png 1280w
+                "
+                sizes="(max-width: 480px) 200px,
+                     (max-width: 1279px) 351px,
+                                       351px"
+                alt="main meal"
+              />
               <div class="home-slide-text"></div>
             </div>
           </div>
           <div class="home-slide-partial">
-            <img src="./img/HeroMobile3.3.png" alt="zoomed meal" />
+            <img
+              src="./img/HeroMobile3.3.png"
+              srcset="
+                ./img/HeroMobile3.3.png   480w,
+                ./img/HeroDesktop3.3.png  768w,
+                ./img/HeroDesktop3.3.png 1280w
+              "
+              sizes="(max-width: 480px) 200px,
+                   (max-width: 1279px) 351px,
+                                     351px"
+              alt="zoomed meal"
+            />
           </div>
         </div>
       </div>
 
       <div class="home-dots">
-        <span class="home-dot active"></span>
-        <span class="home-dot"></span>
-        <span class="home-dot"></span>
+        <button type="button" class="home-dot active" aria-label="Go to slide 1"></button>
+        <button type="button" class="home-dot" aria-label="Go to slide 2"></button>
+        <button type="button" class="home-dot" aria-label="Go to slide 3"></button>
       </div>
     </div>
     <script type="module" src="./js/home-hero.js"></script>

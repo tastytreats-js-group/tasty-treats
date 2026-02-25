@@ -108,3 +108,15 @@ textarea {
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
 }
+
+@media (max-width: 767px) {
+  * {
+    scrollbar-width: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
