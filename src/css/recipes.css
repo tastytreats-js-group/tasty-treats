@@ -149,6 +149,8 @@
   color: rgba(248, 248, 248, 0.5);
 }
 
+.firstpage:not(:disabled),
+.previouspage:not(:disabled),
 .nextpage:not(:disabled),
 .lastpage:not(:disabled) {
   background-color: #9bb537;

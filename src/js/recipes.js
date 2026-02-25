@@ -38,12 +38,14 @@ function renderPagination(totalPages, page) {
     if (totalPages <= 3) {
       for (let i = 1; i <= totalPages; i++) pages.push(i)
     } else {
-      pages.push(1);
-      if (page > 3) pages.push('...');
-      for (let i = Math.max(2, page - 1); i <= Math.min(totalPages - 1, page + (isMobile ? 1 : 2)); i++) {
+      if (page === 1) {
+        pages.push(1, 2);
+        pages.push('...');
+      } else {
+        for (let i = page - 1; i <= Math.min(totalPages - 1, page + 1); i++) {
         pages.push(i);
+        }
       }
-      if (page < totalPages - 2) pages.push('...');
     }
     return pages;
   }
