@@ -1,4 +1,7 @@
 /* Recipes Filter Styles */
+.recipes-filter-container {
+  margin-bottom: 20px;
+}
 
 .filter-header {
   margin: 0;
@@ -16,10 +19,10 @@
 }
 
 .filter-form {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  align-items: start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 14px;
 }
 
 .filter-group {
@@ -29,10 +32,10 @@
 }
 
 .filter-label {
-  font-size: 14px;
   font-weight: 500;
-  color: #374151;
-  letter-spacing: 0.025em;
+  font-size: 12px;
+  line-height: 1.16667;
+  color: rgba(5, 5, 5, 0.5);
 }
 
 .filter-input,
@@ -46,6 +49,13 @@
   color: rgba(5, 5, 5, 0.5);
   transition: all 0.3s ease;
   height: 48px;
+}
+
+.filter-input::placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  color: rgba(5, 5, 5, 0.5);
 }
 
 .filter-input:focus,
@@ -96,7 +106,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  width: 100%;
+  min-width: 335px;
 }
 
 .search-icon {
@@ -124,7 +134,11 @@
 /* Custom Select Dropdown Styles */
 .custom-select-wrapper {
   position: relative;
-  width: 100%;
+  min-width: 160px;
+}
+
+.filter-form div:nth-child(4) .custom-select-wrapper {
+  min-width: 188px;
 }
 
 .custom-select-button {
@@ -133,14 +147,13 @@
   border: 1px solid rgba(5, 5, 5, 0.2);
   border-radius: 14px;
   background-color: #f9fafb;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   color: rgba(5, 5, 5, 0.5);
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: left;
   appearance: none;
-  padding-right: 40px;
   height: 48px;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
@@ -222,9 +235,8 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  height: 48px;
-  grid-column: 3 / 5;
-  justify-self: flex-end;
+  height: 16px;
+  margin-left: auto;
 }
 
 .filter-reset-btn svg {
@@ -241,7 +253,7 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1280px) {
+@media (min-width: 1280px) {
   .filter-form {
     grid-template-columns: 1fr;
     align-items: stretch;
