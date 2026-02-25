@@ -1,6 +1,5 @@
 import { fetchCategories, fetchFilteredRecipes } from '../api/tastyTreats-api';
 import { params, loadRecipes } from './recipes.js';
-document.querySelector('.categories-btn').click();
 
 const container = document.querySelector('.categories-list');
 
@@ -29,7 +28,7 @@ const categoriesSection = document.querySelector('.categories-sec');
 
 categoriesSection.addEventListener('click', event => {
   if (event.target.tagName !== 'BUTTON') return;
-
+  document.querySelector('.categories-btn')?.classList.remove('beginning');
   const btn = event.target.closest('button[type="button"]');
   if (!btn) {
     delete params.category;
