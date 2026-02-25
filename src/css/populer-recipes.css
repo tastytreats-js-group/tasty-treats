@@ -51,6 +51,9 @@
   line-height: 1.33333;
   color: rgba(5, 5, 5, 0.8);
 }
+body[data-theme='dark'] .sidebar-populer .recipe-box-text {
+  color: rgba(255, 255, 255, 0.8);
+}
 /* TABLET STYLE */
 @media (min-width: 768px) {
   .sidebar-populer .recipe-list-item {
