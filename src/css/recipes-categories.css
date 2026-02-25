@@ -3,16 +3,24 @@
 .categories-sec {
   width: 326px;
 }
+body[data-theme='dark'] .category-item-btn {
+  color: rgba(255, 255, 255, 0.3);
+}
+body[data-theme='dark'] .categories-btn {
+  color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+body[data-theme='dark'] .category-item-btn:hover,
+body[data-theme='dark'] .category-item-btn:active,
+body[data-theme='dark'] .category-item-btn:focus {
+  color: rgba(155, 181, 55, 1);
+}
 .categories-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
+  color: rgba(5, 5, 5, 0.5);
   font-family: 'Inter', sans-serif;
   padding: 14px 29px;
   border: 1px solid rgba(5, 5, 5, 0.2);
   border-radius: 15px;
-  color: rgba(5, 5, 5, 0.5);
   font-size: 18px;
   line-height: 1;
   background-color: transparent;
@@ -37,10 +45,17 @@
   gap: 18px;
   height: 198px;
   overflow-y: scroll;
+  box-sizing: border-box;
+  padding-right: 6px; /* scrollbar için iç boşluk */
 }
 .categories-btn:hover,
 .categories-btn:active,
 .categories-btn:focus {
+  background-color: rgba(155, 181, 55, 1);
+  border-color: rgba(155, 181, 55, 1);
+  color: rgb(248, 248, 248);
+}
+.beginning {
   background-color: rgba(155, 181, 55, 1);
   border-color: rgba(155, 181, 55, 1);
   color: rgb(248, 248, 248);
@@ -55,15 +70,30 @@
 .category-item-btn:focus {
   color: rgba(155, 181, 55, 1);
 }
-.categories-list::-webkit-scrollbar-button {
-  display: none;
+::-webkit-scrollbar {
+  width: 6px;
 }
+::-webkit-scrollbar-track {
+  background: rgba(5, 5, 5, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background: rgba(5, 5, 5, 0.1);
+}
+
+body[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2); /* kaydırıcı rengi */
+  border-radius: 12px;
+}
+
 @media screen and (min-width: 768px) {
   .categories-list {
     gap: 24px;
     height: 416px;
   }
   .categories-btn {
+    padding: 14px 27.6px;
     margin-bottom: 30px;
   }
   .categoriy-item-btn {
@@ -71,15 +101,14 @@
     line-height: 20px;
   }
   .categories-sec {
-    width: 178.9px;
+    width: 176px;
   }
 }
 @media screen and (min-width: 1024px) {
   .categories-btn {
-    padding: 14px 26px;
     margin-bottom: 42px;
   }
   .categories-sec {
-    width: 176px;
+    width: 235px;
   }
 }
