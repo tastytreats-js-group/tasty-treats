@@ -105,7 +105,7 @@ body[data-theme='dark'] ::-webkit-scrollbar-thumb {
     line-height: 20px;
   }
   .categories-sec {
-    width: 176px;
+    width: 177px;
   }
 }
 @media screen and (min-width: 1024px) {
