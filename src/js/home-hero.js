@@ -1,5 +1,3 @@
-
-// Home Hero bölümündeki "Order Now" butonuna tıklandığında açılan modal ve form işlemlerini buraya yazdım.
 import { createOrder } from '../api/tastyTreats-api.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -7,7 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalRoot = document.getElementById('modal-root');
 
     if (orderBtn && modalRoot) {
+
         orderBtn.addEventListener('click', () => {
+
             const orderModalHtml = `
                 <div class="modal-overlay" id="orderLayer">
                     <div class="modal-content rating-modal">
@@ -17,27 +17,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         <form id="orderForm" class="modal-form">
                             <div class="input-wrapper">
-                                <label class="input-label" style="display:block; margin-bottom:8px; font-size:14px; opacity:0.7;">Name</label>
+                                <label class="input-label">Name</label>
                                 <input type="text" name="name" class="input-field" placeholder="Enter your name" required minlength="2">
                             </div>
 
                             <div class="input-wrapper">
-                                <label class="input-label" style="display:block; margin-bottom:8px; font-size:14px; opacity:0.7;">Phone number</label>
-                                <input type="tel" name="phone" class="input-field" placeholder="+90 5XX XXX XX XX" 
-                                       pattern="^\\+?\\d{10,13}$" title="Lütfen geçerli bir telefon numarası giriniz" required>
+                                <label class="input-label">Phone number</label>
+                                <input type="tel" name="phone" class="input-field"
+                                       pattern="^\\+?\\d{10,13}$"
+                                       placeholder="+90 5XX XXX XX XX" required>
                             </div>
 
                             <div class="input-wrapper">
-                                <label class="input-label" style="display:block; margin-bottom:8px; font-size:14px; opacity:0.7;">Email address</label>
+                                <label class="input-label">Email address</label>
                                 <input type="email" name="email" class="input-field" placeholder="example@mail.com" required>
                             </div>
 
                             <div class="input-wrapper">
-                                <label class="input-label" style="display:block; margin-bottom:8px; font-size:14px; opacity:0.7;">Comment</label>
-                                <textarea name="comment" class="input-field" style="min-height:100px; resize:none;" placeholder="Anything else you'd like to add?"></textarea>
+                                <label class="input-label">Comment</label>
+                                <textarea name="comment" class="input-field"
+                                          style="min-height:100px; resize:none;"
+                                          placeholder="Anything else you'd like to add?"></textarea>
                             </div>
 
-                            <button type="submit" class="btn-submit" id="submitOrderBtn">Send</button>
+                            <button type="submit" class="btn-submit" id="submitOrderBtn">
+                                Send
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -46,24 +51,27 @@ document.addEventListener('DOMContentLoaded', () => {
             modalRoot.insertAdjacentHTML('beforeend', orderModalHtml);
             modalRoot.style.display = "block";
             document.body.style.overflow = "hidden";
-            
+
             bindOrderEvents();
         });
     }
 
     function bindOrderEvents() {
+
         const orderLayer = document.getElementById('orderLayer');
         const orderForm = document.getElementById('orderForm');
         const closeBtn = document.getElementById('closeOrder');
 
         const closeOrderModal = () => {
-            orderLayer.remove();
+            orderLayer?.remove();
             modalRoot.style.display = "none";
             document.body.style.overflow = "auto";
         };
 
         closeBtn.onclick = closeOrderModal;
-        orderLayer.onclick = (e) => { if (e.target === orderLayer) closeOrderModal(); };
+        orderLayer.onclick = (e) => {
+            if (e.target === orderLayer) closeOrderModal();
+        };
 
         const handleEsc = (e) => {
             if (e.key === 'Escape') {
@@ -71,10 +79,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.removeEventListener('keydown', handleEsc);
             }
         };
+
         window.addEventListener('keydown', handleEsc);
 
-   orderForm.addEventListener('submit', async (e) => {
+        /* Submit Order */
+
+        orderForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+
             const submitBtn = document.getElementById('submitOrderBtn');
 
             const orderData = {
@@ -89,45 +101,83 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 await createOrder(orderData);
-                
-                showNotification("Order successfully placed!"); 
-                
-                setTimeout(() => {
-                    closeOrderModal();
-                }, 1000);
+
+                showNotification("Order successfully placed!");
+
+                setTimeout(closeOrderModal, 1000);
 
             } catch (error) {
                 showNotification("Error: " + error.message, "error");
+
                 submitBtn.disabled = false;
                 submitBtn.style.opacity = "1";
             }
         });
     }
-function showNotification(message, type = 'success') {
+    function showNotification(message, type = 'success') {
+
         let container = document.querySelector('.toast-container');
+
         if (!container) {
             container = document.createElement('div');
             container.className = 'toast-container';
             document.body.appendChild(container);
         }
+
         const toast = document.createElement('div');
         toast.className = `toast ${type === 'error' ? 'error' : ''}`;
         toast.textContent = message;
+
         container.appendChild(toast);
         setTimeout(() => toast.remove(), 3000);
     }
 
-    const slides = document.querySelectorAll('.home-slides');
-    const dots = document.querySelectorAll('.home-dot');
-    
-    function showSlide(index) {
-        slides.forEach(s => s.style.display = 'none');
-        dots.forEach(d => d.classList.remove('active'));
-        if(slides[index]) {
-            slides[index].style.display = 'flex';
-            dots[index].classList.add('active');
-        }
+    const homeslides = document.querySelectorAll('.home-slides');
+    const homedots = document.querySelectorAll('.home-dot');
+
+    const slidePartials = document.querySelectorAll(".home-slide-partial");
+    const slideSmalls = document.querySelectorAll(".home-slide.small");
+
+    let currentPage = 0;
+
+    function showPage(page) {
+
+        homeslides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === page);
+        });
+
+        homedots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === page);
+        });
     }
-    dots.forEach((dot, i) => dot.addEventListener('click', () => showSlide(i)));
-    if(slides.length > 0) showSlide(0);
+
+    /* Dot click */
+
+    homedots.forEach((dot, i) => {
+        dot.addEventListener("click", () => {
+            currentPage = i;
+            showPage(currentPage);
+        });
+    });
+
+    /* Next slide thumb */
+
+   /* Next slide */
+slidePartials.forEach((thumb) => {
+    thumb.addEventListener("click", () => {
+        currentPage = (currentPage + 1) % homeslides.length;
+        showPage(currentPage);
+    });
+});
+
+/* Previous slide */
+slideSmalls.forEach((thumb) => {
+    thumb.addEventListener("click", () => {
+        currentPage = (currentPage - 1 + homeslides.length) % homeslides.length;
+        showPage(currentPage);
+    });
+});
+
+    if (homeslides.length > 0) showPage(currentPage);
+
 });
