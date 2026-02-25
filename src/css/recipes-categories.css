@@ -10,6 +10,11 @@ body[data-theme='dark'] .categories-btn {
   color: rgba(255, 255, 255, 0.5);
   border-color: rgba(255, 255, 255, 0.2);
 }
+body[data-theme='dark'] .categories-btn:hover,
+body[data-theme='dark'] .categories-btn:active,
+body[data-theme='dark'] .categories-btn:focus {
+  color: #fff;
+}
 body[data-theme='dark'] .category-item-btn:hover,
 body[data-theme='dark'] .category-item-btn:active,
 body[data-theme='dark'] .category-item-btn:focus {
