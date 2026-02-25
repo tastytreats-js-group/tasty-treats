@@ -8,7 +8,7 @@
   font-size: 24px;
   line-height: 28px;
   color: var(--text-color);
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 .sidebar-populer .recipe-list-item {
   display: flex;
@@ -50,6 +50,9 @@
   font-size: 12px;
   line-height: 1.33333;
   color: rgba(5, 5, 5, 0.8);
+}
+body[data-theme='dark'] .sidebar-populer .recipe-box-text {
+  color: rgba(255, 255, 255, 0.8);
 }
 /* TABLET STYLE */
 @media (min-width: 768px) {
