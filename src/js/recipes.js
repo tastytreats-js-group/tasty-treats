@@ -33,16 +33,17 @@ function renderPagination(totalPages, page) {
   if (!pagination) return;
 
   function getPageNumbers() {
-    const isMobile = window.innerWidth <= 375;
+    const isMobile = window.innerWidth < 768;
     const pages = [];
     if (totalPages <= 3) {
       for (let i = 1; i <= totalPages; i++) pages.push(i)
     } else {
       if (page === 1) {
         pages.push(1, 2);
+        if (!isMobile) pages.push(3);
         pages.push('...');
       } else {
-        for (let i = page - 1; i <= Math.min(totalPages - 1, page + 1); i++) {
+        for (let i = page - 1; i <= Math.min(totalPages - 1, page + (isMobile ? 1 : 2)); i++) {
         pages.push(i);
         }
       }

@@ -193,3 +193,9 @@
   background-color: #8dc63f;
 }
 /* Dots Finish */
+
+@media (min-width: 768px) {
+  .home-hero {
+    padding: 70px 0 48px 0;
+  }
+}
