@@ -56,6 +56,12 @@ body[data-theme='dark'] .sidebar-populer .recipe-box-text {
 }
 /* TABLET STYLE */
 @media (min-width: 768px) {
+  .sidebar-populer-title {
+    font-size: 18px;
+    line-height: 1.33333;
+    margin-bottom: 32px;
+  }
+
   .sidebar-populer .recipe-list-item {
     gap: 12px;
     margin-bottom: 18px;
@@ -65,10 +71,10 @@ body[data-theme='dark'] .sidebar-populer .recipe-box-text {
     height: 60px;
   }
   .sidebar-populer .recipe-box-title {
-    font-size: 1rem;
+    font-size: 14px;
   }
   .sidebar-populer .recipe-box-text {
-    font-size: 0.9rem;
+    font-size: 10px;
   }
 }
 /* MOBİLE STYLE */

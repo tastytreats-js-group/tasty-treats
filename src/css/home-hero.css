@@ -193,3 +193,31 @@
   background-color: #8dc63f;
 }
 /* Dots Finish */
+
+@media (min-width: 768px) {
+  .home-hero {
+    padding: 70px 0 48px 0;
+    align-items: flex-start;
+  }
+
+  .home-hero-text h1 {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  .home-hero-text {
+    padding: 0 32px;
+    width: 510px;
+  }
+
+  .home-hero-text p {
+    margin: 16px 38px 32px 0;
+    color: #050505;
+  }
+
+  .home-hero-btn {
+    width: 127px;
+    height: 45px;
+    font-size: 14px;
+  }
+}

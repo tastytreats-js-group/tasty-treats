@@ -116,6 +116,10 @@
 }
 
 @media (min-width: 768px) {
+  .header-container {
+    padding: 28px 32px 20px 32px;
+  }
+
   .menu-active,
   .menu-icon-wrapper {
     display: none;
