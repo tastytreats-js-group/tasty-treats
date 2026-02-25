@@ -8,7 +8,10 @@
     height: 100%;
     z-index: 10000;
 }
-
+.modal-rating{
+    display: flex;
+    align-items: center;
+}
 .modal-overlay {
     background-color: var(--onyx-50-opacity);
     display: flex;

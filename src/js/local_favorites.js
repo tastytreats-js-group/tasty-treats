@@ -23,6 +23,9 @@ export function addFavorite(recipe) {
   if (exists) return;
   favorites.push(recipe);
   saveFavorites(favorites);
+  
+  // Bildirim gönder
+  window.dispatchEvent(new CustomEvent('favoritesUpdated', { detail: { recipeId: recipe._id, status: true } }));
 }
 
 // Favori sil
@@ -30,6 +33,9 @@ export function removeFavorite(recipeId) {
   const favorites = getFavorites();
   const updated = favorites.filter(item => item._id !== recipeId);
   saveFavorites(updated);
+  
+  // Bildirim gönder
+  window.dispatchEvent(new CustomEvent('favoritesUpdated', { detail: { recipeId, status: false } }));
 }
 
 // Favori kontrol

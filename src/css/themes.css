@@ -22,6 +22,11 @@
   --page-bg: #ffffff;
   --text-color: #050505;
   /* GLOBAL SONU */
+
+  /* FAVORITES BÖLÜMÜ */
+  --category-btn-border: rgba(5, 5, 5, 0.2);
+  --category-btn-color: rgba(5, 5, 5, 0.3);
+  /* FAVORITES BÖLÜMÜ SONU */
 }
 
 body[data-theme='dark'] {
@@ -52,6 +57,11 @@ body[data-theme='dark'] {
   --page-bg: #161616;
   --text-color: #f8f8f8;
   /* GLOBAL SONU */
+
+  /* FAVORITES BÖLÜMÜ */
+  --category-btn-border: rgba(255, 255, 255, 0.2);
+  --category-btn-color: rgba(255, 255, 255, 0.3);
+  /* FAVORITES BÖLÜMÜ SONU */
 
   /* #region PAGINATION */
   .pagination button {

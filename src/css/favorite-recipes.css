@@ -135,6 +135,70 @@
   height: 18px;
 }
 
+/* =====================================================
+   FAVORITES HERO
+===================================================== */
+
+.favorites-hero {
+  width: 100%;
+  height: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.favorites-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =====================================================
+   FAVORITES GRID
+===================================================== */
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* =====================================================
+   CATEGORY BUTTONS
+===================================================== */
+
+.favorites-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.category-btn {
+  padding: 14px 18px;
+  border-radius: 15px;
+  border: 1px solid var(--category-btn-border);
+  background: transparent;
+  color: var(--category-btn-color);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.category-btn:hover {
+  border-color: var(--pistachio);
+  color: var(--pistachio);
+}
+
+.category-btn.active {
+  background: var(--pistachio);
+  border-color: var(--pistachio);
+  color: #ffffff;
+}
+
 /* =========================
    RESPONSIVE
 ========================= */
@@ -143,9 +207,26 @@
   .recipe-card-img {
     height: 240px;
   }
+
+  .favorites-hero {
+    height: 280px;
+  }
+
+  .favorites-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 1280px) {
   .recipe-card-img {
     height: 260px;
   }
+
+  .favorites-hero {
+    height: 356px;
+  }
+
+  .favorites-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
