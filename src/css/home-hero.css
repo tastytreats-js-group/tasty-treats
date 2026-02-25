@@ -198,4 +198,8 @@
   .home-hero {
     padding: 70px 0 48px 0;
   }
+
+  .home-hero-text {
+    padding: 0 32px;
+  }
 }
