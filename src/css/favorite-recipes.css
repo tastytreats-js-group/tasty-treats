@@ -1,0 +1,232 @@
+/* =====================================================
+   RECIPE CARD 
+===================================================== */
+
+.recipe-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--white-smoke);
+  box-shadow: 0 4px 12px var(--onyx-10-opacity);
+  transition: transform 0.3s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-4px);
+}
+
+/* IMAGE */
+
+.recipe-card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+/* GRADIENT OVERLAY */
+
+.recipe-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.3),
+    transparent
+  );
+  z-index: 1;
+}
+
+/* CONTENT */
+
+.recipe-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  color: #fff;
+  z-index: 2;
+}
+
+.recipe-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* DESCRIPTION 2 LINE CLAMP */
+
+.recipe-card-description {
+  font-size: 13px;
+  opacity: 0.9;
+  margin-bottom: 10px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* META INFO */
+
+.recipe-card-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+/* RATING */
+
+.recipe-card-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* TIME BADGE */
+
+.recipe-card-time {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+/* =====================================================
+   FAVORITE HEART BUTTON
+===================================================== */
+
+.recipe-card-favorite {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+/* Hover */
+
+.recipe-card-favorite:hover {
+  background: var(--pistachio);
+  transform: scale(1.1);
+}
+
+/* ACTIVE (FAVORITED) */
+
+.recipe-card-favorite.is-active {
+  background: var(--pistachio);
+  color: #fff;
+}
+
+/* ICON */
+
+.recipe-card-favorite svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* =====================================================
+   FAVORITES HERO
+===================================================== */
+
+.favorites-hero {
+  width: 100%;
+  height: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.favorites-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =====================================================
+   FAVORITES GRID
+===================================================== */
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* =====================================================
+   CATEGORY BUTTONS
+===================================================== */
+
+.favorites-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.category-btn {
+  padding: 14px 18px;
+  border-radius: 15px;
+  border: 1px solid var(--category-btn-border);
+  background: transparent;
+  color: var(--category-btn-color);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.category-btn:hover {
+  border-color: var(--pistachio);
+  color: var(--pistachio);
+}
+
+.category-btn.active {
+  background: var(--pistachio);
+  border-color: var(--pistachio);
+  color: #ffffff;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (min-width: 768px) {
+  .recipe-card-img {
+    height: 240px;
+  }
+
+  .favorites-hero {
+    height: 280px;
+  }
+
+  .favorites-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .recipe-card-img {
+    height: 260px;
+  }
+
+  .favorites-hero {
+    height: 356px;
+  }
+
+  .favorites-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

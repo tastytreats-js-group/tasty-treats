@@ -132,7 +132,7 @@ export async function rateRecipe(recipeId, ratingData) {
 // Sipariş oluşturma
 export async function createOrder(orderData) {
   try {
-    const { data } = await api.post('/orders', orderData);
+    const { data } = await api.post('/orders/add', orderData);
     return data;
   } catch (error) {
     return handleError(error);

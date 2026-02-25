@@ -1,13 +1,12 @@
 @import url('./reset.css');
 @import url('./base.css');
-@import url('./container.css');
 @import url('./themes.css');
 
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  padding: 20px;
 }
 .icons {
   display: flex;
@@ -108,14 +107,13 @@
   width: 18.8px;
   height: 18.8px;
   background-color: var(--toggle-thumb-color);
-  box-shadow: 4px 4px 15px 0 rgba(243, 243, 243, 0.25);;
+  box-shadow: 4px 4px 15px 0 rgba(243, 243, 243, 0.25);
   border-radius: 50%;
   position: absolute;
   top: 0px;
   left: 0px;
   transition: transform 0.3s ease;
 }
-
 
 @media (min-width: 768px) {
   .menu-active,

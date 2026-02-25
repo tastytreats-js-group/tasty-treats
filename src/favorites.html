@@ -1,28 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Favorites | TastyTreats</title>
 
-    <!-- Global styles
-     -->
+    <!-- Global styles -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/themes.css" />
     <link rel="stylesheet" href="./css/header.css" />
 
-    <!-- Favorites page specific styles -->
-    <link rel="stylesheet" href="./css/favorites.css" />
+    <!-- Section styles -->
+    <link rel="stylesheet" href="./css/modals-popups.css" />
+    <link rel="stylesheet" href="./css/favorite-recipes.css" />
   </head>
 
   <body>
-    <!-- HEADER 
-     Bu kısma sprite ile eklenen svg logo gelecek -->
-
-    <load src="./partials/header.html" />
+    <!-- HEADER -->
+    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
 
     <main>
-      <div class="container">
-        <load src="./partials/favorite-recipes.html" />
-      </div>
+      <section class="favorites section">
+        <div class="container">
+
+     
+     
+
+          <!-- Hero -->
+          <div class="favorites-hero">
+            <img
+              src="./img/favorites-hero.jpg"
+              alt="Featured recipe"
+              class="favorites-hero-img"
+            />
+          </div>
+
+          <!-- Categories -->
+          <div class="favorites-categories js-favorites-categories"></div>
+
+          <!-- Recipes List -->
+          <ul class="favorites-grid js-favorites-list"></ul>
+
+          <!-- Empty State -->
+          <div class="favorites-empty js-favorites-empty is-hidden">
+            <div class="favorites-empty-icon">
+              <svg width="68" height="58">
+                <use href="./img/sprite.svg#icon-heart"></use>
+              </svg>
+            </div>
+            <p class="favorites-empty-text">
+              It appears that you haven't added any recipes to your favorites
+              yet. To get started, you can add recipes that you like to your
+              favorites for easier access in the future.
+            </p>
+          </div>
+
+        </div>
+      </section>
     </main>
 
     <!-- FOOTER -->

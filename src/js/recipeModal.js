@@ -1,16 +1,11 @@
 import { openRatingModal } from './rating-popup.js';
-
-// --- YARDIMCI ARAÇLAR ---
-// LocalStorage'da veriyi hangi isimle saklayacağımızı şimdilik ben belirlemiş oldum 
-const STORAGE_KEY = 'favoriteRecipes';
-
-const getFavorites = () => JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+import { isFavorite, addFavorite, removeFavorite } from './local_favorites.js';
 
 export function openRecipeModal(recipe) {
     const modalRoot = document.getElementById("modal-root");
     if (!modalRoot) return;
-    const favorites = getFavorites();
-    const isFav = favorites.some(item => item._id === recipe._id);
+
+    const isFav = isFavorite(recipe._id);
     const buttonText = isFav ? "Remove favorite" : "Add to favorite";
 
     modalRoot.innerHTML = `
@@ -62,19 +57,18 @@ function bindModalEvents(modalRoot, recipe) {
     const favBtn = modalRoot.querySelector("#favBtn");
 
     favBtn.onclick = () => {
-        let favorites = getFavorites();
-        const index = favorites.findIndex(item => item._id === recipe._id);
-
-        if (index === -1) {
-            favorites.push(recipe);
-            favBtn.textContent = "Remove favorite";
+        if (isFavorite(recipe._id)) {
+            removeFavorite(recipe._id);
         } else {
-            favorites.splice(index, 1);
-            favBtn.textContent = "Add to favorite";
+            addFavorite(recipe);
         }
-
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
     };
+    const syncModalBtn = (event) => {
+        if (event.detail.recipeId === recipe._id) {
+            favBtn.textContent = event.detail.status ? "Remove favorite" : "Add to favorite";
+        }
+    };
+    window.addEventListener('favoritesUpdated', syncModalBtn);
 
     if (ratingBtn) {
         ratingBtn.onclick = () => {
@@ -86,6 +80,7 @@ function bindModalEvents(modalRoot, recipe) {
         modalRoot.style.display = "none";
         modalRoot.innerHTML = "";
         document.body.style.overflow = "auto";
+        window.removeEventListener('favoritesUpdated', syncModalBtn);
     };
 
     closeBtn.onclick = closeModal;

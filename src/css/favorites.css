@@ -1,0 +1,108 @@
+/* =====================================================
+   FAVORITES PAGE
+===================================================== */
+
+.favorites {
+  padding: 40px 16px;
+}
+
+/* HERO */
+
+.favorites-hero {
+  margin-bottom: 32px;
+}
+
+.favorites-hero-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* CATEGORIES */
+
+.favorites-categories {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.category-btn {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1px solid var(--silver);
+  background: transparent;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+  border-color: var(--pistachio);
+}
+
+.category-btn.active {
+  background: var(--pistachio);
+  border-color: var(--pistachio);
+}
+
+.category-btn.active {
+  background: var(--pistachio);
+  color: #fff;
+  border: none;
+}
+
+/* EMPTY STATE */
+
+.favorites-empty {
+  text-align: center;
+  margin-top: 60px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--charcoal);
+}
+
+.favorites-empty p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* GRID */
+
+.favorites-grid {
+  display: grid;
+  gap: 24px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (min-width: 768px) {
+  .favorites {
+    padding: 60px 32px;
+  }
+
+  .favorites-hero-img {
+    height: 300px;
+  }
+
+  .favorites-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 1280px) {
+  .favorites-hero-img {
+    height: 400px;
+  }
+
+  .favorites-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }

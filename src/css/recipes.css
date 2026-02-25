@@ -31,6 +31,12 @@
   height: 22px;
 }
 
+.rest {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .recipeTitle {
   font-weight: 600;
   font-size: 14px;
@@ -61,6 +67,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: 8px;
 }
 
 .recipeRating {

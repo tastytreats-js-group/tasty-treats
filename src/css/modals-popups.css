@@ -8,7 +8,10 @@
     height: 100%;
     z-index: 10000;
 }
-
+.modal-rating{
+    display: flex;
+    align-items: center;
+}
 .modal-overlay {
     background-color: var(--onyx-50-opacity);
     display: flex;
@@ -20,6 +23,7 @@
 }
 
 .modal-content {
+    font-size: 14px;
     position: relative;
     background-color: var(--page-bg);
     color: var(--text-color);
@@ -105,6 +109,7 @@
 }
 
 .modal-ingredients li {
+    font-size: 14px;
     display: flex;
     justify-content: space-between;
     padding: 12px 0;
