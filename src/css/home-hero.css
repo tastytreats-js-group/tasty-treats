@@ -30,17 +30,13 @@
   color: #444;
 }
 .home-hero-btn {
-  width: 111px;
-  height: 37px;
+  padding: 5px 24px;
   border: 1px solid #8dc63f;
   background: transparent;
-  border-radius: 12px;
+  border-radius: 25px;
   cursor: pointer;
   font-weight: 500;
-  font-size: 14px;
   transition: 0.3s;
-  color: var(--logo-text-color);
-  margin-top: 15px;
 }
 
 .home-hero-btn:hover {
@@ -50,6 +46,7 @@
 
 /* Carousel */
 .home-carousel-section {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
