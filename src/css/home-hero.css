@@ -1,7 +1,6 @@
 .home-hero {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding-bottom: 100px;
   padding-top: 40px;
 }
@@ -160,7 +159,7 @@
   height: 280px;
   border-radius: 15px;
   overflow: hidden;
-  margin-right: -150px; 
+  margin-right: -200px; 
   position: relative;
   z-index: 1;
 }
@@ -353,15 +352,16 @@
   }
 
   .home-slide-partial {
-    flex: 0 0 171px;
+    flex: 0 0 250px;
     height: 442px;
     border-radius: 15px;
     border-right: none;
     position: relative;
-    margin-right: -250px; 
+    margin-right: -350px; 
     z-index: 1;
     overflow: hidden; 
   }
+  
     
   .home-slide-text {
     top: 85%;
@@ -390,19 +390,36 @@
     width: auto;
   }
   .home-hero-text {
-  max-width: 460px;
+  max-width: 110px;
   flex-shrink: 0;
 }
+ .home-hero-text {
+    max-width: 85%;
+    flex-shrink: 0;
+  }
 .home-slides {
     transform: translateX(-120px);
   }
+  .home-hero {
+    flex-direction: column;   /* veya row, tasarımına göre */
+    align-items: flex-start;  /* parent artık solda hizalıyor */
+  }
+
+  .home-hero-text {
+    align-items: flex-start;  /* flex child solda */
+    text-align: left;         /* yazı solda */
+    width: auto;              /* container esnek */
+    max-width: 600px;         /* istediğin sıkışık genişlik */
+    flex-shrink: 0;           /* küçülmesini engelle */
+    padding-left: 50px;
+  }
+  
 }
 @media (min-width: 1280px) {
   .home-hero {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 1080px;
     padding-left: 100px;
   }
 
