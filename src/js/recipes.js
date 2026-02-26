@@ -11,8 +11,8 @@ export let params = {
 
 function getlimit() {
   const width = window.innerWidth;
-  if (width >= 1280) return 16;
-  if (width >= 768) return 12;
+  if (width >= 1280) return 15;
+  if (width >= 768) return 10;
   else return 8;
 }
 
@@ -29,8 +29,8 @@ export async function loadRecipes() {
 
 // Pagination
 function renderPagination(totalPages, page) {
-  const pagination = document.querySelector(".pagination");
-  if (!pagination) return;
+  const paginations = document.querySelectorAll(".pagination");
+  if (!paginations.length) return;
 
   function getPageNumbers() {
     const isMobile = window.innerWidth < 768;
@@ -53,7 +53,8 @@ function renderPagination(totalPages, page) {
 
   const pageNumbers = getPageNumbers();
 
-  pagination.innerHTML = `
+  paginations.forEach(pagination => {
+    pagination.innerHTML = `
       <div class="firstandprev">
         <button class="firstpage" ${page <= 1 ? 'disabled' : ''}><<</button>
         <button class="previouspage" ${page <= 1 ? 'disabled' : ''}><</button>
@@ -61,9 +62,9 @@ function renderPagination(totalPages, page) {
 
       <div class="pagenumbers">
         ${pageNumbers.map(p => p === '...'
-          ? `<button class="restdots">...</button>`
-          : `<button class="pagenumber ${p === page ? 'pagenumber--active' : ''}" data-page="${p}">${p}</button>`
-        ).join('')}
+      ? `<button class="restdots">...</button>`
+      : `<button class="pagenumber ${p === page ? 'pagenumber--active' : ''}" data-page="${p}">${p}</button>`
+    ).join('')}
       </div>
 
       <div class="nextandlast">
@@ -72,28 +73,29 @@ function renderPagination(totalPages, page) {
       </div>
   `;
 
-  // First and last pages
-  pagination.querySelector('.firstpage').addEventListener('click', () => {
-    if (params.page > 1) { params.page = 1; loadRecipes(); }
-  });
-  pagination.querySelector('.lastpage').addEventListener('click', () => {
-    if (params.page < totalPages) { params.page = totalPages; loadRecipes(); }
-  });
+    // First and last pages
+    pagination.querySelector('.firstpage').addEventListener('click', () => {
+      if (params.page > 1) { params.page = 1; loadRecipes(); }
+    });
+    pagination.querySelector('.lastpage').addEventListener('click', () => {
+      if (params.page < totalPages) { params.page = totalPages; loadRecipes(); }
+    });
 
-  // Previous and next pages
-  pagination.querySelector('.previouspage').addEventListener('click', () => {
-    if (params.page > 1) { params.page -= 1; loadRecipes(); }
-  });
-  pagination.querySelector('.nextpage').addEventListener('click', () => {
-    if (params.page < totalPages) { params.page += 1; loadRecipes(); }
-  });
+    // Previous and next pages
+    pagination.querySelector('.previouspage').addEventListener('click', () => {
+      if (params.page > 1) { params.page -= 1; loadRecipes(); }
+    });
+    pagination.querySelector('.nextpage').addEventListener('click', () => {
+      if (params.page < totalPages) { params.page += 1; loadRecipes(); }
+    });
 
-  // Page Numbers
-  pagination.querySelectorAll('.pagenumber').forEach(btn => {
-    btn.addEventListener('click', () => {
-      params.page = parseInt(btn.dataset.page);
-      loadRecipes();
-      document.querySelector('.recipeList').scrollIntoView({ behavior: 'smooth' });
+    // Page Numbers
+    pagination.querySelectorAll('.pagenumber').forEach(btn => {
+      btn.addEventListener('click', () => {
+        params.page = parseInt(btn.dataset.page);
+        loadRecipes();
+        document.querySelector('.recipeList').scrollIntoView({ behavior: 'smooth' });
+      });
     });
   });
 }

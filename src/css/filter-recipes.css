@@ -253,28 +253,7 @@
 }
 
 /* Responsive Design */
-@media (min-width: 1280px) {
-  .filter-form {
-    gap: 16px;
-  }
-
-  .search-input-wrapper {
-    min-width: 278px;
-  }
-
-  .custom-select-wrapper {
-    min-width: 125px;
-  }
-
-  .filter-reset-btn {
-    grid-column: 1 / -1;
-    width: 100%;
-    margin-top: 8px;
-    justify-self: stretch;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1280px) {
+@media (min-width: 768px) {
   .filter-form {
     gap: 16px;
   }
@@ -290,13 +269,22 @@
 
 @media (min-width: 1280px) {
   .recipes-filter-container {
-    padding: 14px 0px;
+    margin-bottom: 14px;
+    width: 782px;
   }
 
   .filter-input,
   .filter-select {
     padding: 14px 16px;
     font-size: 15px;
+  }
+
+  .filter-reset-btn {
+    margin-top: 14px;
+  }
+
+  .filter-form div:nth-child(3) .custom-select-wrapper {
+    min-width: 141px;
   }
 }
 

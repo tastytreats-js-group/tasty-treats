@@ -221,3 +221,18 @@
     font-size: 14px;
   }
 }
+
+@media (min-width: 1280px) {
+  .home-hero {
+    padding: 80px 0 100px 100px;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .home-hero-text {
+    padding: 0;
+    width: 446px;
+    flex-shrink: 0;
+  }
+}

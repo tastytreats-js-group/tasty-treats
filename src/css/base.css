@@ -113,6 +113,14 @@ textarea {
   main {
     padding: 32px;
     display: flex;
+    justify-content: center;
     gap: 32px;
+  }
+}
+
+@media (min-width: 1280px) {
+  main {
+    padding: 0 100px;
+    gap: 63px;
   }
 }

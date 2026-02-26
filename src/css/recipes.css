@@ -115,7 +115,8 @@
 }
 
 /* PAGINATION */
-.pagination {
+#pagination-mobile-desktop,
+#pagination-tablet {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -163,6 +164,10 @@
   border: none;
 }
 
+#pagination-tablet {
+  display: none;
+}
+
 /* #region media queries for tablets */
 @media (min-width: 768px) {
   .recipeList {
@@ -186,14 +191,24 @@
     height: 12px;
   }
 
-  .pagination {
+  #pagination-mobile-desktop {
+    display: none;
+  }
+
+  #pagination-tablet {
+    display: flex;
     gap: 24px;
+    padding-top: 32px;
+    padding-bottom: 100px;
   }
 
   .firstandprev,
-  .pagenumbers,
   .nextandlast {
     gap: 8px;
+  }
+
+  .pagenumbers {
+    gap: 10px;
   }
 }
 /* #endregion */
@@ -213,6 +228,17 @@
   .star-empty {
     width: 14px;
     height: 14px;
+  }
+
+  #pagination-mobile-desktop {
+    display: flex;
+    padding-top: 64px;
+    padding-bottom: 100px;
+    gap: 24px;
+  }
+
+  #pagination-tablet {
+    display: none;
   }
 }
 /* #endregion */
