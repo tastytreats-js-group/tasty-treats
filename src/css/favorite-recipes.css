@@ -105,7 +105,8 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
+  background: transparent;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,7 +125,7 @@
 /* ACTIVE (FAVORITED) */
 
 .recipe-card-favorite.is-active {
-  background: var(--pistachio);
+  background:transparent;
   color: #fff;
 }
 
@@ -197,6 +198,30 @@
   background: var(--pistachio);
   border-color: var(--pistachio);
   color: #ffffff;
+}
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+.favorites-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  gap: 24px;
+}
+
+
+.favorites-empty-text {
+  max-width: 481px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--empty-text-color);
+  text-align: center;
 }
 
 /* =========================

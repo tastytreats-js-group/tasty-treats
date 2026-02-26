@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TastyTreats</title>
 
@@ -29,24 +29,22 @@
 
     <!-- MAIN CONTENT -->
     <main>
-      <div class="container recipes-big-container">
-        <!-- LEFT COLUMN -->
-        <div class="recipes-big-container-left">
-          <load src="./partials/recipes-categories.html" />
-          <load src="./partials/recipes-popular.html" />
-        </div>
+      <!-- LEFT COLUMN -->
+      <div class="recipes-big-container-left">
+        <load src="./partials/recipes-categories.html" />
+        <load src="./partials/recipes-popular.html" />
+      </div>
 
-        <!-- RIGHT COLUMN -->
-        <div class="recipes-big-container-right">
-          <load src="./partials/recipes-filter.html" />
-          <load src="./partials/recipes.html" />
-        </div>
+      <!-- RIGHT COLUMN -->
+      <div class="recipes-big-container-right">
+        <load src="./partials/recipes-filter.html" />
+        <load src="./partials/recipes.html" />
       </div>
     </main>
 
     <!--  FOOTER  -->
     <load src="./partials/footer.html" />
-    <div class="pagination"></div>
+    <div class="pagination" id="pagination-tablet"></div>
 
     <!-- GLOBAL MODAL ROOT -->
     <!-- Tüm modal pencereler buraya render edilecektir -->

@@ -29,7 +29,7 @@ TastyTreats - Customize Your Meal with Ingredient Options and Step-by-Step Video
 6. **Doruk Sayın** - Developer
    - Recipes Filter
 
-7. **Aybek** - Developer
+7. **Aybek Karaçağ** - Developer
    - Recipe Modal
    - Rating Popup
 

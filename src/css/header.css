@@ -116,6 +116,10 @@
 }
 
 @media (min-width: 768px) {
+  .header-container {
+    padding: 28px 32px 20px 32px;
+  }
+
   .menu-active,
   .menu-icon-wrapper {
     display: none;
@@ -167,6 +171,10 @@
 }
 
 @media (min-width: 1280px) {
+  .header-container {
+    padding: 40px 100px 20px 100px;
+  }
+
   .icons {
     gap: 24px;
   }

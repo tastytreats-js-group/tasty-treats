@@ -115,10 +115,13 @@
 }
 
 /* PAGINATION */
-.pagination {
+#pagination-mobile-desktop,
+#pagination-tablet {
   display: flex;
   align-items: center;
   gap: 14px;
+  padding: 20px;
+  justify-content: center;
 }
 
 .firstandprev,
@@ -132,7 +135,7 @@
 .pagination button {
   width: 40px;
   height: 40px;
-  border-radius: 100%;
+  border-radius: 50%;
   border: 1px rgba(5, 5, 5, 0.3); /* NİYE ÇALIŞMIYOR???*/
   cursor: pointer;
   font-weight: 600;
@@ -148,6 +151,8 @@
   color: rgba(248, 248, 248, 0.5);
 }
 
+.firstpage:not(:disabled),
+.previouspage:not(:disabled),
 .nextpage:not(:disabled),
 .lastpage:not(:disabled) {
   background-color: #9bb537;
@@ -159,11 +164,16 @@
   border: none;
 }
 
+#pagination-tablet {
+  display: none;
+}
+
 /* #region media queries for tablets */
 @media (min-width: 768px) {
   .recipeList {
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 16px;
   }
 
   .recipeCard {
@@ -179,6 +189,26 @@
   .star-empty {
     width: 12px;
     height: 12px;
+  }
+
+  #pagination-mobile-desktop {
+    display: none;
+  }
+
+  #pagination-tablet {
+    display: flex;
+    gap: 24px;
+    padding-top: 32px;
+    padding-bottom: 100px;
+  }
+
+  .firstandprev,
+  .nextandlast {
+    gap: 8px;
+  }
+
+  .pagenumbers {
+    gap: 10px;
   }
 }
 /* #endregion */
@@ -198,6 +228,17 @@
   .star-empty {
     width: 14px;
     height: 14px;
+  }
+
+  #pagination-mobile-desktop {
+    display: flex;
+    padding-top: 64px;
+    padding-bottom: 100px;
+    gap: 24px;
+  }
+
+  #pagination-tablet {
+    display: none;
   }
 }
 /* #endregion */
