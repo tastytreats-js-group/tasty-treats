@@ -54,8 +54,9 @@
 body[data-theme='dark'] .sidebar-populer .recipe-box-text {
   color: rgba(255, 255, 255, 0.8);
 }
+
 /* TABLET STYLE */
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1279px) {
   .sidebar-populer-title {
     font-size: 18px;
     line-height: 1.33333;
@@ -77,6 +78,7 @@ body[data-theme='dark'] .sidebar-populer .recipe-box-text {
     font-size: 10px;
   }
 }
+
 /* MOBİLE STYLE */
 @media (max-width: 767px) {
   .sidebar-populer .recipe-box {
