@@ -91,3 +91,9 @@ body[data-theme='dark'] .sidebar-populer .recipe-box-text {
     font-size: 0.88rem;
   }
 }
+/* MOBILE: sadece 2 item göster */
+@media (max-width: 767px) {
+  .sidebar-populer .recipe-list-item:nth-child(n+3) {
+    display: none;
+  }
+}
