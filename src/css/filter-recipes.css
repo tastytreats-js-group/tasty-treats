@@ -1,4 +1,8 @@
 /* Recipes Filter Styles */
+.recipes-filter-container {
+  margin-bottom: 12px;
+  max-width: 335px;
+}
 
 .filter-header {
   margin: 0;
@@ -16,10 +20,10 @@
 }
 
 .filter-form {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  align-items: start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 14px;
 }
 
 .filter-group {
@@ -29,10 +33,10 @@
 }
 
 .filter-label {
-  font-size: 14px;
   font-weight: 500;
-  color: #374151;
-  letter-spacing: 0.025em;
+  font-size: 12px;
+  line-height: 1.16667;
+  color: rgba(5, 5, 5, 0.5);
 }
 
 .filter-input,
@@ -46,6 +50,13 @@
   color: rgba(5, 5, 5, 0.5);
   transition: all 0.3s ease;
   height: 48px;
+}
+
+.filter-input::placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  color: rgba(5, 5, 5, 0.5);
 }
 
 .filter-input:focus,
@@ -96,7 +107,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  width: 100%;
+  min-width: 314px;
 }
 
 .search-icon {
@@ -112,7 +123,7 @@
   fill: #9bb537;
 }
 
-.search-input:focus + .search-icon {
+.search-input:focus+.search-icon {
   fill: #9bb537;
 }
 
@@ -124,7 +135,19 @@
 /* Custom Select Dropdown Styles */
 .custom-select-wrapper {
   position: relative;
-  width: 100%;
+  min-width: 160px;
+}
+
+.filter-form div:nth-child(2) .custom-select-wrapper {
+  min-width: 150px;
+}
+
+.filter-form div:nth-child(3) .custom-select-wrapper {
+  min-width: 150px;
+}
+
+.filter-form div:nth-child(4) .custom-select-wrapper {
+  min-width: 180px;
 }
 
 .custom-select-button {
@@ -133,14 +156,13 @@
   border: 1px solid rgba(5, 5, 5, 0.2);
   border-radius: 14px;
   background-color: #f9fafb;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   color: rgba(5, 5, 5, 0.5);
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: left;
   appearance: none;
-  padding-right: 40px;
   height: 48px;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
@@ -221,10 +243,11 @@
   white-space: nowrap;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 6px;
-  height: 48px;
-  grid-column: 3 / 5;
-  justify-self: flex-end;
+  flex-basis: 100%;
+  margin-top: 8px !important;
+  margin-left: auto;
 }
 
 .filter-reset-btn svg {
@@ -241,41 +264,56 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1280px) {
+@media (min-width: 768px) {
+  .recipes-filter-container {
+    max-width: 420px;
+  }
+
   .filter-form {
-    grid-template-columns: 1fr;
-    align-items: stretch;
+    gap: 16px;
   }
 
-  .filter-reset-btn {
-    grid-column: 1 / -1;
-    width: 100%;
-    margin-top: 8px;
-    justify-self: stretch;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1280px) {
-  .filter-form {
-    grid-template-columns: repeat(2, 1fr);
+  .custom-select-wrapper {
+    min-width: 125px;
   }
 
-  .filter-reset-btn {
-    grid-column: 2;
-    justify-self: flex-end;
-    width: auto;
+  .search-input-wrapper {
+    min-width: 278px;
+  }
+
+  .filter-form div:nth-child(2) .custom-select-wrapper {
+    min-width: 125px;
+  }
+
+  .filter-form div:nth-child(3) .custom-select-wrapper {
+    min-width: 141px;
   }
 }
 
 @media (min-width: 1280px) {
   .recipes-filter-container {
-    padding: 14px 0px;
+    margin-bottom: 14px;
+    max-width: 782px;
   }
 
   .filter-input,
   .filter-select {
     padding: 14px 16px;
     font-size: 15px;
+  }
+
+  .filter-reset-btn {
+    margin-top: 0;
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+
+  .filter-form div:nth-child(4) .custom-select-wrapper {
+    min-width: 180px;
+  }
+
+  .filter-form div:nth-child(2) .custom-select-wrapper {
+    min-width: 125px;
   }
 }
 
@@ -305,10 +343,14 @@ body[data-theme='dark'] .filter-label {
   color: #f8f8f8;
 }
 
+body[data-theme='dark'] .filter-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
 body[data-theme='dark'] .filter-input,
 body[data-theme='dark'] .filter-select {
   background-color: #1a1a1a;
-  color: #f8f8f8;
+  color: rgba(255, 255, 255, 0.3);
   border-color: rgba(248, 248, 248, 0.2);
 }
 
@@ -391,6 +433,6 @@ body[data-theme='dark'] .search-input-wrapper:hover .search-icon {
   fill: #9bb537;
 }
 
-body[data-theme='dark'] .search-input:focus + .search-icon {
+body[data-theme='dark'] .search-input:focus+.search-icon {
   fill: #9bb537;
 }
