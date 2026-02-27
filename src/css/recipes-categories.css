@@ -2,6 +2,7 @@
 
 .CategoriesSec {
   width: 326px;
+  margin-bottom: 40px;
 }
 body[data-theme='dark'] .CategoriesBtn.Selected {
   color: #fff;
@@ -117,7 +118,8 @@ body[data-theme='dark'] ::-webkit-scrollbar-thumb {
     line-height: 20px;
   }
   .CategoriesSec {
-    width: 177px;
+    width: 176px;
+    margin-bottom: 64px;
   }
 }
 @media screen and (min-width: 1024px) {
