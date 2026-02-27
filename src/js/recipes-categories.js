@@ -1,7 +1,7 @@
 import { fetchCategories, fetchFilteredRecipes } from '../api/tastyTreats-api';
 import { params, loadRecipes } from './recipes.js';
 
-const container = document.querySelector('.categories-list');
+const container = document.querySelector('.CategoriesList');
 
 async function loadCategories() {
   const data = await fetchCategories();
@@ -9,10 +9,10 @@ async function loadCategories() {
   container.innerHTML = data
     .map(
       category => `
-      <li class="category-item">
+      <li class="CategoryItem">
         <button 
           type="button"
-          class="category-item-btn"
+          class="CategoryItemBtn"
           data-name="${category.name}">
           ${category.name}
         </button>
@@ -24,21 +24,21 @@ async function loadCategories() {
 
 loadCategories();
 
-const categoriesSection = document.querySelector('.categories-sec');
+const categoriesSection = document.querySelector('.CategoriesSec');
 categoriesSection.addEventListener('click', event => {
-  const categoryBtn = event.target.closest('.category-item-btn');
-  const mainBtn = event.target.closest('.categories-btn');
+  const categoryBtn = event.target.closest('.CategoryItemBtn');
+  const mainBtn = event.target.closest('.CategoriesBtn');
 
   if (!categoryBtn && !mainBtn) return;
 
   // Tüm selected classlarını kaldır
   document
-    .querySelectorAll('.category-item-btn, .categories-btn')
-    .forEach(btn => btn.classList.remove('selected'));
+    .querySelectorAll('.CategoryItemBtn, .CategoriesBtn')
+    .forEach(btn => btn.classList.remove('Selected'));
 
   // Eğer ana buton tıklandıysa
   if (mainBtn) {
-    mainBtn.classList.add('selected');
+    mainBtn.classList.add('Selected');
     delete params.category;
     params.page = 1;
     loadRecipes();
@@ -47,7 +47,7 @@ categoriesSection.addEventListener('click', event => {
 
   // Eğer kategori butonu tıklandıysa
   if (categoryBtn) {
-    categoryBtn.classList.add('selected');
+    categoryBtn.classList.add('Selected');
     params.category = categoryBtn.dataset.name;
     params.page = 1;
     loadRecipes();

@@ -1,89 +1,89 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
 
-.categories-sec {
+.CategoriesSec {
   width: 326px;
 }
-body[data-theme='dark'] .categories-btn.selected {
+body[data-theme='dark'] .CategoriesBtn.Selected {
   color: #fff;
   background-color: rgba(155, 181, 55, 1);
   border-color: rgba(155, 181, 55, 1);
 }
-.categories-btn.selected {
+.CategoriesBtn.Selected {
   color: #fff;
   background-color: rgba(155, 181, 55, 1);
   border-color: rgba(155, 181, 55, 1);
 }
-.category-item-btn.selected {
+.CategoryItemBtn.Selected {
   color: rgba(155, 181, 55, 1);
 }
-body[data-theme='dark'] .category-item-btn.selected {
+body[data-theme='dark'] .CategoryItemBtn.Selected {
   color: rgba(155, 181, 55, 1);
 }
-body[data-theme='dark'] .category-item-btn {
+body[data-theme='dark'] .CategoryItemBtn {
   color: rgba(255, 255, 255, 0.3);
 }
-body[data-theme='dark'] .categories-btn {
+body[data-theme='dark'] .CategoriesBtn {
   color: rgba(255, 255, 255, 0.5);
   border-color: rgba(255, 255, 255, 0.2);
 }
-body[data-theme='dark'] .categories-btn:hover,
-body[data-theme='dark'] .categories-btn:active,
-body[data-theme='dark'] .categories-btn:focus {
+body[data-theme='dark'] .CategoriesBtn:hover,
+body[data-theme='dark'] .CategoriesBtn:active,
+body[data-theme='dark'] .CategoriesBtn:focus {
   color: #fff;
 }
-body[data-theme='dark'] .category-item-btn:hover,
-body[data-theme='dark'] .category-item-btn:active,
-body[data-theme='dark'] .category-item-btn:focus {
+body[data-theme='dark'] .CategoryItemBtn:hover,
+body[data-theme='dark'] .CategoryItemBtn:active,
+body[data-theme='dark'] .CategoryItemBtn:focus {
   color: rgba(155, 181, 55, 1);
 }
-.categories-btn {
+.CategoriesBtn {
   color: rgba(5, 5, 5, 0.5);
+  font-family: 'Inter', sans-serif;
+  padding: 14px 29px;
   border: 1px solid rgba(5, 5, 5, 0.2);
   border-radius: 15px;
   font-size: 18px;
   line-height: 1;
   background-color: transparent;
   margin: 0 0 24px 0;
-  width: 176px;
-  height: 50px;
-  font-weight: 500;
 }
-
-.category-item-btn {
+.CategoryItemBtn {
   display: block;
   color: rgba(5, 5, 5, 0.3);
   font-size: 14px;
-  font-weight: 500;
   line-height: 18px;
   border: 0;
   background-color: transparent;
   margin: 0;
   padding: 0;
 }
-.categories-list {
+.CategoriesList {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
   display: flex;
   flex-direction: column;
   gap: 18px;
   height: 198px;
   overflow-y: scroll;
   box-sizing: border-box;
-  margin-bottom: 40px;
+  padding-right: 6px; /* scrollbar için iç boşluk */
 }
-.categories-btn:hover,
-.categories-btn:active,
-.categories-btn:focus {
+.CategoriesBtn:hover,
+.CategoriesBtn:active,
+.CategoriesBtn:focus {
   background-color: rgba(155, 181, 55, 1);
   border-color: rgba(155, 181, 55, 1);
   color: rgb(248, 248, 248);
 }
-.categor-item {
+.CategoryItem {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   line-height: 18px;
 }
-.category-item-btn:hover,
-.category-item-btn:active,
-.category-item-btn:focus {
+.CategoryItemBtn:hover,
+.CategoryItemBtn:active,
+.CategoryItemBtn:focus {
   color: rgba(155, 181, 55, 1);
 }
 ::-webkit-scrollbar {
@@ -103,30 +103,28 @@ body[data-theme='dark'] ::-webkit-scrollbar-thumb {
   border-radius: 12px;
 }
 
-@media (min-width: 768px) {
-  .categories-list {
+@media screen and (min-width: 768px) {
+  .CategoriesList {
     gap: 24px;
     height: 416px;
   }
-  .categories-btn {
+  .CategoriesBtn {
     padding: 14px 26px;
     margin-bottom: 30px;
   }
-
-  .category-item-btn {
+  .CategoryItemBtn {
     font-size: 16px;
-    line-height: 1.25;
+    line-height: 20px;
   }
-  .categories-sec {
-    width: 176px;
-    margin-top: 26px;
+  .CategoriesSec {
+    width: 177px;
   }
 }
 @media screen and (min-width: 1024px) {
-  .categories-btn {
+  .CategoriesBtn {
     margin-bottom: 42px;
   }
-  .categories-sec {
+  .CategoriesSec {
     width: 235px;
   }
 }
