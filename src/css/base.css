@@ -116,11 +116,19 @@ textarea {
     justify-content: center;
     gap: 32px;
   }
+
+  .recipes-big-container-left {
+    width: 176px;
+  }
 }
 
 @media (min-width: 1280px) {
   main {
     padding: 0 100px;
     gap: 63px;
+  }
+
+  .recipes-big-container-left {
+    width: 235px;
   }
 }
