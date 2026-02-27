@@ -25,27 +25,31 @@ async function loadCategories() {
 loadCategories();
 
 const categoriesSection = document.querySelector('.categories-sec');
-
 categoriesSection.addEventListener('click', event => {
-  if (event.target.tagName !== 'BUTTON') return;
-  document.querySelector('.categories-btn')?.classList.remove('beginning');
-  const btn = event.target.closest('button[type="button"]');
-  if (!btn) {
+  const categoryBtn = event.target.closest('.category-item-btn');
+  const mainBtn = event.target.closest('.categories-btn');
+
+  if (!categoryBtn && !mainBtn) return;
+
+  // Tüm selected classlarını kaldır
+  document
+    .querySelectorAll('.category-item-btn, .categories-btn')
+    .forEach(btn => btn.classList.remove('selected'));
+
+  // Eğer ana buton tıklandıysa
+  if (mainBtn) {
+    mainBtn.classList.add('selected');
     delete params.category;
     params.page = 1;
     loadRecipes();
     return;
   }
 
-  const selectedCategory = btn.dataset.name;
-  if (!selectedCategory) {
-    delete params.category;
+  // Eğer kategori butonu tıklandıysa
+  if (categoryBtn) {
+    categoryBtn.classList.add('selected');
+    params.category = categoryBtn.dataset.name;
     params.page = 1;
     loadRecipes();
-    return;
   }
-
-  params.category = selectedCategory;
-  params.page = 1;
-  loadRecipes();
 });
