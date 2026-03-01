@@ -1,95 +1,60 @@
-import axios from 'axios';
+import { fetchFilteredRecipes, fetchRecipeDetails } from '../api/tastyTreats-api.js';
+import { openRecipeModal } from './recipeModal.js';
 
-const API_CONFIG = {
-  BASE_URL: 'https://tasty-treats-backend.p.goit.global/api',
-  ENDPOINTS: {
-    POPULAR: '/recipes/popular',
-  },
-};
-
-const handleError = (error, context = '') => {
-  console.error(`[${context}] Hata:`, error);
-
-  const errorContainer = document.querySelector('.error-message');
-  if (errorContainer) {
-    errorContainer.textContent = `Veri yüklenirken hata oluştu: ${error.message}`;
-    errorContainer.style.display = 'block';
-  }
-
-  return null;
-};
-
-const PopularRecipesAPI = {
-  async getPopularRecipes() {
-    try {
-      const response = await axios.get(
-        `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.POPULAR}`
-      );
-      return response.data;
-    } catch (error) {
-      return handleError(error, 'getPopularRecipes');
-    }
-  },
-};
+const popularRecipesList = document.querySelector('.recipe-list');
 
 const PopularRecipesUI = {
-  displayPopularRecipes(recipes) {
-    const PopularRecipesList = document.querySelector('.recipe-list');
-    if (!PopularRecipesList) return;
+  render(recipes) {
+    if (!popularRecipesList) return;
 
-    PopularRecipesList.innerHTML = '';
-
-    recipes.forEach(recipe => {
-      const recipeList = document.createElement('li');
-      recipeList.classList.add('recipe-list-item');
-      recipeList.dataset.id = recipe._id;
-
-      recipeList.dataset.popup = 'popup-food';
-      
-
-      recipeList.dataset.recipe_name = recipe.title;
-
-
-      recipeList.innerHTML = `
-        <img class="recipe-box-img" src="${recipe.preview}" alt="${
-        recipe.title
-      }" />
-        <div class="recipe-box">
-          <h3 class="recipe-box-title">${recipe.title}</h3>
-          <p class="recipe-box-text">${recipe.description?.slice(0, 90)}...</p>
-
-        </div>
-      `;
-
-      PopularRecipesList.appendChild(recipeList);
-    });
-
-    
-
-
-    PopularRecipesList.addEventListener('click', event => {
-      const onClickList = event.target.closest('.recipe-list-item');
-      if (!onClickList) return;
-
-      const recipeListName = onClickList.dataset.recipe_name;
-      console.log('Tıklanan data-recipe_name:', recipeListName);
-    });
-
+    popularRecipesList.innerHTML = recipes
+      .map(
+        recipe => `
+          <li class="recipe-list-item" data-id="${recipe._id}">
+            <img 
+              class="recipe-box-img" 
+              src="${recipe.preview}" 
+              alt="${recipe.title}" 
+            />
+            <div class="recipe-box">
+              <h3 class="recipe-box-title">${recipe.title}</h3>
+              <p class="recipe-box-text">
+                ${recipe.description?.slice(0, 90) || ''}...
+              </p>
+            </div>
+          </li>
+        `
+      )
+      .join('');
   },
 };
-
 const PopularRecipesApp = {
   async init() {
     try {
-      const popular = await PopularRecipesAPI.getPopularRecipes();
-      if (popular) {
-        PopularRecipesUI.displayPopularRecipes(popular);
+      const data = await fetchFilteredRecipes({ popular: true });
+      if (data) {
+       
+        const recipes = Array.isArray(data) ? data : data.results;
+        PopularRecipesUI.render(recipes);
       }
     } catch (error) {
-      console.error('Uygulama başlatılırken bir hata oluştu:', error);
+      console.error('Popüler tarifler yüklenemedi:', error);
     }
   },
 };
+if (popularRecipesList) {
+  popularRecipesList.addEventListener('click', async event => {
+    const clickedItem = event.target.closest('.recipe-list-item');
+    if (!clickedItem) return;
 
+    const recipeId = clickedItem.dataset.id;
+
+    try {
+      const recipeData = await fetchRecipeDetails(recipeId);
+      openRecipeModal(recipeData);
+    } catch (error) {
+      console.error('Modal açılırken hata:', error);
+    }
+  });
+}
 export default PopularRecipesApp;
-
