@@ -6,6 +6,21 @@
   padding: 0;
 }
 
+.no-recipes-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  width: 100%;
+}
+
+.no-recipes-found p {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(5, 5, 5);
+  text-align: center;
+}
+
 .recipeCard {
   width: 335px;
   height: 335px;
@@ -242,3 +257,7 @@
   }
 }
 /* #endregion */
+/* Dark theme */
+body[data-theme='dark'] .no-recipes-found p {
+  color: rgb(255, 255, 255);
+}

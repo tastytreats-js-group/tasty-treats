@@ -30,7 +30,7 @@ export async function loadRecipes() {
 // Pagination
 function renderPagination(totalPages, page) {
   const paginations = document.querySelectorAll(".pagination");
-  if (!paginations.length) return;
+  if (!paginations.length || totalPages === 0) return;
 
   function getPageNumbers() {
     const isMobile = window.innerWidth < 768;
@@ -120,6 +120,12 @@ let currentRecipes = [];
 
 async function renderRecipes(results) {
   currentRecipes = results;
+  
+  if (results.length === 0) {
+    recipeList.innerHTML = '<div class="no-recipes-found"><p>No recipes found.</p></div>';
+    return;
+  }
+  
   recipeList.innerHTML = results
     .map(
       result => `

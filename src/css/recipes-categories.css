@@ -1,41 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
-
 .CategoriesSec {
   width: 326px;
+  margin-bottom: 40px;
 }
+
 body[data-theme='dark'] .CategoriesBtn.Selected {
   color: #fff;
   background-color: rgba(155, 181, 55, 1);
   border-color: rgba(155, 181, 55, 1);
 }
+
 .CategoriesBtn.Selected {
   color: #fff;
   background-color: rgba(155, 181, 55, 1);
   border-color: rgba(155, 181, 55, 1);
 }
+
 .CategoryItemBtn.Selected {
   color: rgba(155, 181, 55, 1);
 }
+
 body[data-theme='dark'] .CategoryItemBtn.Selected {
   color: rgba(155, 181, 55, 1);
 }
+
 body[data-theme='dark'] .CategoryItemBtn {
   color: rgba(255, 255, 255, 0.3);
 }
+
 body[data-theme='dark'] .CategoriesBtn {
   color: rgba(255, 255, 255, 0.5);
   border-color: rgba(255, 255, 255, 0.2);
 }
+
 body[data-theme='dark'] .CategoriesBtn:hover,
 body[data-theme='dark'] .CategoriesBtn:active,
 body[data-theme='dark'] .CategoriesBtn:focus {
   color: #fff;
 }
+
 body[data-theme='dark'] .CategoryItemBtn:hover,
 body[data-theme='dark'] .CategoryItemBtn:active,
 body[data-theme='dark'] .CategoryItemBtn:focus {
   color: rgba(155, 181, 55, 1);
 }
+
 .CategoriesBtn {
   color: rgba(5, 5, 5, 0.5);
   font-family: 'Inter', sans-serif;
@@ -47,6 +55,7 @@ body[data-theme='dark'] .CategoryItemBtn:focus {
   background-color: transparent;
   margin: 0 0 24px 0;
 }
+
 .CategoryItemBtn {
   display: block;
   color: rgba(5, 5, 5, 0.3);
@@ -57,6 +66,7 @@ body[data-theme='dark'] .CategoryItemBtn:focus {
   margin: 0;
   padding: 0;
 }
+
 .CategoriesList {
   padding: 0;
   margin: 0;
@@ -67,8 +77,10 @@ body[data-theme='dark'] .CategoryItemBtn:focus {
   height: 198px;
   overflow-y: scroll;
   box-sizing: border-box;
-  padding-right: 6px; /* scrollbar için iç boşluk */
+  padding-right: 6px;
+  /* scrollbar için iç boşluk */
 }
+
 .CategoriesBtn:hover,
 .CategoriesBtn:active,
 .CategoriesBtn:focus {
@@ -76,19 +88,23 @@ body[data-theme='dark'] .CategoryItemBtn:focus {
   border-color: rgba(155, 181, 55, 1);
   color: rgb(248, 248, 248);
 }
+
 .CategoryItem {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   line-height: 18px;
 }
+
 .CategoryItemBtn:hover,
 .CategoryItemBtn:active,
 .CategoryItemBtn:focus {
   color: rgba(155, 181, 55, 1);
 }
+
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: rgba(5, 5, 5, 0.1);
 }
@@ -99,7 +115,8 @@ body[data-theme='dark'] .CategoryItemBtn:focus {
 }
 
 body[data-theme='dark'] ::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.2); /* kaydırıcı rengi */
+  background-color: rgba(255, 255, 255, 0.2);
+  /* kaydırıcı rengi */
   border-radius: 12px;
 }
 
@@ -108,22 +125,28 @@ body[data-theme='dark'] ::-webkit-scrollbar-thumb {
     gap: 24px;
     height: 416px;
   }
+
   .CategoriesBtn {
     padding: 14px 26px;
     margin-bottom: 30px;
   }
+
   .CategoryItemBtn {
     font-size: 16px;
     line-height: 20px;
   }
+
   .CategoriesSec {
-    width: 177px;
+    width: 176px;
+    margin-bottom: 64px;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .CategoriesBtn {
     margin-bottom: 42px;
   }
+
   .CategoriesSec {
     width: 235px;
   }

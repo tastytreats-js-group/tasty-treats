@@ -109,6 +109,10 @@ textarea {
   clip-path: inset(50%);
 }
 
+.recipes-big-container-left {
+  max-width: 235px;
+}
+
 @media (min-width: 768px) {
   main {
     padding: 32px;
