@@ -9,7 +9,6 @@
   text-align: left;
   margin-bottom: 20px;
   padding-left: 20px;
-  
 }
 
 .home-hero-text h1 {
@@ -18,7 +17,7 @@
 
 .home-hero-text .home-highlight {
   color: #8dc63f;
-  font-weight: 400;
+  font-weight: var(--font-weight-400);
   font-style: italic;
 }
 
@@ -33,7 +32,7 @@
   background: transparent;
   border-radius: 25px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: var(--font-weight-500);
   transition: 0.3s;
 }
 
@@ -64,7 +63,7 @@
 }
 
 .home-slides.active {
-  display: flex; 
+  display: flex;
 }
 
 /* İlk resim */
@@ -75,9 +74,9 @@
   transform: scale(1);
 }
 .home-slide.small {
-  width: 70px;   
-  height: 280px;  
-  flex-shrink: 0; 
+  width: 70px;
+  height: 280px;
+  flex-shrink: 0;
   object-fit: contain;
 }
 
@@ -107,8 +106,8 @@
 .home-slide-bg::before {
   content: '';
   position: absolute;
-  width: 120%; 
-  height: 120%; 
+  width: 120%;
+  height: 120%;
   background: radial-gradient(circle, #9bb5374d 0%, transparent 70%);
   top: 50%;
   left: 50%;
@@ -126,7 +125,6 @@
   border-radius: 50% / 50%;
 }
 
-
 .home-slide-text {
   position: absolute;
   top: 80%;
@@ -136,7 +134,7 @@
 }
 
 .home-slide-text p:first-child {
-  font-weight: 300;
+  font-weight: var(--font-weight-300);
   font-style: normal;
   font-size: 10px;
   line-height: 14px;
@@ -149,17 +147,16 @@
 
 .home-slide-text p:last-child {
   font-size: 8px;
-  color: #f8f8f833; 
+  color: #f8f8f833;
   margin: 2px 0;
 }
-
 
 .home-slide-partial {
   flex: 0 0 70px;
   height: 280px;
   border-radius: 15px;
   overflow: hidden;
-  margin-right: -200px; 
+  margin-right: -200px;
   position: relative;
   z-index: 1;
 }
@@ -212,7 +209,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -224,7 +221,7 @@
   border-radius: 12px;
   max-width: 400px;
   width: 90%;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   position: relative;
 }
 
@@ -239,14 +236,14 @@
 .home-popup h2 {
   margin-bottom: 20px;
   font-size: 22px;
-  font-weight: 600;
+  font-weight: var(--font-weight-600);
 }
 
 .home-popup-form label {
   display: block;
   margin-bottom: 5px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: var(--font-weight-500);
   color: var(--onyx-50-opacity);
 }
 
@@ -291,12 +288,12 @@
   .home-slide-partial img {
     height: 100%;
   }
-.home-hero-text {
-  width: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-}
+  .home-hero-text {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
 
   .home-hero-text h1 {
     font-size: 36px;
@@ -311,11 +308,10 @@
   }
 
   .home-slides {
-    justify-content:center;
-    position: relative; 
+    justify-content: center;
+    position: relative;
   }
 
-  
   .home-slide.small {
     width: 137px;
     height: 442px;
@@ -337,7 +333,6 @@
     height: 70%;
   }
 
-  
   .home-slide-text {
     top: 85%;
     width: 80%;
@@ -357,11 +352,11 @@
     border-radius: 15px;
     border-right: none;
     position: relative;
-    margin-right: -350px; 
+    margin-right: -350px;
     z-index: 1;
-    overflow: hidden; 
+    overflow: hidden;
   }
-    
+
   .home-slide-text {
     top: 85%;
     width: 80%;
@@ -375,13 +370,12 @@
     font-size: 12px;
   }
   .home-hero-btn {
-  width: fit-content;
-  max-width: 180px;
-}
-.home-hero-text {
+    width: fit-content;
+    max-width: 180px;
+  }
+  .home-hero-text {
     align-items: flex-start;
     text-align: left;
-
   }
 
   .home-hero-btn {
@@ -389,30 +383,29 @@
     width: auto;
   }
   .home-hero-text {
-  max-width: 110px;
-  flex-shrink: 0;
-}
- .home-hero-text {
+    max-width: 110px;
+    flex-shrink: 0;
+  }
+  .home-hero-text {
     max-width: 85%;
     flex-shrink: 0;
   }
-.home-slides {
+  .home-slides {
     transform: translateX(-120px);
   }
   .home-hero {
-    flex-direction: column;   /* veya row, tasarımına göre */
-    align-items: flex-start;  /* parent artık solda hizalıyor */
+    flex-direction: column; /* veya row, tasarımına göre */
+    align-items: flex-start; /* parent artık solda hizalıyor */
   }
 
   .home-hero-text {
-    align-items: flex-start;  /* flex child solda */
-    text-align: left;         /* yazı solda */
-    width: auto;              /* container esnek */
-    max-width: 600px;         /* istediğin sıkışık genişlik */
-    flex-shrink: 0;           /* küçülmesini engelle */
+    align-items: flex-start; /* flex child solda */
+    text-align: left; /* yazı solda */
+    width: auto; /* container esnek */
+    max-width: 600px; /* istediğin sıkışık genişlik */
+    flex-shrink: 0; /* küçülmesini engelle */
     padding-left: 50px;
   }
-  
 }
 @media (min-width: 1280px) {
   .home-hero {
@@ -450,7 +443,6 @@
     justify-content: flex-start;
   }
 
-  
   .home-slide.small {
     width: 137px;
     height: 468px;
@@ -471,17 +463,17 @@
     height: 468px;
     border-radius: 15px;
     overflow: hidden;
-    margin-right: -150px; 
+    margin-right: -150px;
     position: relative;
     z-index: 1;
   }
-  
+
   .home-slide-partial img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  
+
   .home-slide-text {
     top: 85%;
     width: 80%;
@@ -517,7 +509,7 @@
   .home-hero-text p {
     font-size: 20px;
   }
-  
+
   .home-slide.small {
     width: 189px;
     height: 550px;
@@ -538,11 +530,11 @@
     height: 550px;
     border-radius: 15px;
     overflow: hidden;
-    margin-right: -150px; 
+    margin-right: -150px;
     position: relative;
     z-index: 1;
   }
-  
+
   .home-slide-text {
     top: 85%;
     width: 80%;
@@ -555,7 +547,7 @@
   .home-slide-text p:last-child {
     font-size: 12px;
   }
-  .home-carousel-section{
+  .home-carousel-section {
     padding-left: 100px;
   }
   .home-slides {

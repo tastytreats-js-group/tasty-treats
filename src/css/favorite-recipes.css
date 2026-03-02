@@ -27,7 +27,7 @@
 /* GRADIENT OVERLAY */
 
 .recipe-card::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -53,7 +53,7 @@
 
 .recipe-card-title {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: var(--font-weight-600);
   margin-bottom: 6px;
 }
 
@@ -125,7 +125,7 @@
 /* ACTIVE (FAVORITED) */
 
 .recipe-card-favorite.is-active {
-  background:transparent;
+  background: transparent;
   color: #fff;
 }
 
@@ -185,7 +185,7 @@
   background: transparent;
   color: var(--category-btn-color);
   font-size: 16px;
-  font-weight: 500;
+  font-weight: var(--font-weight-500);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -214,11 +214,10 @@
   gap: 24px;
 }
 
-
 .favorites-empty-text {
   max-width: 481px;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: var(--font-weight-400);
   line-height: 24px;
   color: var(--empty-text-color);
   text-align: center;

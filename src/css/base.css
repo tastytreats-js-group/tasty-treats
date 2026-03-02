@@ -3,7 +3,11 @@
   --font-family: 'Inter', sans-serif;
   --font-size: 16px;
   --line-height: 1.5;
-  --font-weight: 400;
+  --font-weight-300: 300;
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
+  --font-weight-700: 700;
 
   /* Rendering */
   font-synthesis: none;
@@ -54,7 +58,7 @@ html {
 
 body {
   font-family: var(--font-family);
-  font-weight: var(--font-weight);
+  font-weight: var(--font-weight-400);
   line-height: var(--line-height);
   margin: 0;
   min-height: 100vh;

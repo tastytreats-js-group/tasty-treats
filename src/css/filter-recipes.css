@@ -14,7 +14,7 @@
 .filter-header h2 {
   margin: 0;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: var(--font-weight-600);
   color: var(--white-smoke);
   text-transform: uppercase;
 }
@@ -33,7 +33,7 @@
 }
 
 .filter-label {
-  font-weight: 500;
+  font-weight: var(--font-weight-500);
   font-size: 12px;
   line-height: 1.16667;
   color: rgba(5, 5, 5, 0.5);
@@ -46,14 +46,14 @@
   border-radius: 15px;
   background-color: #f9fafb;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: var(--font-weight-500);
   color: rgba(5, 5, 5, 0.5);
   transition: all 0.3s ease;
   height: 48px;
 }
 
 .filter-input::placeholder {
-  font-weight: 500;
+  font-weight: var(--font-weight-500);
   font-size: 14px;
   line-height: 1.28571;
   color: rgba(5, 5, 5, 0.5);
@@ -99,7 +99,7 @@
 /* Search input with value */
 .filter-input.has-value {
   color: #050505;
-  font-weight: 600;
+  font-weight: var(--font-weight-600);
 }
 
 /* Search input wrapper */
@@ -123,7 +123,7 @@
   fill: #9bb537;
 }
 
-.search-input:focus+.search-icon {
+.search-input:focus + .search-icon {
   fill: #9bb537;
 }
 
@@ -157,7 +157,7 @@
   border-radius: 14px;
   background-color: #f9fafb;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: var(--font-weight-500);
   color: rgba(5, 5, 5, 0.5);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -237,7 +237,7 @@
   color: rgba(5, 5, 5, 0.5);
   line-height: 133%;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: var(--font-weight-500);
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
@@ -433,6 +433,6 @@ body[data-theme='dark'] .search-input-wrapper:hover .search-icon {
   fill: #9bb537;
 }
 
-body[data-theme='dark'] .search-input:focus+.search-icon {
+body[data-theme='dark'] .search-input:focus + .search-icon {
   fill: #9bb537;
 }
