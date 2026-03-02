@@ -46,7 +46,6 @@ body[data-theme='dark'] .CategoryItemBtn:focus {
 
 .CategoriesBtn {
   color: var(--onyx-50-opacity);
-  font-family: 'Inter', sans-serif;
   padding: 14px 29px;
   border: 1px solid var(--onyx-20-opacity);
   border-radius: 15px;
@@ -90,7 +89,6 @@ body[data-theme='dark'] .CategoryItemBtn:focus {
 }
 
 .CategoryItem {
-  font-family: 'Inter', sans-serif;
   font-size: 14px;
   line-height: 18px;
 }
