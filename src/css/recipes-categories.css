@@ -5,31 +5,31 @@
 
 body[data-theme='dark'] .CategoriesBtn.Selected {
   color: #fff;
-  background-color: rgba(155, 181, 55, 1);
-  border-color: rgba(155, 181, 55, 1);
+  background-color: var(--pistachio);
+  border-color: var(--pistachio);
 }
 
 .CategoriesBtn.Selected {
   color: #fff;
-  background-color: rgba(155, 181, 55, 1);
-  border-color: rgba(155, 181, 55, 1);
+  background-color: var(--pistachio);
+  border-color: var(--pistachio);
 }
 
 .CategoryItemBtn.Selected {
-  color: rgba(155, 181, 55, 1);
+  color: var(--pistachio);
 }
 
 body[data-theme='dark'] .CategoryItemBtn.Selected {
-  color: rgba(155, 181, 55, 1);
+  color: var(--pistachio);
 }
 
 body[data-theme='dark'] .CategoryItemBtn {
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--white-30-opacity);
 }
 
 body[data-theme='dark'] .CategoriesBtn {
-  color: rgba(255, 255, 255, 0.5);
-  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--white-50-opacity);
+  border-color: var(--white-20-opacity);
 }
 
 body[data-theme='dark'] .CategoriesBtn:hover,
@@ -41,14 +41,13 @@ body[data-theme='dark'] .CategoriesBtn:focus {
 body[data-theme='dark'] .CategoryItemBtn:hover,
 body[data-theme='dark'] .CategoryItemBtn:active,
 body[data-theme='dark'] .CategoryItemBtn:focus {
-  color: rgba(155, 181, 55, 1);
+  color: var(--pistachio);
 }
 
 .CategoriesBtn {
-  color: rgba(5, 5, 5, 0.5);
-  font-family: 'Inter', sans-serif;
+  color: var(--onyx-50-opacity);
   padding: 14px 29px;
-  border: 1px solid rgba(5, 5, 5, 0.2);
+  border: 1px solid var(--onyx-20-opacity);
   border-radius: 15px;
   font-size: 18px;
   line-height: 1;
@@ -58,7 +57,7 @@ body[data-theme='dark'] .CategoryItemBtn:focus {
 
 .CategoryItemBtn {
   display: block;
-  color: rgba(5, 5, 5, 0.3);
+  color: var(--onyx-30-opacity);
   font-size: 14px;
   line-height: 18px;
   border: 0;
@@ -84,13 +83,12 @@ body[data-theme='dark'] .CategoryItemBtn:focus {
 .CategoriesBtn:hover,
 .CategoriesBtn:active,
 .CategoriesBtn:focus {
-  background-color: rgba(155, 181, 55, 1);
-  border-color: rgba(155, 181, 55, 1);
-  color: rgb(248, 248, 248);
+  background-color: var(--pistachio);
+  border-color: var(--pistachio);
+  color: var(--white-smoke);
 }
 
 .CategoryItem {
-  font-family: 'Inter', sans-serif;
   font-size: 14px;
   line-height: 18px;
 }
@@ -98,7 +96,7 @@ body[data-theme='dark'] .CategoryItemBtn:focus {
 .CategoryItemBtn:hover,
 .CategoryItemBtn:active,
 .CategoryItemBtn:focus {
-  color: rgba(155, 181, 55, 1);
+  color: var(--pistachio);
 }
 
 ::-webkit-scrollbar {
@@ -106,16 +104,16 @@ body[data-theme='dark'] .CategoryItemBtn:focus {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(5, 5, 5, 0.1);
+  background: var(--onyx-10-opacity);
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 12px;
-  background: rgba(5, 5, 5, 0.1);
+  background: var(--onyx-10-opacity);
 }
 
 body[data-theme='dark'] ::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--white-20-opacity);
   /* kaydırıcı rengi */
   border-radius: 12px;
 }
