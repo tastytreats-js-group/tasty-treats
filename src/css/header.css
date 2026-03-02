@@ -28,7 +28,7 @@
 }
 .shopping-cart-icon:hover,
 .menu-icon:hover {
-  stroke: #9bb537;
+  stroke: var(--pistachio);
 }
 .logo {
   font-family: var(--font-family);
@@ -40,7 +40,7 @@
   color: var(--logo-text-color);
 }
 .colored-logo {
-  color: #9bb537;
+  color: var(--pistachio);
 }
 .mobil-menu,
 .mobil-nav,
