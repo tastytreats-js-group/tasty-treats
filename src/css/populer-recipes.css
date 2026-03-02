@@ -5,7 +5,7 @@
 }
 
 .sidebar-populer-title {
-  font-weight: var(--font-weight-600);
+  font-weight: 600;
   font-size: 24px;
   line-height: 28px;
   color: var(--text-color);
@@ -43,13 +43,13 @@
 .sidebar-populer .recipe-box-title {
   font-size: 13px;
   line-height: 18px;
-  font-weight: var(--font-weight-700);
+  font-weight: 700;
   color: var(--text-color);
   text-transform: uppercase;
 }
 
 .sidebar-populer .recipe-box-text {
-  font-weight: var(--font-weight-400);
+  font-weight: 400;
   font-size: 12px;
   line-height: 1.33333;
   color: rgba(5, 5, 5, 0.8);

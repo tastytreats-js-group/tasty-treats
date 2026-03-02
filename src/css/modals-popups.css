@@ -89,7 +89,7 @@
 }
 
 .modal-title {
-  font-weight: var(--font-weight-600);
+  font-weight: 600;
   font-size: 18px;
   text-transform: uppercase;
   margin-bottom: 16px;
@@ -137,7 +137,7 @@
   border: none;
   padding: 12px;
   border-radius: 15px;
-  font-weight: var(--font-weight-500);
+  font-weight: 500;
   cursor: pointer;
 }
 .btn-favorite {
@@ -149,7 +149,7 @@
   border: none;
   padding: 12px;
   border-radius: 15px;
-  font-weight: var(--font-weight-500);
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -162,7 +162,7 @@
   color: var(--text-color);
   padding: 12px;
   border-radius: 15px;
-  font-weight: var(--font-weight-500);
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -195,7 +195,7 @@
 
 .rating-modal .form-title {
   color: var(--text-color);
-  font-weight: var(--font-weight-600);
+  font-weight: 600;
   font-size: 18px;
   margin-bottom: 8px;
   text-align: left;
@@ -307,7 +307,7 @@ body[data-theme='dark'] .rating-modal .input-field:focus {
   color: #ffffff;
   border: none;
   border-radius: 15px;
-  font-weight: var(--font-weight-600);
+  font-weight: 600;
   font-size: 15px;
   cursor: pointer;
   transition:
@@ -338,7 +338,7 @@ body[data-theme='dark'] .rating-modal .input-field:focus {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-left: 5px solid var(--pistachio);
   font-size: 14px;
-  font-weight: var(--font-weight-500);
+  font-weight: 500;
   min-width: 250px;
   animation:
     slideIn 0.3s ease forwards,

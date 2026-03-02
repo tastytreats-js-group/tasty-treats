@@ -17,7 +17,7 @@
 
 .home-hero-text .home-highlight {
   color: #8dc63f;
-  font-weight: var(--font-weight-400);
+  font-weight: 400;
   font-style: italic;
 }
 
@@ -32,7 +32,7 @@
   background: transparent;
   border-radius: 25px;
   cursor: pointer;
-  font-weight: var(--font-weight-500);
+  font-weight: 500;
   transition: 0.3s;
 }
 
@@ -134,7 +134,7 @@
 }
 
 .home-slide-text p:first-child {
-  font-weight: var(--font-weight-300);
+  font-weight: 300;
   font-style: normal;
   font-size: 10px;
   line-height: 14px;
@@ -236,14 +236,14 @@
 .home-popup h2 {
   margin-bottom: 20px;
   font-size: 22px;
-  font-weight: var(--font-weight-600);
+  font-weight: 600;
 }
 
 .home-popup-form label {
   display: block;
   margin-bottom: 5px;
   font-size: 14px;
-  font-weight: var(--font-weight-500);
+  font-weight: 500;
   color: var(--onyx-50-opacity);
 }
 
