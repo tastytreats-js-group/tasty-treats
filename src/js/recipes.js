@@ -1,4 +1,4 @@
-console.log('FILE IS RUNNING');
+
 import { fetchFilteredRecipes } from '../api/tastyTreats-api.js';
 import { openRecipeModal } from './recipeModal.js';
 import { addFavorite, removeFavorite, isFavorite } from './local_favorites.js';

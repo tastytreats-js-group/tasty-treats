@@ -1,5 +1,3 @@
-console.log('RECIPES FILTER IS RUNNING');
-
 import { fetchIngredients, fetchAreas } from '../api/tastyTreats-api.js';
 import { params, loadRecipes } from './recipes.js';
 
@@ -105,7 +103,6 @@ async function initializeFilters() {
 async function loadIngredients() {
   try {
     const ingredients = await fetchIngredients();
-    console.log('Ingredients loaded:', ingredients);
 
     // Clear existing options (except the default one)
     ingredientSelect.innerHTML = '<option value="" disabled>Tomato</option>';
@@ -129,7 +126,6 @@ async function loadIngredients() {
 async function loadAreas() {
   try {
     const areas = await fetchAreas();
-    console.log('All Areas from API:', JSON.stringify(areas, null, 2));
 
     // Clear existing options (except the default one)
     areaSelect.innerHTML = '<option value="" disabled>Italian</option>';
@@ -143,9 +139,6 @@ async function loadAreas() {
       option.dataset.areaId = area._id;
       option.dataset.areaName = area.name;
       areaSelect.appendChild(option);
-      console.log(
-        `Area ${index}: value="${area.name}", name="${area.name}", _id="${area._id}"`
-      );
     });
 
     // Reset to placeholder
@@ -182,12 +175,6 @@ function attachEventListeners() {
         delete params.search;
       }
       params.page = 1;
-      console.log(
-        'Search triggered with title:',
-        searchValue,
-        'Full params:',
-        params
-      );
       loadRecipes();
     }, 300);
   });
@@ -201,7 +188,6 @@ function attachEventListeners() {
       delete params.time;
     }
     params.page = 1;
-    console.log('Time filter applied:', timeValue, 'Full params:', params);
     loadRecipes();
   });
 
@@ -214,7 +200,6 @@ function attachEventListeners() {
       delete params.area;
     }
     params.page = 1;
-    console.log('Area filter applied:', areaValue, 'Full params:', params);
     loadRecipes();
   });
 
@@ -227,12 +212,6 @@ function attachEventListeners() {
       delete params.ingredient;
     }
     params.page = 1;
-    console.log(
-      'Ingredient filter applied:',
-      ingredientValue,
-      'Full params:',
-      params
-    );
     loadRecipes();
   });
 
@@ -262,8 +241,6 @@ function attachEventListeners() {
       window.dropdownInstances.area.reset('Italian');
       window.dropdownInstances.ingredient.reset('Tomato');
     }
-
-    console.log('Filters reset. Full params:', params);
 
     // Reload recipes
     setTimeout(() => loadRecipes(), 0);

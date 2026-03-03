@@ -132,26 +132,76 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => toast.remove(), 3000);
     }
 
+
+const slidesData = [
+    {
+        mobileImg: "/img/HeroMobile1.webp",
+        desktopImg: "/img/HeroDesktop1.webp",
+        mainImg: "/img/HeroDesktop1.2.webp",
+        partialImg: "/img/HeroDesktop1.3.webp",
+        title: "GRILLED, SMOKY, DELICIOUS BARBECUE",
+        category: "Spanish"
+    },
+    {
+        mobileImg: "/img/HeroMobile2.webp",
+        desktopImg: "/img/HeroDesktop2.webp",
+        mainImg: "/img/HeroDesktop.2.2.webp",
+        partialImg: "/img/HeroDesktop2.3.webp",
+        title: "Hot, cheesy and satisfying pizza",
+        category: "Italian"
+    },
+    {
+        mobileImg: "/img/HeroDesktop3.webp",
+        desktopImg: "/img/HeroDesktop3.webp",
+        mainImg: "/img/HeroDesktop3.2.webp",
+        partialImg: "/img/HeroDesktop3.3.webp",
+        title: "Fluffy and sweet pancakes",
+        category: "American"
+    }
+];
+
+
+function initHeroSlider() {
+    const wrapper = document.querySelector('.home-slides-wrapper');
+    const dotsContainer = document.querySelector('.home-dots');
+    
+    if (!wrapper || !dotsContainer) return;
+
+    wrapper.innerHTML = slidesData.map(slide => `
+        <div class="home-slides">
+            <div class="home-slide small">
+                <img src="${slide.mobileImg}" srcset="${slide.mobileImg} 480w, ${slide.desktopImg} 768w" alt="chef" />
+            </div>
+            <div class="home-slide-main">
+                <div class="home-slide-bg">
+                    <img src="${slide.mainImg}" alt="main cook" />
+                    <div class="home-slide-text">
+                        <p>${slide.title}</p>
+                        <p>${slide.category}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="home-slide-partial">
+                <img src="${slide.partialImg}" alt="zoomed cook" />
+            </div>
+        </div>
+    `).join('');
+
+    dotsContainer.innerHTML = slidesData.map((_, i) => 
+        `<span class="home-dot ${i === 0 ? 'active' : ''}"></span>`
+    ).join('');
+
     const homeslides = document.querySelectorAll('.home-slides');
     const homedots = document.querySelectorAll('.home-dot');
-
     const slidePartials = document.querySelectorAll(".home-slide-partial");
     const slideSmalls = document.querySelectorAll(".home-slide.small");
 
     let currentPage = 0;
 
     function showPage(page) {
-
-        homeslides.forEach((slide, i) => {
-            slide.classList.toggle("active", i === page);
-        });
-
-        homedots.forEach((dot, i) => {
-            dot.classList.toggle("active", i === page);
-        });
+        homeslides.forEach((slide, i) => slide.classList.toggle("active", i === page));
+        homedots.forEach((dot, i) => dot.classList.toggle("active", i === page));
     }
-
-    /* Dot click */
 
     homedots.forEach((dot, i) => {
         dot.addEventListener("click", () => {
@@ -160,24 +210,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* Next slide thumb */
-
-   /* Next slide */
-slidePartials.forEach((thumb) => {
-    thumb.addEventListener("click", () => {
-        currentPage = (currentPage + 1) % homeslides.length;
-        showPage(currentPage);
+    slidePartials.forEach((thumb) => {
+        thumb.addEventListener("click", () => {
+            currentPage = (currentPage + 1) % homeslides.length;
+            showPage(currentPage);
+        });
     });
-});
 
-/* Previous slide */
-slideSmalls.forEach((thumb) => {
-    thumb.addEventListener("click", () => {
-        currentPage = (currentPage - 1 + homeslides.length) % homeslides.length;
-        showPage(currentPage);
+    slideSmalls.forEach((thumb) => {
+        thumb.addEventListener("click", () => {
+            currentPage = (currentPage - 1 + homeslides.length) % homeslides.length;
+            showPage(currentPage);
+        });
     });
-});
 
-    if (homeslides.length > 0) showPage(currentPage);
 
-});
+    showPage(0);
+}
+
+initHeroSlider();})
