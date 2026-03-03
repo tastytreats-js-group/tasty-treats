@@ -1,13 +1,100 @@
 import { createOrder } from '../api/tastyTreats-api.js';
+import { fetchEvents } from '../api/tastyTreats-api.js';
+
+async function eventSlider() {
+    const slidesWrapper = document.querySelector('.home-slides-wrapper');
+    const dotsContainer = document.querySelector('.home-dots');
+
+    try {
+        const events = await fetchEvents();
+
+        slidesWrapper.innerHTML = events.map((event) => `
+            <div class="home-slides">
+                <div class="home-slide small">
+                    <picture>
+                        <img
+                            srcset="${event.cook.imgWebpUrl} 1x, ${event.cook.imgUrl} 2x"
+                            src="${event.cook.imgUrl}"
+                            alt="${event.cook.name}"
+                        />
+                    </picture>
+                </div>
+
+                <div class="home-slide-main">
+                    <div class="home-slide-bg">
+                        <picture>
+                            <img
+                                srcset="${event.topic.imgWebpUrl} 1x, ${event.topic.imgUrl} 2x"
+                                src="${event.topic.imgUrl}"
+                                alt="${event.topic.name}"
+                            />
+                        </picture>
+                        <div class="home-slide-text">
+                            <p>${event.topic.name.toUpperCase()}</p>
+                            <p>${event.topic.area}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="home-slide-partial">
+                    <picture>
+                            <img
+                                srcset="${event.topic.imgWebpUrl} 1x, ${event.topic.imgUrl} 2x"
+                                src="${event.topic.imgUrl}"
+                                alt="${event.topic.name}"
+                            />
+                    </picture>
+                </div>
+            </div>
+        `).join('');
+
+        dotsContainer.innerHTML = events.map((_, i) => `
+            <span class="home-dot ${i === 0 ? 'active' : ''}"></span>
+        `).join('');
+
+        const homeslides = document.querySelectorAll('.home-slides');
+        const homedots = document.querySelectorAll('.home-dot');
+        const slidePartials = document.querySelectorAll('.home-slide-partial');
+        const slideSmalls = document.querySelectorAll('.home-slide.small');
+
+        let currentPage = 0;
+
+        function showPage(page) {
+            homeslides.forEach((slide, i) => slide.classList.toggle('active', i === page));
+            homedots.forEach((dot, i) => dot.classList.toggle('active', i === page));
+        }
+
+        homedots.forEach((dot, i) => {
+            dot.addEventListener('click', () => { currentPage = i; showPage(currentPage); });
+        });
+
+        slidePartials.forEach((thumb) => {
+            thumb.addEventListener('click', () => {
+                currentPage = (currentPage + 1) % homeslides.length;
+                showPage(currentPage);
+            });
+        });
+
+        slideSmalls.forEach((thumb) => {
+            thumb.addEventListener('click', () => {
+                currentPage = (currentPage - 1 + homeslides.length) % homeslides.length;
+                showPage(currentPage);
+            });
+        });
+
+        showPage(currentPage);
+
+    } catch (error) {
+        console.error('Failed to load events:', error);
+    }
+};
 
 document.addEventListener('DOMContentLoaded', () => {
     const orderBtn = document.querySelector('.home-hero-btn');
     const modalRoot = document.getElementById('modal-root');
 
     if (orderBtn && modalRoot) {
-
         orderBtn.addEventListener('click', () => {
-
             const orderModalHtml = `
                 <div class="modal-overlay" id="orderLayer">
                     <div class="modal-content rating-modal">
@@ -57,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function bindOrderEvents() {
-
         const orderLayer = document.getElementById('orderLayer');
         const orderForm = document.getElementById('orderForm');
         const closeBtn = document.getElementById('closeOrder');
@@ -82,8 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.addEventListener('keydown', handleEsc);
 
-        /* Submit Order */
-
         orderForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
@@ -101,21 +185,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 await createOrder(orderData);
-
                 showNotification("Order successfully placed!");
-
                 setTimeout(closeOrderModal, 1000);
-
             } catch (error) {
                 showNotification("Error: " + error.message, "error");
-
                 submitBtn.disabled = false;
                 submitBtn.style.opacity = "1";
             }
         });
     }
-    function showNotification(message, type = 'success') {
 
+    function showNotification(message, type = 'success') {
         let container = document.querySelector('.toast-container');
 
         if (!container) {
@@ -132,52 +212,5 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => toast.remove(), 3000);
     }
 
-    const homeslides = document.querySelectorAll('.home-slides');
-    const homedots = document.querySelectorAll('.home-dot');
-
-    const slidePartials = document.querySelectorAll(".home-slide-partial");
-    const slideSmalls = document.querySelectorAll(".home-slide.small");
-
-    let currentPage = 0;
-
-    function showPage(page) {
-
-        homeslides.forEach((slide, i) => {
-            slide.classList.toggle("active", i === page);
-        });
-
-        homedots.forEach((dot, i) => {
-            dot.classList.toggle("active", i === page);
-        });
-    }
-
-    /* Dot click */
-
-    homedots.forEach((dot, i) => {
-        dot.addEventListener("click", () => {
-            currentPage = i;
-            showPage(currentPage);
-        });
-    });
-
-    /* Next slide thumb */
-
-   /* Next slide */
-slidePartials.forEach((thumb) => {
-    thumb.addEventListener("click", () => {
-        currentPage = (currentPage + 1) % homeslides.length;
-        showPage(currentPage);
-    });
-});
-
-/* Previous slide */
-slideSmalls.forEach((thumb) => {
-    thumb.addEventListener("click", () => {
-        currentPage = (currentPage - 1 + homeslides.length) % homeslides.length;
-        showPage(currentPage);
-    });
-});
-
-    if (homeslides.length > 0) showPage(currentPage);
-
+    eventSlider();
 });
