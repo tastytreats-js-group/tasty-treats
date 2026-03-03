@@ -13,8 +13,7 @@ async function eventSlider() {
                 <div class="home-slide small">
                     <picture>
                         <img
-                            srcset="${event.cook.imgWebpUrl} 1x, ${event.cook.imgUrl} 2x"
-                            src="${event.cook.imgUrl}"
+                            src="${event.cook.imgWebpUrl}"
                             alt="${event.cook.name}"
                         />
                     </picture>
@@ -24,8 +23,7 @@ async function eventSlider() {
                     <div class="home-slide-bg">
                         <picture>
                             <img
-                                srcset="${event.topic.imgWebpUrl} 1x, ${event.topic.imgUrl} 2x"
-                                src="${event.topic.imgUrl}"
+                                src="${event.topic.imgWebpUrl}"
                                 alt="${event.topic.name}"
                             />
                         </picture>
@@ -39,8 +37,7 @@ async function eventSlider() {
                 <div class="home-slide-partial">
                     <picture>
                             <img
-                                srcset="${event.topic.imgWebpUrl} 1x, ${event.topic.imgUrl} 2x"
-                                src="${event.topic.imgUrl}"
+                                src="${event.topic.imgWebpUrl}"
                                 alt="${event.topic.name}"
                             />
                     </picture>
